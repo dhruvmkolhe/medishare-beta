@@ -1,9 +1,13 @@
 import { MongoClient, ObjectId } from 'mongodb';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
-import dotenv from 'dotenv';
 
-dotenv.config();
+try {
+  const dotenv = await import('dotenv');
+  (dotenv.default || dotenv).config?.();
+} catch {
+  // Gracefully fallback to process.env if dotenv is unavailable
+}
 
 const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017';
 const dbName = process.env.MONGODB_DB_NAME || 'medishare';
