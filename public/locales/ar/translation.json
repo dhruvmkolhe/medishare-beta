@@ -1,0 +1,158 @@
+{
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "admin": "المشرف",
+    "audit": "سجل التدقيق",
+    "prescriptions": "الوصفات الطبية",
+    "revocations": "الإلغاءات",
+    "verify": "التحقق",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "register": "التسجيل"
+  },
+  "footer": {
+    "disclaimer": "MediShare نموذج أكاديمي لمنصة الروشتات الرقمية المحفوظة للخصوصية. لا يُعد بديلاً لأنظمة الرعاية الصحية الحكومية.",
+    "academic": "عرض أكاديمي فقط. لا يُقدم نصائح طبية."
+  },
+  "login": {
+    "title": "تسجيل الدخول إلى MediShare",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "submit": "تسجيل الدخول",
+    "registerPrompt": "بحاجة إلى حساب؟",
+    "registerLink": "التسجيل",
+    "error": "بيانات غير صحيحة"
+  },
+  "register": {
+    "title": "إنشاء حساب",
+    "name": "الاسم الكامل",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور (8 أحرف على الأقل)",
+    "role": "الدور",
+    "rolePatient": "مريض",
+    "roleProvider": "مقدم الرعاية الصحية",
+    "rolePharmacist": "صيدلي",
+    "roleAdmin": "مسؤول",
+    "licenseNumber": "رقم الترخيص (لمقدمي الرعاية فقط)",
+    "submit": "إنشاء حساب",
+    "loginPrompt": "لديك حساب بالفعل؟",
+    "loginLink": "تسجيل الدخول",
+    "error": "فشل التسجيل"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "patient": {
+      "title": "شهاداتي",
+      "noCredentials": "لا توجد شهادات بعد. سوف يصدر مقدم الرعاية الصحية واحداً بعد الروشتة.",
+      "viewQr": "عرض QR",
+      "revoke": "إلغاء"
+    },
+    "provider": {
+      "title": "لوحة تحكم المقدم",
+      "newPrescription": "روشتة جديدة",
+      "pendingApprovals": "الموافقات المعلقة",
+      "totalCredentials": "إجمالي الشهادات",
+      "activeCredentials": "الشهادات النشطة"
+    },
+    "admin": {
+      "title": "لوحة تحكم المشرف",
+      "stats": "إحصائيات",
+      "users": "المستخدمون",
+      "providers": "المقدمون",
+      "credentials": "الشهادات",
+      "verifications": "عمليات التحقق"
+    }
+  },
+  "prescription": {
+    "title": "روشتة جديدة",
+    "patient": "المريض",
+    "medication": "الدواء",
+    "strength": "القوة",
+    "dosage": "الجرعة",
+    "duration": "المدة",
+    "notes": "ملاحظات",
+    "submit": "إنشاء روشتة",
+    "success": "تم إنشاء الروشتة بنجاح",
+    "canonicalPreview": "Canonical Preview",
+    "issueCredential": "إصدار شهادة",
+    "credentialIssued": "تم إصدار وتوقيع الشهادة"
+  },
+  "verify": {
+    "title": "التحقق من شهادة الروشتة الطبية",
+    "scanQr": "مسح QR",
+    "enterId": "أو أدخل معرف الشهادة",
+    "verify": "التحقق",
+    "verified": "✓ تم التحقق",
+    "failed": "✕ فشل التحقق",
+    "prescriptionCredential": "شهادة الروشتة الطبية",
+    "medication": "الدواء",
+    "strength": "القوة",
+    "dosage": "الجرعة",
+    "duration": "المدة",
+    "issued": "تاريخ الإصدار",
+    "expires": "تاريخ الانتهاء",
+    "provider": "المزود",
+    "contactProvider": "اتصل بمزود الرعاية الصحية المصدر.",
+    "startScan": "بدء مسح الكاميرا",
+    "issuerVerified": "تم التحقق من المزود",
+    "signatureValid": "التوقيع الرقمي صالح",
+    "integrityValid": "سلامة البيانات صالحة",
+    "active": "الشهادة نشطة",
+    "notExpired": "لم تنتهِ الصلاحية"
+  },
+  "canonical": {
+    "title": "Canonical JSON (Deterministic Serialization)"
+  },
+  "revocation": {
+    "title": "إلغاء الشهادة",
+    "warning": "لا يمكن التراجع عن هذا الإجراء. سيتم تمييز الشهادة على أنها ملغاة بشكل دائم.",
+    "credentialId": "معرف الشهادة",
+    "reason": "سبب الإلغاء",
+    "reasonPlaceholder": "مثال: خطأ في الدواء، طلب المريض، قرار المقدم",
+    "confirm": "إلغاء الشهادة",
+    "list": "لوحة الإلغاءات",
+    "revoked": "تم إلغاء الشهادة بنجاح"
+  },
+  "audit": {
+    "title": "سجل التدقيق",
+    "timestamp": "الوقت",
+    "action": "الإجراء",
+    "target": "الهدف",
+    "actor": "المستخدم",
+    "empty": "لم يُعثر على سجلات تدقيق"
+  },
+  "common": {
+    "cancel": "إلغاء",
+    "processing": "جاري المعالجة...",
+    "loading": "جاري التحميل...",
+    "error": "حدث خطأ",
+    "noData": "لم يُعثر على بيانات",
+    "view": "عرض",
+    "compare": "مقارنة",
+    "revoke": "إلغاء",
+    "patient": "المريض",
+    "medication": "الدواء",
+    "credential": "الشهادة",
+    "actions": "إجراءات",
+    "name": "الاسم",
+    "license": "الترخيص",
+    "email": "البريد الإلكتروني",
+    "recentPrescriptions": "الروشتات الحديثة",
+    "noCredentials": "لا توجد شهادات",
+    "credentialDetails": "تفاصيل الشهادة",
+    "verificationQr": "QR التحقق",
+    "revokedMessage": "تم إلغاء هذه الشهادة وهي لم تعد صالحة.",
+    "selectPatient": "اختيار المريض",
+    "credentialComparison": "مقارنة الشهادة",
+    "fieldLevelDiff": "الاختلاف على مستوى الحقل",
+    "hashComparison": "مقارنة التجزئة",
+    "storedHash": "المخزنة (موقعة)",
+    "currentHash": "الحالية (محسوبة)",
+    "enterId": "إدخال المعرف",
+    "scanQr": "مسح QR",
+    "noAccountRequired": "لا يحتاج حساب. امسح QR أو أدخل معرف الشهادة.",
+    "approve": "الموافقة وإصدار المفتاح",
+    "auditTrail": "سجل التدقيق",
+    "viewAllActivity": "عرض كل نشاط النظام"
+  }
+}

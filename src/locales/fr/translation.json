@@ -1,0 +1,227 @@
+{
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "admin": "Administrateur",
+    "audit": "Piste d'audit",
+    "prescriptions": "Prescriptions",
+    "revocations": "Révocations",
+    "verify": "Vérifier",
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "register": "Inscription"
+  },
+  "footer": {
+    "disclaimer": "MediShare est un prototype académique pour les attestations d'ordonnances numériques préservant la confidentialité. Ne remplace pas les systèmes de santé gouvernementaux.",
+    "academic": "Démonstration académique uniquement. Aucun conseil médical."
+  },
+  "login": {
+    "title": "Connexion à MediShare",
+    "email": "Email",
+    "password": "Mot de passe",
+    "submit": "Se connecter",
+    "registerPrompt": "Besoin d'un compte?",
+    "registerLink": "S'inscrire",
+    "error": "Identifiants invalides"
+  },
+  "register": {
+    "title": "Créer un compte",
+    "name": "Nom complet",
+    "email": "Email",
+    "password": "Mot de passe (min 8 caractères)",
+    "role": "Rôle",
+    "rolePatient": "Patient",
+    "roleProvider": "Prestataire de soins",
+    "rolePharmacist": "Pharmacien",
+    "roleAdmin": "Administrateur",
+    "licenseNumber": "Numéro de licence (prestataires uniquement)",
+    "submit": "Créer un compte",
+    "loginPrompt": "Déjà un compte?",
+    "loginLink": "Se connecter",
+    "error": "Inscription échouée"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "patient": {
+      "title": "Mes attestations",
+      "noCredentials": "Aucune attestation pour l'instant. Votre prestataire de soins en émettra une après votre ordonnance.",
+      "viewQr": "Voir le QR",
+      "revoke": "Révoquer"
+    },
+    "provider": {
+      "title": "Tableau de bord du prestataire",
+      "newPrescription": "Nouvelle ordonnance",
+      "pendingApprovals": "Approbations en attente",
+      "totalCredentials": "Total attestations",
+      "activeCredentials": "Attestations actives"
+    },
+    "admin": {
+      "title": "Tableau de bord administrateur",
+      "stats": "Statistiques",
+      "users": "Utilisateurs",
+      "providers": "Prestataires",
+      "credentials": "Attestations",
+      "verifications": "Vérifications"
+    }
+  },
+  "prescription": {
+    "title": "Nouvelle ordonnance",
+    "patient": "Patient",
+    "medication": "Médicament",
+    "strength": "Dosage",
+    "dosage": "Posologie",
+    "duration": "Durée",
+    "notes": "Notes",
+    "submit": "Créer l'ordonnance",
+    "success": "Ordonnance créée avec succès",
+    "canonicalPreview": "Canonical Preview",
+    "issueCredential": "Émettre l'attestation",
+    "credentialIssued": "Attestation émise et signée",
+    "addMedication": "Add Medication",
+    "removeMedication": "Remove",
+    "timing": "Timing",
+    "refills": "Refills",
+    "timingOptions": {
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "evening": "Evening",
+      "bedtime": "Bedtime",
+      "beforeMeals": "Before meals",
+      "afterMeals": "After meals",
+      "withMeals": "With meals"
+    },
+    "medicationNumber": "Medication #{{number}}",
+    "print": "Print / PDF"
+  },
+  "verify": {
+    "title": "Vérifier l'attestation d'ordonnance",
+    "scanQr": "Scanner le QR Code",
+    "enterId": "Ou saisir l'ID de l'attestation",
+    "verify": "Vérifier",
+    "verified": "✓ VÉRIFIÉ",
+    "failed": "✕ ÉCHEC DE VÉRIFICATION",
+    "prescriptionCredential": "Attestation d'ordonnance",
+    "medication": "Médicament",
+    "strength": "Dosage",
+    "dosage": "Posologie",
+    "duration": "Durée",
+    "issued": "Émis le",
+    "expires": "Expire le",
+    "provider": "Fournisseur",
+    "contactProvider": "Contactez le fournisseur de soins de santé émetteur.",
+    "startScan": "Démarrer le scan",
+    "issuerVerified": "Émetteur vérifié",
+    "signatureValid": "Signature numérique valide",
+    "integrityValid": "Intégrité des données valide",
+    "active": "Attestation active",
+    "notExpired": "Non expiré"
+  },
+  "canonical": {
+    "title": "Canonical JSON (Deterministic Serialization)"
+  },
+  "revocation": {
+    "title": "Révoquer l'attestation",
+    "warning": "Cette action ne peut pas être annulée. L'attestation sera définitivement marquée comme révoquée.",
+    "credentialId": "ID de l'attestation",
+    "reason": "Raison de la révocation",
+    "reasonPlaceholder": "ex: Erreur de médicament, demande du patient, décision du prestataire",
+    "confirm": "Révoquer l'attestation",
+    "list": "Tableau de bord des révocations",
+    "revoked": "Attestation révoquée avec succès"
+  },
+  "audit": {
+    "title": "Piste d'audit",
+    "timestamp": "Horodatage",
+    "action": "Action",
+    "target": "Cible",
+    "actor": "Acteur",
+    "empty": "Aucun journal d'audit trouvé"
+  },
+  "dispensation": {
+    "markDispensed": "Mark as Dispensed",
+    "dispensedAt": "Dispensed at",
+    "dispensedOn": "Dispensed on",
+    "alreadyDispensed": "This credential has already been dispensed",
+    "confirmDispense": "Confirm that you are dispensing this prescription",
+    "pharmacyName": "Pharmacy name (optional)",
+    "success": "Prescription marked as dispensed"
+  },
+  "search": {
+    "placeholder": "Search medications...",
+    "placeholderPatient": "Search by patient name...",
+    "allStatuses": "All statuses",
+    "clear": "Clear filters"
+  },
+  "pagination": {
+    "showing": "Showing",
+    "of": "of",
+    "page": "Page",
+    "perPage": "per page"
+  },
+  "common": {
+    "cancel": "Annuler",
+    "processing": "Traitement en cours...",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "noData": "Aucune donnée trouvée",
+    "view": "Voir",
+    "compare": "Comparer",
+    "revoke": "Révoquer",
+    "patient": "Patient",
+    "medication": "Médicament",
+    "credential": "Attestation",
+    "actions": "Actions",
+    "name": "Nom",
+    "license": "Licence",
+    "email": "Email",
+    "recentPrescriptions": "Ordonnances récentes",
+    "noCredentials": "Aucune attestation",
+    "credentialDetails": "Détails de l'attestation",
+    "verificationQr": "QR de vérification",
+    "revokedMessage": "Cette attestation a été révoquée et n'est plus valide.",
+    "selectPatient": "Sélectionner un patient",
+    "credentialComparison": "Comparaison d'attestation",
+    "fieldLevelDiff": "Différence au niveau du champ",
+    "hashComparison": "Comparaison de hachage",
+    "storedHash": "Stocké (signé)",
+    "currentHash": "Actuel (recalculé)",
+    "enterId": "Saisir l'ID",
+    "scanQr": "Scanner QR",
+    "noAccountRequired": "Aucun compte requis. Scanner le QR ou saisir l'ID de l'attestation.",
+    "approve": "Approuver et émettre la clé",
+    "auditTrail": "Piste d'audit",
+    "viewAllActivity": "Voir toute l'activité du système"
+  },
+  "refills": {
+    "remaining": "remaining",
+    "total": "total fills",
+    "of": "of",
+    "exhausted": "All authorized fills have been used",
+    "status": "Refill Status",
+    "fillsUsed": "fills used"
+  },
+  "drugWarning": {
+    "title": "Drug Warnings",
+    "interaction": "Drug Interaction",
+    "dosage": "Dosage Warning",
+    "allergy": "Allergy Alert",
+    "detected": "warnings detected",
+    "highRisk": "high risk",
+    "advisory": "These are advisory alerts based on common drug interactions. Always consult clinical references."
+  },
+  "toast": {
+    "prescriptionCreated": "Prescription created successfully",
+    "credentialIssued": "Credential issued and signed",
+    "credentialRevoked": "Credential revoked successfully",
+    "dispensed": "Prescription marked as dispensed",
+    "loginSuccess": "Welcome back!",
+    "providerApproved": "Provider approved successfully",
+    "exportSuccess": "Export completed",
+    "exportFailed": "Export failed"
+  },
+  "export": {
+    "w3cVc": "W3C VC",
+    "fhirR4": "FHIR R4",
+    "download": "Download",
+    "title": "Export Credential"
+  }
+}

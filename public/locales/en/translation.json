@@ -1,0 +1,163 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "admin": "Admin",
+    "audit": "Audit Trail",
+    "prescriptions": "Prescriptions",
+    "revocations": "Revocations",
+    "verify": "Verify",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register"
+  },
+  "footer": {
+    "disclaimer": "MediShare is an academic prototype for privacy-preserving digital prescription credentials. Not a replacement for government healthcare systems.",
+    "academic": "Academic demonstration only. No medical advice provided."
+  },
+  "login": {
+    "title": "Sign in to MediShare",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "registerPrompt": "Need an account?",
+    "registerLink": "Register",
+    "error": "Invalid credentials"
+  },
+  "register": {
+    "title": "Create account",
+    "name": "Full name",
+    "email": "Email",
+    "password": "Password (min 8 characters)",
+    "role": "Role",
+    "rolePatient": "Patient",
+    "roleProvider": "Healthcare Provider",
+    "rolePharmacist": "Pharmacist",
+    "roleAdmin": "Administrator",
+    "licenseNumber": "License number (providers only)",
+    "submit": "Create account",
+    "loginPrompt": "Already have an account?",
+    "loginLink": "Sign in",
+    "error": "Registration failed"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "patient": {
+      "title": "My Credentials",
+      "noCredentials": "No credentials yet. Your healthcare provider will issue one after your prescription.",
+      "viewQr": "View QR",
+      "revoke": "Revoke"
+    },
+    "provider": {
+      "title": "Provider Dashboard",
+      "newPrescription": "New Prescription",
+      "pendingApprovals": "Pending Approvals",
+      "totalCredentials": "Total Credentials",
+      "activeCredentials": "Active Credentials"
+    },
+    "admin": {
+      "title": "Admin Dashboard",
+      "stats": "Statistics",
+      "users": "Users",
+      "providers": "Providers",
+      "credentials": "Credentials",
+      "verifications": "Verifications"
+    }
+  },
+  "prescription": {
+    "title": "New Prescription",
+    "patient": "Patient",
+    "medication": "Medication",
+    "strength": "Strength",
+    "dosage": "Dosage",
+    "duration": "Duration",
+    "notes": "Notes",
+    "submit": "Create Prescription",
+    "success": "Prescription created successfully",
+    "canonicalPreview": "Canonical Preview",
+    "issueCredential": "Issue Credential",
+    "credentialIssued": "Credential issued and signed"
+  },
+  "verify": {
+    "title": "Verify Prescription Credential",
+    "scanQr": "Scan QR Code",
+    "enterId": "Or enter credential ID",
+    "verify": "Verify",
+    "verified": "✓ VERIFIED",
+    "failed": "✕ VERIFICATION FAILED",
+    "prescriptionCredential": "Prescription Credential",
+    "medication": "Medication",
+    "strength": "Strength",
+    "dosage": "Dosage",
+    "duration": "Duration",
+    "issued": "Issued",
+    "expires": "Expires",
+    "provider": "Provider",
+    "contactProvider": "Contact the issuing healthcare provider.",
+    "startScan": "Start Camera Scan",
+    "issuerVerified": "Issuer Verified",
+    "signatureValid": "Digital Signature Valid",
+    "integrityValid": "Data Integrity Valid",
+    "active": "Credential Active",
+    "notExpired": "Not Expired"
+  },
+  "canonical": {
+    "title": "Canonical JSON (Deterministic Serialization)"
+  },
+  "revocation": {
+    "title": "Revoke Credential",
+    "warning": "This action cannot be undone. The credential will be permanently marked as revoked.",
+    "credentialId": "Credential ID",
+    "reason": "Reason for revocation",
+    "reasonPlaceholder": "e.g., Medication error, patient request, provider decision",
+    "confirm": "Revoke Credential",
+    "list": "Revocation Dashboard",
+    "revoked": "Credential revoked successfully"
+  },
+  "audit": {
+    "title": "Audit Trail",
+    "timestamp": "Timestamp",
+    "action": "Action",
+    "target": "Target",
+    "actor": "Actor",
+    "empty": "No audit logs found"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "processing": "Processing...",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "Back",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "noData": "No data found",
+    "view": "View",
+    "compare": "Compare",
+    "revoke": "Revoke",
+    "patient": "Patient",
+    "medication": "Medication",
+    "credential": "Credential",
+    "actions": "Actions",
+    "name": "Name",
+    "license": "License",
+    "email": "Email",
+    "recentPrescriptions": "Recent prescriptions",
+    "noCredentials": "No credentials",
+    "credentialDetails": "Credential details",
+    "verificationQr": "Verification QR",
+    "revokedMessage": "This credential has been revoked and is no longer valid.",
+    "selectPatient": "Select patient",
+    "credentialComparison": "Credential comparison",
+    "fieldLevelDiff": "Field-level diff",
+    "hashComparison": "Hash comparison",
+    "storedHash": "Stored (signed)",
+    "currentHash": "Current (recomputed)",
+    "enterId": "Enter ID",
+    "scanQr": "Scan QR",
+    "noAccountRequired": "No account required. Scan or enter a credential ID.",
+    "approve": "Approve & Issue Key",
+    "auditTrail": "Audit trail",
+    "viewAllActivity": "View all system activity"
+  }
+}

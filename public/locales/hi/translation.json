@@ -1,0 +1,158 @@
+{
+  "nav": {
+    "dashboard": "डैशबोर्ड",
+    "admin": "व्यवस्थापक",
+    "audit": "ऑडिट ट्रेल",
+    "prescriptions": "नुस्खे",
+    "revocations": "रद्दीकरण",
+    "verify": "सत्यापित करें",
+    "login": "लॉग इन",
+    "logout": "लॉग आउट",
+    "register": "पंजीकरण"
+  },
+  "footer": {
+    "disclaimer": "MediShare गोपनीयता-संरक्षित डिजिटल नुस्खा प्रमाण पत्रों के लिए एक अकादमिक प्रोटोटाइप है। सरकारी स्वास्थ्य प्रणाली का विकल्प नहीं।",
+    "academic": "केवल अकादमिक प्रदर्शन। कोई चिकित्सा सलाह नहीं।"
+  },
+  "login": {
+    "title": "MediShare में साइन इन करें",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "submit": "साइन इन करें",
+    "registerPrompt": "खाता चाहिए?",
+    "registerLink": "पंजीकरण करें",
+    "error": "अमान्य प्रमाण"
+  },
+  "register": {
+    "title": "खाता बनाएं",
+    "name": "पूरा नाम",
+    "email": "ईमेल",
+    "password": "पासवर्ड (न्यूनतम 8 अक्षर)",
+    "role": "भूमिका",
+    "rolePatient": "मरीज",
+    "roleProvider": "स्वास्थ्य प्रदाता",
+    "rolePharmacist": "फार्मासिस्ट",
+    "roleAdmin": "व्यवस्थापक",
+    "licenseNumber": "लाइसेंस नंबर (प्रदाताओं के लिए)",
+    "submit": "खाता बनाएं",
+    "loginPrompt": "पहले से खाता है?",
+    "loginLink": "साइन इन करें",
+    "error": "पंजीकरण विफल"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "patient": {
+      "title": "मेरे प्रमाण पत्र",
+      "noCredentials": "अभी तक कोई प्रमाण पत्र नहीं। आपका स्वास्थ्य प्रदाता नुस्खे के बाद एक जारी करेगा।",
+      "viewQr": "QR देखें",
+      "revoke": "रद्द करें"
+    },
+    "provider": {
+      "title": "प्रदाता डैशबोर्ड",
+      "newPrescription": "नया नुस्खा",
+      "pendingApprovals": "लंबित अनुमोदन",
+      "totalCredentials": "कुल प्रमाण पत्र",
+      "activeCredentials": "सक्रिय प्रमाण पत्र"
+    },
+    "admin": {
+      "title": "व्यवस्थापक डैशबोर्ड",
+      "stats": "सांख्यिकी",
+      "users": "उपयोगकर्ता",
+      "providers": "प्रदाता",
+      "credentials": "प्रमाण पत्र",
+      "verifications": "सत्यापन"
+    }
+  },
+  "prescription": {
+    "title": "नया नुस्खा",
+    "patient": "मरीज",
+    "medication": "दवा",
+    "strength": "शक्ति",
+    "dosage": "खुराक",
+    "duration": "अवधि",
+    "notes": "नोट्स",
+    "submit": "नुस्खा बनाएं",
+    "success": "नुस्खा सफलतापूर्वक बनाया गया",
+    "canonicalPreview": "Canonical Preview",
+    "issueCredential": "प्रमाण पत्र जारी करें",
+    "credentialIssued": "प्रमाण पत्र जारी और हस्ताक्षरित"
+  },
+  "verify": {
+    "title": "नुस्खा प्रमाण पत्र सत्यापित करें",
+    "scanQr": "QR कोड स्कैन करें",
+    "enterId": "या क्रेडेंशियल ID दर्ज करें",
+    "verify": "सत्यापित करें",
+    "verified": "✓ सत्यापित",
+    "failed": "✕ सत्यापन विफल",
+    "prescriptionCredential": "नुस्खा प्रमाण पत्र",
+    "medication": "दवा",
+    "strength": "शक्ति",
+    "dosage": "खुराक",
+    "duration": "अवधि",
+    "issued": "जारी",
+    "expires": "समाप्ति",
+    "provider": "प्रदाता",
+    "contactProvider": "जारी करने वाले स्वास्थ्य प्रदाता से संपर्क करें।",
+    "startScan": "कैमरा स्कैन शुरू करें",
+    "issuerVerified": "प्रदाता सत्यापित",
+    "signatureValid": "डिजिटल हस्ताक्षर मान्य",
+    "integrityValid": "डेटा अखंडता मान्य",
+    "active": "प्रमाण पत्र सक्रिय",
+    "notExpired": "समाप्त नहीं"
+  },
+  "canonical": {
+    "title": "Canonical JSON (Deterministic Serialization)"
+  },
+  "revocation": {
+    "title": "प्रमाण पत्र रद्द करें",
+    "warning": "यह क्रिया पूर्ववत नहीं की जा सकती। प्रमाण पत्र स्थायी रूप से रद्द किया गया के रूप में चिह्नित हो जाएगा।",
+    "credentialId": "प्रमाण पत्र ID",
+    "reason": "रद्द करने का कारण",
+    "reasonPlaceholder": "उदाहरण: दवा त्रुटि, रोगी अनुरोध, प्रदाता निर्णय",
+    "confirm": "प्रमाण पत्र रद्द करें",
+    "list": "रद्दीकरण डैशबोर्ड",
+    "revoked": "प्रमाण पत्र सफलतापूर्वक रद्द किया गया"
+  },
+  "audit": {
+    "title": "ऑडिट ट्रेल",
+    "timestamp": "समय",
+    "action": "क्रिया",
+    "target": "लक्ष्य",
+    "actor": "अभिनेता",
+    "empty": "कोई ऑडिट लॉग नहीं मिला"
+  },
+  "common": {
+    "cancel": "रद्द करें",
+    "processing": "प्रक्रिया कर रहा है...",
+    "loading": "लोड हो रहा है...",
+    "error": "एक त्रुटि हुई",
+    "noData": "कोई डेटा नहीं मिला",
+    "view": "देखें",
+    "compare": "तुलना करें",
+    "revoke": "रद्द करें",
+    "patient": "मरीज",
+    "medication": "दवा",
+    "credential": "प्रमाण पत्र",
+    "actions": "कार्रवाई",
+    "name": "नाम",
+    "license": "लाइसेंस",
+    "email": "ईमेल",
+    "recentPrescriptions": "हाल के नुस्खे",
+    "noCredentials": "कोई प्रमाण पत्र नहीं",
+    "credentialDetails": "प्रमाण पत्र विवरण",
+    "verificationQr": "सत्यापन QR",
+    "revokedMessage": "यह प्रमाण पत्र रद्द किया गया है और अब मान्य नहीं है।",
+    "selectPatient": "मरीज चुनें",
+    "credentialComparison": "प्रमाण पत्र तुलना",
+    "fieldLevelDiff": "फ़ील्ड-स्तर अंतर",
+    "hashComparison": "हैश तुलना",
+    "storedHash": "संग्रहीत (हस्ताक्षरित)",
+    "currentHash": "वर्तमान (पुनर्गणित)",
+    "enterId": "ID दर्ज करें",
+    "scanQr": "QR स्कैन करें",
+    "noAccountRequired": "खाता आवश्यक नहीं। QR स्कैन करें या क्रेडेंशियल ID दर्ज करें।",
+    "approve": "अनुमोदित करें और कुंजी जारी करें",
+    "auditTrail": "ऑडिट ट्रेल",
+    "viewAllActivity": "सभी सिस्टम गतिविधि देखें"
+  }
+}

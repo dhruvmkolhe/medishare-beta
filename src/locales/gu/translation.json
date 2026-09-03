@@ -1,0 +1,227 @@
+{
+  "nav": {
+    "dashboard": "ડેશબોર્ડ",
+    "admin": "વ્યવસ્થાપક",
+    "audit": "ઓડિટ ટ્રેલ",
+    "prescriptions": "પ્રિસ્ક્રિપ્શન્સ",
+    "revocations": "રદ્દીકરણ",
+    "verify": "સત્તાવિત કરો",
+    "login": "લૉગિન",
+    "logout": "લૉગઆઉટ",
+    "register": "રજિસ્ટર"
+  },
+  "footer": {
+    "disclaimer": "MediShare ગોપનીયતા-સંરક્ષિત ડિજિટલ પ્રિસ્ક્રિપ્શન પ્રમાણપત્રો માટે એક શૈક્ષણિક પ્રોટોટાઇપ છે. સરકારી આરોગ્ય સિસ્ટમનો વિકલ્પ નથી.",
+    "academic": "માત્ર શૈક્ષણિક પ્રદર્શન. કોઈ વૈદ્યકીય સલાહ નથી."
+  },
+  "login": {
+    "title": "MediShare માં સાઇન ઇન કરો",
+    "email": "ઇમેઇલ",
+    "password": "પાસવર્ડ",
+    "submit": "સાઇન ઇન",
+    "registerPrompt": "ખાતું જોઈએ છે?",
+    "registerLink": "રજિસ્ટર",
+    "error": "અમાન્ય ઓળખપત્ર"
+  },
+  "register": {
+    "title": "ખાતું બનાવો",
+    "name": "પૂરું નામ",
+    "email": "ઇમેઇલ",
+    "password": "પાસવર્ડ (ન્યૂનતમ 8 અક્ષરો)",
+    "role": "ભૂમિકા",
+    "rolePatient": "દર્દી",
+    "roleProvider": "આરોગ્ય પ્રદાતા",
+    "rolePharmacist": "ફાર્માસિસ્ટ",
+    "roleAdmin": "વ્યવસ્થાપક",
+    "licenseNumber": "લાઇસન્સ નંબર (પ્રદાતાઓ માટે)",
+    "submit": "ખાતું બનાવો",
+    "loginPrompt": "પહેલેથી ખાતું છે?",
+    "loginLink": "સાઇન ઇન કરો",
+    "error": "રજિસ્ટ્રેશન નિષ્ફળ"
+  },
+  "dashboard": {
+    "welcome": "Welcome",
+    "patient": {
+      "title": "મારા પ્રમાણપત્રો",
+      "noCredentials": "હજુ સુધી કોઈ પ્રમાણપત્રો નથી. તમારો આરોગ્ય પ્રદાતા પ્રિસ્ક્રિપ્શન પછી એક જારી કરશે.",
+      "viewQr": "QR જુઓ",
+      "revoke": "રદ્દ કરો"
+    },
+    "provider": {
+      "title": "પ્રદાતા ડેશબોર્ડ",
+      "newPrescription": "નવું પ્રિસ્ક્રિપ્શન",
+      "pendingApprovals": "બાકી મંજૂરીઓ",
+      "totalCredentials": "કુલ પ્રમાણપત્રો",
+      "activeCredentials": "સક્રિય પ્રમાણપત્રો"
+    },
+    "admin": {
+      "title": "વ્યવસ્થાપક ડેશબોર્ડ",
+      "stats": "આંકડાકીય",
+      "users": "વપરાશકર્તાઓ",
+      "providers": "પ્રદાતાઓ",
+      "credentials": "પ્રમાણપત્રો",
+      "verifications": "સત્તાવિત કરવું"
+    }
+  },
+  "prescription": {
+    "title": "નવું પ્રિસ્ક્રિપ્શન",
+    "patient": "દર્દી",
+    "medication": "દવા",
+    "strength": "તાકાત",
+    "dosage": "ખૂરાક",
+    "duration": "સમયગાળો",
+    "notes": "નોંધો",
+    "submit": "પ્રિસ્ક્રિપ્શન બનાવો",
+    "success": "પ્રિસ્ક્રિપ્શન સફળતાપૂર્વક બનાવ્યું",
+    "canonicalPreview": "Canonical Preview",
+    "issueCredential": "પ્રમાણપત્ર જારી કરો",
+    "credentialIssued": "પ્રમાણપત્ર જારી અને સહી થયું",
+    "addMedication": "Add Medication",
+    "removeMedication": "Remove",
+    "timing": "Timing",
+    "refills": "Refills",
+    "timingOptions": {
+      "morning": "Morning",
+      "afternoon": "Afternoon",
+      "evening": "Evening",
+      "bedtime": "Bedtime",
+      "beforeMeals": "Before meals",
+      "afterMeals": "After meals",
+      "withMeals": "With meals"
+    },
+    "medicationNumber": "Medication #{{number}}",
+    "print": "Print / PDF"
+  },
+  "verify": {
+    "title": "પ્રિસ્ક્રિપ્શન પ્રમાણપત્ર સત્તાવિત કરો",
+    "scanQr": "QR કોડ સ્કેન કરો",
+    "enterId": "અથવા ક્રેડેન્શિયલ ID દાખલ કરો",
+    "verify": "સત્તાવિત કરો",
+    "verified": "✓ સત્તાવિત",
+    "failed": "✕ સત્તાવિત કરવું નિષ્ફળ",
+    "prescriptionCredential": "પ્રિસ્ક્રિપ્શન પ્રમાણપત્ર",
+    "medication": "દવા",
+    "strength": "તાકાત",
+    "dosage": "ખૂરાક",
+    "duration": "સમયગાળો",
+    "issued": "જારી કર્યું",
+    "expires": "અંતિમ તારીખ",
+    "provider": "પ્રદાતા",
+    "contactProvider": "જારી કરનાર આરોગ્ય પ્રદાતાનો સંપર્ક કરો.",
+    "startScan": "કેમેરા સ્કેન શરૂ કરો",
+    "issuerVerified": "પ્રદાતા સત્તાવિત",
+    "signatureValid": "ડિજિટલ હસ્તાક્ષર માન્ય",
+    "integrityValid": "ડેટા અખંડિતતા માન્ય",
+    "active": "પ્રમાણપત્ર સક્રિય",
+    "notExpired": "સમાપ્ત નથી"
+  },
+  "canonical": {
+    "title": "Canonical JSON (Deterministic Serialization)"
+  },
+  "revocation": {
+    "title": "પ્રમાણપત્ર રદ્દ કરો",
+    "warning": "આ ક્રિયા પૂર્વવત્ કરી શકાતી નથી. પ્રમાણપત્ર ખંડિત રીતે રદ્દ કર્યા તરીકે ચિહ્નિત થશે.",
+    "credentialId": "પ્રમાણપત્ર ID",
+    "reason": "રદ્દ કરવાનું કારણ",
+    "reasonPlaceholder": "ઉદાહરણ: દવા ભૂલ, દર્દી વિનંતી, પ્રદાતા નિર્ણય",
+    "confirm": "પ્રમાણપત્ર રદ્દ કરો",
+    "list": "રદ્દીકરણ ડેશબોર્ડ",
+    "revoked": "પ્રમાણપત્ર સફળતાપૂર્વક રદ્દ કર્યું"
+  },
+  "audit": {
+    "title": "ઓડિટ ટ્રેલ",
+    "timestamp": "સમય",
+    "action": "ક્રિયા",
+    "target": "લક્ષ્ય",
+    "actor": "અભિનેતા",
+    "empty": "કોઈ ઓડિટ લોગ મળ્યા નથી"
+  },
+  "dispensation": {
+    "markDispensed": "Mark as Dispensed",
+    "dispensedAt": "Dispensed at",
+    "dispensedOn": "Dispensed on",
+    "alreadyDispensed": "This credential has already been dispensed",
+    "confirmDispense": "Confirm that you are dispensing this prescription",
+    "pharmacyName": "Pharmacy name (optional)",
+    "success": "Prescription marked as dispensed"
+  },
+  "search": {
+    "placeholder": "Search medications...",
+    "placeholderPatient": "Search by patient name...",
+    "allStatuses": "All statuses",
+    "clear": "Clear filters"
+  },
+  "pagination": {
+    "showing": "Showing",
+    "of": "of",
+    "page": "Page",
+    "perPage": "per page"
+  },
+  "common": {
+    "cancel": "રદ્દ કરો",
+    "processing": "પ્રક્રિયા કરી રહ્યું છે...",
+    "loading": "લોડ થઈ રહ્યું છે...",
+    "error": "એક ભૂલ આવી",
+    "noData": "કોઈ ડેટા મળ્યો નથી",
+    "view": "જુઓ",
+    "compare": "તુલના કરો",
+    "revoke": "રદ્દ કરો",
+    "patient": "દર્દી",
+    "medication": "દવા",
+    "credential": "પ્રમાણપત્ર",
+    "actions": "ક્રિયાઓ",
+    "name": "નામ",
+    "license": "લાઇસન્સ",
+    "email": "ઇમેઇલ",
+    "recentPrescriptions": "તાજેતરના પ્રિસ્ક્રિપ્શન્સ",
+    "noCredentials": "કોઈ પ્રમાણપત્રો નથી",
+    "credentialDetails": "પ્રમાણપત્ર વિગતો",
+    "verificationQr": "સત્તાવિત QR",
+    "revokedMessage": "આ પ્રમાણપત્ર રદ્દ કરવામાં આવ્યું છે અને હવે માન્ય નથી.",
+    "selectPatient": "દર્દી પસંદ કરો",
+    "credentialComparison": "પ્રમાણપત્ર તુલના",
+    "fieldLevelDiff": "ફીલ્ડ-સ્તર અંતર",
+    "hashComparison": "હેશ તુલના",
+    "storedHash": "સંગ્રહિત (હસ્તાક્ષરિત)",
+    "currentHash": "વર્તમાન (પુનર્ગણિત)",
+    "enterId": "ID દાખલ કરો",
+    "scanQr": "QR સ્કેન કરો",
+    "noAccountRequired": "ખાતું જરૂરી નથી. QR સ્કેન કરો અથવા ક્રેડેન્શિયલ ID દાખલ કરો.",
+    "approve": "મંજૂર કરો અને કી જારી કરો",
+    "auditTrail": "ઓડિટ ટ્રેલ",
+    "viewAllActivity": "બધી સિસ્ટમ પ્રવૃત્તિ જુઓ"
+  },
+  "refills": {
+    "remaining": "remaining",
+    "total": "total fills",
+    "of": "of",
+    "exhausted": "All authorized fills have been used",
+    "status": "Refill Status",
+    "fillsUsed": "fills used"
+  },
+  "drugWarning": {
+    "title": "Drug Warnings",
+    "interaction": "Drug Interaction",
+    "dosage": "Dosage Warning",
+    "allergy": "Allergy Alert",
+    "detected": "warnings detected",
+    "highRisk": "high risk",
+    "advisory": "These are advisory alerts based on common drug interactions. Always consult clinical references."
+  },
+  "toast": {
+    "prescriptionCreated": "Prescription created successfully",
+    "credentialIssued": "Credential issued and signed",
+    "credentialRevoked": "Credential revoked successfully",
+    "dispensed": "Prescription marked as dispensed",
+    "loginSuccess": "Welcome back!",
+    "providerApproved": "Provider approved successfully",
+    "exportSuccess": "Export completed",
+    "exportFailed": "Export failed"
+  },
+  "export": {
+    "w3cVc": "W3C VC",
+    "fhirR4": "FHIR R4",
+    "download": "Download",
+    "title": "Export Credential"
+  }
+}

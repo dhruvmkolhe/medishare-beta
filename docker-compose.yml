@@ -1,0 +1,32 @@
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: medishare-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_DATABASE: medishare
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: medishare-app
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - MONGODB_URI=${MONGODB_URI:-mongodb://mongodb:27017}
+      - MONGODB_DB_NAME=${MONGODB_DB_NAME:-medishare}
+      - JWT_SECRET=${JWT_SECRET:-medishare-jwt-secret-change-in-production-32bytes}
+      - REFRESH_SECRET=${REFRESH_SECRET:-medishare-refresh-secret-change-in-production-32bytes}
+      - KEY_ENCRYPTION_KEY=${KEY_ENCRYPTION_KEY:-medishare-kek-secret-key-32bytes-long}
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb_data:
