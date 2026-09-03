@@ -1,0 +1,23 @@
+# MediShare Robots.txt
+# TODO: Update the domain below if deploying under a custom domain
+User-agent: *
+Allow: /$
+Allow: /verify$
+Allow: /verify/
+Allow: /login$
+Allow: /register$
+Allow: /privacy$
+Allow: /terms$
+
+# Disallow private user data, authenticated dashboards, and backend APIs
+Disallow: /admin
+Disallow: /patient
+Disallow: /provider
+Disallow: /dashboard
+Disallow: /audit
+Disallow: /revocations
+Disallow: /prescriptions
+Disallow: /credentials
+Disallow: /api/
+
+Sitemap: https://medishare.example.com/sitemap.xml

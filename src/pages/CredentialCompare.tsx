@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import FieldDiff from '../components/FieldDiff';
 import type { FieldDiff as FieldDiffType } from '../types';
 import { ArrowLeft, GitCompare, AlertTriangle } from 'lucide-react';
+import PageMeta from '../components/PageMeta';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function CredentialCompare() {
   const { id } = useParams<{ id: string }>();
@@ -43,6 +45,18 @@ export default function CredentialCompare() {
 
   return (
     <div className="max-w-2xl mx-auto">
+      <PageMeta
+        title="Compare Credential Integrity"
+        description="Cryptographically inspect and compare original issued credential state against current ledger records to verify tamper-resistance."
+        canonicalPath={`/credentials/${id}/compare`}
+      />
+      <Breadcrumbs
+        items={[
+          { label: 'Dashboard', path: '/dashboard' },
+          { label: 'Prescriptions', path: '/prescriptions' },
+          { label: 'Compare Integrity' },
+        ]}
+      />
       <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 mb-4">
         <ArrowLeft className="h-4 w-4" />
         {t('common.back')}

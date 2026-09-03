@@ -7,6 +7,7 @@ import Pagination from '../components/Pagination';
 import { Skeleton, TableSkeleton } from '../components/Skeleton';
 import type { AuditLogEntry } from '../types';
 import { FileText } from 'lucide-react';
+import PageMeta from '../components/PageMeta';
 
 export default function AuditTrail() {
   const apiFetch = useApiFetch();
@@ -57,6 +58,11 @@ export default function AuditTrail() {
 
   return (
     <div className="space-y-6">
+      <PageMeta
+        title="Cryptographic Audit Trail"
+        description="Inspect immutable audit logs of prescription issuance, signature verification events, and pharmacy dispenses."
+        canonicalPath="/audit"
+      />
       <div className="flex items-center gap-2">
         <FileText className="h-5 w-5 text-slate-500" />
         <h1 className="text-2xl font-bold text-slate-900">{t('audit.title')}</h1>

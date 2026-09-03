@@ -7,6 +7,7 @@ import QrDisplay from '../components/QrDisplay';
 import EmptyState from '../components/EmptyState';
 import { Skeleton, PatientCardsSkeleton } from '../components/Skeleton';
 import type { Credential } from '../types';
+import PageMeta from '../components/PageMeta';
 
 export default function PatientDashboard() {
   const apiFetch = useApiFetch();
@@ -77,6 +78,11 @@ export default function PatientDashboard() {
 
   return (
     <div className="space-y-6">
+      <PageMeta
+        title="Patient Portal — My Credentials"
+        description="View and manage your verifiable digital prescriptions, display verification QR codes, and export records."
+        canonicalPath="/patient"
+      />
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <h1 className="text-2xl font-bold text-slate-900">{t('dashboard.patient.title')}</h1>
         

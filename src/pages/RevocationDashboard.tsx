@@ -9,6 +9,7 @@ import SearchFilterBar from '../components/SearchFilterBar';
 import Pagination from '../components/Pagination';
 import type { Credential } from '../types';
 import { Shield } from 'lucide-react';
+import PageMeta from '../components/PageMeta';
 
 export default function RevocationDashboard() {
   const apiFetch = useApiFetch();
@@ -76,6 +77,11 @@ export default function RevocationDashboard() {
 
   return (
     <div className="space-y-6">
+      <PageMeta
+        title="Revocation Dashboard"
+        description="Manage and inspect revoked prescription credentials and cryptographic revocation status lists in real time."
+        canonicalPath="/revocations"
+      />
       <div className="flex items-center gap-2">
         <Shield className="h-5 w-5 text-slate-500" />
         <h1 className="text-2xl font-bold text-slate-900">{t('revocation.list')}</h1>

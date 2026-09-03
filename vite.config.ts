@@ -103,6 +103,7 @@ export default defineConfig(async ({ mode }) => {
       port: 5173,
     },
     build: {
+      sourcemap: false,
       rollupOptions: {
         output: {
           manualChunks(id: string) {

@@ -123,7 +123,7 @@ export default function PrescriptionPdf({ credential, items, providerName, patie
     const qrContainer = printWindow.document.getElementById('qr-container');
     if (qrContainer) {
       // Use a simple QR rendering approach for print
-      qrContainer.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(qrUrl)}" width="120" height="120" />`;
+      qrContainer.innerHTML = `<img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(qrUrl)}" width="120" height="120" alt="Prescription Verification QR Code" />`;
     }
 
     printWindow.document.close();

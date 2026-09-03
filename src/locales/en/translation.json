@@ -2,10 +2,13 @@
   "nav": {
     "dashboard": "Dashboard",
     "admin": "Admin",
+    "adminPortal": "Admin Portal",
     "audit": "Audit Trail",
     "prescriptions": "Prescriptions",
+    "myPrescriptions": "My Prescriptions",
     "revocations": "Revocations",
     "verify": "Verify",
+    "verifyDispense": "Verify & Dispense",
     "login": "Login",
     "logout": "Logout",
     "register": "Register"

@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
 import QrScanner from '../components/QrScanner';
 import VerificationResult from '../components/VerificationResult';
 import type { VerificationResult as VerificationResultType } from '../types';
 import { Scan, Keyboard, ArrowRight, AlertCircle, Copy, Check } from 'lucide-react';
+import PageMeta from '../components/PageMeta';
+import { trackCTA } from '../lib/analytics';
 
 export default function PharmacistVerify() {
   const { t } = useTranslation();
   const { toast } = useToast();
+  const { user } = useAuth();
   const [mode, setMode] = useState<'scan' | 'input'>('input');
   const [credentialId, setCredentialId] = useState('');
   const [loading, setLoading] = useState(false);
@@ -17,6 +21,7 @@ export default function PharmacistVerify() {
   const [error, setError] = useState('');
 
   const handleVerify = async (id: string) => {
+    trackCTA('verify_credential_submit', { credential_id_prefix: id.trim().slice(0, 8) });
     setLoading(true);
     setError('');
     setResult(null);
@@ -101,16 +106,23 @@ export default function PharmacistVerify() {
 
   return (
     <div className="max-w-2xl mx-auto w-full">
+      <PageMeta
+        title="Verify Prescription Credential"
+        description="Instantly verify digital prescription credentials using cryptographic Ed25519 signatures and RFC 8785 canonical verification. Zero login required."
+        canonicalPath="/verify"
+      />
       <div className="text-center mb-4">
         <h1 className="text-xl font-bold text-slate-900">{t('verify.title')}</h1>
-        <p className="text-xs text-slate-500 mt-0.5">{t('common.noAccountRequired')}</p>
+        {!user && (
+          <p className="text-xs text-slate-500 mt-0.5">{t('common.noAccountRequired')}</p>
+        )}
       </div>
 
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-5 mb-5">
+      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4 sm:p-5 mb-5">
         <div className="flex gap-2 mb-4">
           <button
             onClick={() => setMode('input')}
-            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-md text-sm font-medium transition-colors ${
+            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
               mode === 'input' ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >
@@ -119,7 +131,7 @@ export default function PharmacistVerify() {
           </button>
           <button
             onClick={() => setMode('scan')}
-            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-md text-sm font-medium transition-colors ${
+            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
               mode === 'scan' ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >
@@ -136,41 +148,43 @@ export default function PharmacistVerify() {
                   type="text"
                   value={credentialId}
                   onChange={(e) => setCredentialId(e.target.value)}
-                  placeholder="Enter Credential UUID (e.g. c9c52004-6fb3...)"
-                  className="flex-1 px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-500 text-sm"
+                  placeholder="Enter Credential UUID..."
+                  className="flex-1 min-w-0 px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-slate-500 text-sm"
                 />
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex items-center gap-2 bg-slate-900 text-white px-4 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors disabled:opacity-50 cursor-pointer"
+                  className="shrink-0 flex items-center gap-1.5 sm:gap-2 bg-slate-900 text-white px-3.5 sm:px-4 py-2 rounded-md text-sm hover:bg-slate-800 transition-colors disabled:opacity-50 cursor-pointer"
                 >
                   <ArrowRight className="h-4 w-4" />
-                  {t('verify.verify')}
+                  <span>{t('verify.verify')}</span>
                 </button>
               </div>
             </form>
-            <div className="mt-3 text-xs text-slate-500 flex flex-wrap items-center gap-2">
-              <span className="font-medium text-slate-600">Sample Credential:</span>
-              <button
-                type="button"
-                onClick={() => {
-                  setCredentialId(sampleId);
-                  handleVerify(sampleId);
-                }}
-                className="font-mono text-blue-600 hover:text-blue-800 hover:underline bg-blue-50/80 px-2 py-0.5 rounded border border-blue-200/60 cursor-pointer"
-                title="Click to autofill and verify"
-              >
-                {sampleId}
-              </button>
-              <button
-                type="button"
-                onClick={handleCopySample}
-                aria-label="Copy sample ID to clipboard"
-                className="inline-flex items-center gap-1 text-[11px] text-slate-500 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded transition-colors cursor-pointer"
-              >
-                {copied ? <Check className="h-3 w-3 text-green-600" /> : <Copy className="h-3 w-3" />}
-                <span>{copied ? 'Copied' : 'Copy'}</span>
-              </button>
+            <div className="mt-3 text-xs text-slate-500 flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2">
+              <span className="font-medium text-slate-600 shrink-0">Sample Credential:</span>
+              <div className="flex items-center gap-1.5 min-w-0 w-full sm:w-auto">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setCredentialId(sampleId);
+                    handleVerify(sampleId);
+                  }}
+                  className="font-mono text-blue-600 hover:text-blue-800 hover:underline bg-blue-50/80 px-2 py-1 rounded border border-blue-200/60 cursor-pointer truncate text-left text-xs flex-1 sm:flex-initial"
+                  title="Click to autofill and verify"
+                >
+                  {sampleId}
+                </button>
+                <button
+                  type="button"
+                  onClick={handleCopySample}
+                  aria-label="Copy sample ID to clipboard"
+                  className="shrink-0 inline-flex items-center gap-1 text-[11px] text-slate-500 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 px-2.5 py-1 rounded transition-colors cursor-pointer"
+                >
+                  {copied ? <Check className="h-3.5 w-3.5 text-green-600" /> : <Copy className="h-3.5 w-3.5" />}
+                  <span>{copied ? 'Copied' : 'Copy'}</span>
+                </button>
+              </div>
             </div>
           </div>
         ) : (

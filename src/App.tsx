@@ -15,10 +15,13 @@ const PharmacistVerify = lazy(() => import('./pages/PharmacistVerify'));
 const CredentialView = lazy(() => import('./pages/CredentialView'));
 const VerificationResultPage = lazy(() => import('./pages/VerificationResultPage'));
 const PrescriptionCreate = lazy(() => import('./pages/PrescriptionCreate'));
+const Prescriptions = lazy(() => import('./pages/Prescriptions'));
 const CredentialCompare = lazy(() => import('./pages/CredentialCompare'));
 const RevocationDashboard = lazy(() => import('./pages/RevocationDashboard'));
 const AuditTrail = lazy(() => import('./pages/AuditTrail'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./pages/TermsOfService'));
 
 import ErrorBoundary from './components/ErrorBoundary';
 
@@ -94,9 +97,11 @@ function App() {
             } />
             <Route path="/prescriptions" element={
               <ProtectedRoute roles={['PROVIDER', 'ADMIN']}>
-                <ProviderDashboard />
+                <Prescriptions />
               </ProtectedRoute>
             } />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
             <Route path="/" element={<PharmacistVerify />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -4,6 +4,7 @@ import { useToast } from '../contexts/ToastContext';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Users, FileCheck, Shield, Activity } from 'lucide-react';
+import PageMeta from '../components/PageMeta';
 
 export default function AdminDashboard() {
   const { user } = useAuth();
@@ -54,6 +55,11 @@ export default function AdminDashboard() {
 
   return (
     <div className="space-y-6">
+      <PageMeta
+        title="Admin Dashboard"
+        description="System administration, provider verification approvals, platform metrics, and credential issuance monitoring."
+        canonicalPath="/admin"
+      />
       <h1 className="text-2xl font-bold text-slate-900">{t('dashboard.admin.title')}</h1>
 
       {stats && (

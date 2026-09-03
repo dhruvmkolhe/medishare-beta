@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import VerificationResult from '../components/VerificationResult';
 import type { VerificationResult as VerificationResultType } from '../types';
 import { AlertCircle } from 'lucide-react';
+import PageMeta from '../components/PageMeta';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function VerificationResultPage() {
   const { credentialId } = useParams<{ credentialId: string }>();
@@ -85,7 +87,18 @@ export default function VerificationResultPage() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto mt-8">
+    <div className="max-w-2xl mx-auto mt-4">
+      <PageMeta
+        title={`Verification Result ${credentialId ? `#${credentialId.slice(0, 8)}` : ''}`}
+        description="Cryptographic audit and verification report for prescription credential with tamper-evident signature checks and refill validation."
+        canonicalPath={`/verify/${credentialId}`}
+      />
+      <Breadcrumbs
+        items={[
+          { label: 'Verify', path: '/verify' },
+          { label: 'Verification Result' },
+        ]}
+      />
       <h1 className="text-2xl font-bold text-slate-900 text-center mb-6">{t('verify.title')}</h1>
       {result && (
         <VerificationResult 

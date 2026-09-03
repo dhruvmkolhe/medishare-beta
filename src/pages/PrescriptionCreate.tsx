@@ -8,6 +8,9 @@ import DrugWarningBanner from '../components/DrugWarningBanner';
 import { checkDrugWarnings } from '../lib/drugWarnings';
 import type { Patient } from '../types';
 import { ArrowLeft, Pill, Save, Plus, Trash2 } from 'lucide-react';
+import PageMeta from '../components/PageMeta';
+import Breadcrumbs from '../components/Breadcrumbs';
+import { trackCTA } from '../lib/analytics';
 
 interface MedItem {
   medication: string;
@@ -74,6 +77,7 @@ export default function PrescriptionCreate() {
         setCreatedPrescription(data);
         setSuccess(true);
         toast('Prescription created successfully', 'success');
+        trackCTA('create_prescription_success', { medicationCount: items.length });
       }
     } catch (err) {
       console.error('Create error:', err);
@@ -84,12 +88,14 @@ export default function PrescriptionCreate() {
 
   const issueCredential = async () => {
     if (!createdPrescription) return;
+    trackCTA('issue_credential_attempt', { prescriptionId: createdPrescription.id });
     const res = await apiFetch('/api/credentials', {
       method: 'POST',
       body: JSON.stringify({ prescriptionId: createdPrescription.id }),
     });
     if (res.ok) {
       toast('Credential issued and signed', 'success');
+      trackCTA('issue_credential_success');
       navigate('/provider');
     }
   };
@@ -111,6 +117,18 @@ export default function PrescriptionCreate() {
 
   return (
     <div className="max-w-3xl mx-auto">
+      <PageMeta
+        title="New Prescription"
+        description="Author, evaluate drug interactions, and cryptographically sign verifiable prescription credentials for patients."
+        canonicalPath="/prescriptions/new"
+      />
+      <Breadcrumbs
+        items={[
+          { label: 'Dashboard', path: '/dashboard' },
+          { label: 'Prescriptions', path: '/prescriptions' },
+          { label: 'New Prescription' },
+        ]}
+      />
       <button onClick={() => navigate(-1)} className="flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 mb-4">
         <ArrowLeft className="h-4 w-4" />
         {t('common.back')}

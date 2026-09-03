@@ -4,6 +4,8 @@ import { useToast } from '../contexts/ToastContext';
 import { useTranslation } from 'react-i18next';
 import { Link, useNavigate } from 'react-router-dom';
 import { Mail, Lock, AlertCircle, Eye, EyeOff } from 'lucide-react';
+import PageMeta from '../components/PageMeta';
+import { trackCTA } from '../lib/analytics';
 
 export default function Login() {
   const { login } = useAuth();
@@ -15,11 +17,46 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [touched, setTouched] = useState<{ email?: boolean; password?: boolean }>({});
+  const [fieldErrors, setFieldErrors] = useState<{ email?: string; password?: string }>({});
+
+  const validateField = (name: 'email' | 'password', val: string) => {
+    let err = '';
+    if (name === 'email') {
+      if (!val.trim()) {
+        err = 'Email address is required';
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim())) {
+        err = 'Please enter a valid email address';
+      }
+    } else if (name === 'password') {
+      if (!val) {
+        err = 'Password is required';
+      } else if (val.length < 8) {
+        err = 'Password must be at least 8 characters';
+      }
+    }
+    setFieldErrors(prev => ({ ...prev, [name]: err }));
+    return !err;
+  };
+
+  const handleBlur = (field: 'email' | 'password') => {
+    setTouched(prev => ({ ...prev, [field]: true }));
+    validateField(field, field === 'email' ? email : password);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setTouched({ email: true, password: true });
+    const isEmailValid = validateField('email', email);
+    const isPasswordValid = validateField('password', password);
+
+    if (!isEmailValid || !isPasswordValid) {
+      return;
+    }
+
     setError('');
     setLoading(true);
+    trackCTA('login_submit_attempt');
     try {
       await login(email, password);
       toast('Welcome back!', 'success');
@@ -33,6 +70,11 @@ export default function Login() {
 
   return (
     <div className="flex flex-col items-center justify-center flex-1 py-2 sm:py-6">
+      <PageMeta
+        title="Sign In"
+        description="Access your MediShare healthcare portal to manage, issue, or review cryptographically signed digital prescriptions and verifiable credentials."
+        canonicalPath="/login"
+      />
       <div className="w-full max-w-md">
         <div className="text-center mb-4">
           <h1 className="text-xl font-bold text-slate-900">{t('login.title')}</h1>
@@ -47,7 +89,7 @@ export default function Login() {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-3.5">
+          <form onSubmit={handleSubmit} className="space-y-3.5" noValidate>
             <div>
               <label htmlFor="login-email" className="block text-xs font-medium text-slate-700 mb-1">{t('login.email')}</label>
               <div className="relative">
@@ -56,12 +98,28 @@ export default function Login() {
                   id="login-email"
                   type="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500 text-sm"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (touched.email) validateField('email', e.target.value);
+                  }}
+                  onBlur={() => handleBlur('email')}
+                  aria-invalid={!!(fieldErrors.email && touched.email)}
+                  aria-describedby={fieldErrors.email && touched.email ? "login-email-error" : undefined}
+                  className={`w-full pl-9 pr-3 py-2 border rounded-lg focus:outline-none focus:ring-2 text-sm transition-colors ${
+                    fieldErrors.email && touched.email
+                      ? 'border-red-400 focus:ring-red-400 bg-red-50/20'
+                      : 'border-slate-300 focus:ring-slate-500'
+                  }`}
                   placeholder="provider@example.com"
                   required
                 />
               </div>
+              {fieldErrors.email && touched.email && (
+                <p id="login-email-error" role="alert" className="mt-1 text-xs text-red-600 flex items-center gap-1">
+                  <AlertCircle className="h-3 w-3 flex-shrink-0" />
+                  <span>{fieldErrors.email}</span>
+                </p>
+              )}
             </div>
 
             <div>
@@ -72,8 +130,18 @@ export default function Login() {
                   id="login-password"
                   type={showPassword ? "text" : "password"}
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full pl-9 pr-10 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500 text-sm"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                    if (touched.password) validateField('password', e.target.value);
+                  }}
+                  onBlur={() => handleBlur('password')}
+                  aria-invalid={!!(fieldErrors.password && touched.password)}
+                  aria-describedby={fieldErrors.password && touched.password ? "login-password-error" : undefined}
+                  className={`w-full pl-9 pr-10 py-2 border rounded-lg focus:outline-none focus:ring-2 text-sm transition-colors ${
+                    fieldErrors.password && touched.password
+                      ? 'border-red-400 focus:ring-red-400 bg-red-50/20'
+                      : 'border-slate-300 focus:ring-slate-500'
+                  }`}
                   placeholder="••••••••"
                   required
                   minLength={8}
@@ -88,6 +156,12 @@ export default function Login() {
                   {showPassword ? <EyeOff className="h-4 w-4" aria-hidden="true" /> : <Eye className="h-4 w-4" aria-hidden="true" />}
                 </button>
               </div>
+              {fieldErrors.password && touched.password && (
+                <p id="login-password-error" role="alert" className="mt-1 text-xs text-red-600 flex items-center gap-1">
+                  <AlertCircle className="h-3 w-3 flex-shrink-0" />
+                  <span>{fieldErrors.password}</span>
+                </p>
+              )}
             </div>
 
             <button

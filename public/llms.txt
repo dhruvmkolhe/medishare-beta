@@ -1,0 +1,26 @@
+# MediShare
+
+> Decentralized, Privacy-Preserving Digital Prescription Credentials
+
+MediShare is an open healthcare credentialing platform designed to replace paper prescriptions with digitally signed, verifiable medical credentials. Prescriptions are hashed according to RFC 8785 (JSON Canonicalization Scheme) and signed with Ed25519 asymmetric cryptography.
+
+## Key Features
+- **Tamper-Evident Prescriptions**: Cryptographically signed by licensed healthcare providers. Altering any character invalidates the Ed25519 signature.
+- **Double-Dispense Prevention**: Dispensation events are recorded with real-time refill tracking to prevent duplicate dispensing.
+- **Drug Interaction Screening**: Automatic multi-drug conflict detection and dosage threshold alerts.
+- **Decentralized Verification**: Instant offline and online verification via QR code without requiring database access or phone confirmations.
+- **Open Standards**: Built on W3C Verifiable Credentials data models and HL7 FHIR resource schemas.
+
+## Core Endpoints
+- `/`: Public verification portal (camera scanner and manual credential ID input)
+- `/verify`: Pharmacist and verifier credential authentication portal
+- `/login`: Role-based portal authentication (Patient, Healthcare Provider, Administrator)
+- `/register`: Account registration
+- `/privacy`: Privacy Policy and cryptographic data protection principles
+- `/terms`: Terms of Service for digital medical credential issuance and verification
+
+## Architecture & Cryptography
+- **Signature Algorithm**: Ed25519 (Edwards-curve Digital Signature Algorithm)
+- **Hashing**: SHA-256 over RFC 8785 canonicalized JSON payloads
+- **Key Storage**: AES-256-GCM encrypted provider private keys
+- **Formats**: W3C Verifiable Credential 2.0 & HL7 FHIR MedicationRequest

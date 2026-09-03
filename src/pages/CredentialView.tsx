@@ -8,6 +8,8 @@ import PrescriptionPdf from '../components/PrescriptionPdf';
 import ExportButtons from '../components/ExportButtons';
 import type { Credential } from '../types';
 import { ArrowLeft, QrCode, AlertTriangle } from 'lucide-react';
+import PageMeta from '../components/PageMeta';
+import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function CredentialView() {
   const { id } = useParams<{ id: string }>();
@@ -66,6 +68,17 @@ export default function CredentialView() {
 
   return (
     <div className="max-w-2xl mx-auto">
+      <PageMeta
+        title={`Credential Details ${credential ? `#${credential.credential_id.slice(0, 8)}` : ''}`}
+        description="View verifiable medical credential details, cryptographic public key hashes, dispensation history, and print vector PDF."
+        canonicalPath={`/credentials/${id}`}
+      />
+      <Breadcrumbs
+        items={[
+          { label: 'Dashboard', path: '/dashboard' },
+          { label: 'Credential Details' },
+        ]}
+      />
       <div className="flex items-center justify-between mb-4">
         <button
           onClick={() => navigate(-1)}
