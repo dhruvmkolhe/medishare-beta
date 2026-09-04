@@ -62,6 +62,7 @@ export interface Credential {
   status: 'ACTIVE' | 'REVOKED' | 'EXPIRED' | 'SUPERSEDED' | 'DISPENSED';
   created_at: string;
   updated_at: string;
+  pickup_pin?: string;
   prescriptions?: Prescription;
 }
 
@@ -91,6 +92,7 @@ export interface VerificationResult {
     refills_remaining?: number;
     dispensation_count?: number;
     max_dispensations?: number;
+    has_pickup_pin?: boolean;
   };
   failureReason: string | null;
   eventId: string;

@@ -20,6 +20,14 @@ export default function Login() {
   const [touched, setTouched] = useState<{ email?: boolean; password?: boolean }>({});
   const [fieldErrors, setFieldErrors] = useState<{ email?: string; password?: string }>({});
 
+  const handleQuickFill = (demoEmail: string, demoPass: string) => {
+    setEmail(demoEmail);
+    setPassword(demoPass);
+    setTouched({ email: true, password: true });
+    setFieldErrors({});
+    setError('');
+  };
+
   const validateField = (name: 'email' | 'password', val: string) => {
     let err = '';
     if (name === 'email') {
@@ -88,6 +96,45 @@ export default function Login() {
               {error}
             </div>
           )}
+
+          <div className="mb-4 p-3 bg-slate-50 rounded-lg border border-slate-200/90">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[11px] font-semibold text-slate-600 uppercase tracking-wider">
+                Demo Accounts
+              </span>
+              <span className="text-[11px] text-slate-400">1-click to fill</span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+              <button
+                type="button"
+                onClick={() => handleQuickFill('dr.sharma@medishare.com', 'password123')}
+                className="py-1.5 px-2 bg-white hover:bg-slate-100 active:bg-slate-200 border border-slate-200 rounded-md text-xs font-medium text-slate-700 transition-colors text-center cursor-pointer shadow-xs"
+              >
+                Doctor
+              </button>
+              <button
+                type="button"
+                onClick={() => handleQuickFill('pharmacist@medishare.com', 'password123')}
+                className="py-1.5 px-2 bg-white hover:bg-slate-100 active:bg-slate-200 border border-slate-200 rounded-md text-xs font-medium text-slate-700 transition-colors text-center cursor-pointer shadow-xs"
+              >
+                Pharmacist
+              </button>
+              <button
+                type="button"
+                onClick={() => handleQuickFill('john.doe@medishare.com', 'password123')}
+                className="py-1.5 px-2 bg-white hover:bg-slate-100 active:bg-slate-200 border border-slate-200 rounded-md text-xs font-medium text-slate-700 transition-colors text-center cursor-pointer shadow-xs"
+              >
+                Patient
+              </button>
+              <button
+                type="button"
+                onClick={() => handleQuickFill('admin@medishare.com', 'password123')}
+                className="py-1.5 px-2 bg-white hover:bg-slate-100 active:bg-slate-200 border border-slate-200 rounded-md text-xs font-medium text-slate-700 transition-colors text-center cursor-pointer shadow-xs"
+              >
+                Admin
+              </button>
+            </div>
+          </div>
 
           <form onSubmit={handleSubmit} className="space-y-3.5" noValidate>
             <div>

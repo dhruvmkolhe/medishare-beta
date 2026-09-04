@@ -26,6 +26,7 @@ describe('End-to-End Backend API Test Suite', () => {
   let adminToken = '';
   let providerToken = '';
   let patientToken = '';
+  let pharmacistToken = '';
   let sampleCredentialId = '';
 
   beforeAll(async () => {
@@ -58,6 +59,16 @@ describe('End-to-End Backend API Test Suite', () => {
       headers: { 'Content-Type': 'application/json' }
     }, { email: 'john.doe@medishare.com', password: 'password123' });
     patientToken = patRes.body?.accessToken;
+
+    // 4. Login Pharmacist
+    const pharmRes = await request({
+      hostname: 'localhost',
+      port: 5173,
+      path: '/api/auth/login',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' }
+    }, { email: 'pharmacist@medishare.com', password: 'password123' });
+    pharmacistToken = pharmRes.body?.accessToken;
   });
 
   describe('Authentication & Role-Based Access Control', () => {
@@ -273,7 +284,59 @@ describe('End-to-End Backend API Test Suite', () => {
       expect(res.body?.status).toBe('ACTIVE');
     });
 
-    it('records pharmacy dispensation via POST /api/dispensations', async () => {
+    it('blocks unauthenticated dispensation attempts with 401', async () => {
+      const dispRes = await request({
+        hostname: 'localhost',
+        port: 5173,
+        path: '/api/dispensations',
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' }
+      }, {
+        credentialId: benchmarkUuid,
+        pharmacyName: 'Rogue Dispensary',
+      });
+      expect(dispRes.status).toBe(401);
+      expect(dispRes.body?.error).toContain('Unauthorized');
+    });
+
+    it('blocks unauthorized roles (Patient) from dispensing prescriptions (403)', async () => {
+      const dispRes = await request({
+        hostname: 'localhost',
+        port: 5173,
+        path: '/api/dispensations',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${patientToken}`
+        }
+      }, {
+        credentialId: benchmarkUuid,
+        pickupPin: '839214',
+        pharmacyName: 'Patient Self-Dispense Attempt',
+      });
+      expect(dispRes.status).toBe(401);
+    });
+
+    it('rejects dispensation if Patient Pickup PIN does not match (400)', async () => {
+      const dispRes = await request({
+        hostname: 'localhost',
+        port: 5173,
+        path: '/api/dispensations',
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${pharmacistToken}`
+        }
+      }, {
+        credentialId: benchmarkUuid,
+        pickupPin: '000000', // Incorrect PIN
+        pharmacyName: 'Metro Central Pharmacy',
+      });
+      expect(dispRes.status).toBe(400);
+      expect(dispRes.body?.error).toContain('Invalid Patient Pickup PIN');
+    });
+
+    it('records pharmacy dispensation with correct PIN and authenticated pharmacist (200)', async () => {
       // Create a dedicated fresh prescription and credential for dispensation testing
       const patientsRes = await request({
         hostname: 'localhost',
@@ -311,15 +374,20 @@ describe('End-to-End Backend API Test Suite', () => {
       }, { prescriptionId: rxRes.body.id });
 
       const testCredId = credRes.body.credential_id || credRes.body.id;
+      const testPin = credRes.body.pickup_pin;
 
       const dispRes = await request({
         hostname: 'localhost',
         port: 5173,
         path: '/api/dispensations',
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' }
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${pharmacistToken}`
+        }
       }, {
         credentialId: testCredId,
+        pickupPin: testPin,
         pharmacyName: 'Automated Test Pharmacy',
         notes: 'Dispensed fill 1 of 3'
       });

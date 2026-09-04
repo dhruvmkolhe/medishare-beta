@@ -113,6 +113,18 @@ export default function CredentialView() {
             <span className="text-slate-500">Credential ID</span>
             <span className="font-mono text-slate-900">{credential.credential_id}</span>
           </div>
+
+          {credential.pickup_pin && (
+            <div className="flex justify-between items-center pb-3 border-b border-purple-100 bg-purple-50/50 p-3 rounded-lg">
+              <div>
+                <span className="font-semibold text-purple-900 text-xs uppercase tracking-wider block">Patient Pickup PIN (2FA)</span>
+                <span className="text-[11px] text-purple-600">Provide this secret PIN to the pharmacist to authorize dispensing</span>
+              </div>
+              <span className="font-mono text-sm font-bold bg-white text-purple-700 px-2.5 py-1 rounded border border-purple-200 tracking-wider">
+                {credential.pickup_pin}
+              </span>
+            </div>
+          )}
           
           {hasItems ? (
             <div className="space-y-3 pb-3 border-b border-slate-100">
@@ -181,7 +193,7 @@ export default function CredentialView() {
             <QrCode className="h-5 w-5 text-slate-500" />
             <h2 className="text-lg font-semibold text-slate-900">{t('common.verificationQr')}</h2>
           </div>
-          <QrDisplay url={qrData.url} credentialId={qrData.id} size={200} />
+          <QrDisplay url={qrData.url} credentialId={qrData.id} pickupPin={credential.pickup_pin} size={200} />
         </div>
       )}
     </div>

@@ -730,6 +730,7 @@ async function seed() {
       status: item.status,
       max_dispensations: maxDispensations,
       dispensations: embeddedDispensations,
+      pickup_pin: '839214',
       created_at: issuedDate
     };
 
@@ -865,6 +866,7 @@ async function seed() {
   console.log('🧑 Patient:               john.doe@medishare.com (or emily.davis@medishare.com)');
   console.log('-------------------------------------------------------------');
   console.log('📌 Benchmark Sample UUID: c9c52004-6fb3-4654-8fbd-2bd360802816');
+  console.log('🔐 Demo Patient Pickup PIN: 839214');
   console.log('=============================================================\n');
 }
 

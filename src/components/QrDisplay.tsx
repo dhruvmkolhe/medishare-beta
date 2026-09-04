@@ -6,10 +6,11 @@ import { useState } from 'react';
 interface Props {
   url: string;
   credentialId: string;
+  pickupPin?: string;
   size?: number;
 }
 
-export default function QrDisplay({ url, credentialId, size = 256 }: Props) {
+export default function QrDisplay({ url, credentialId, pickupPin, size = 256 }: Props) {
   const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
 
@@ -58,6 +59,20 @@ export default function QrDisplay({ url, credentialId, size = 256 }: Props) {
       <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm inline-block">
         <QRCode id={`qr-${credentialId}`} value={url} size={size} level="M" />
       </div>
+
+      {pickupPin && (
+        <div className="w-full max-w-sm bg-purple-50/90 border border-purple-200/80 rounded-xl p-3 text-center shadow-xs">
+          <div className="text-[11px] font-bold uppercase tracking-wider text-purple-900">
+            Patient Pickup PIN (2FA Verification)
+          </div>
+          <div className="text-2xl font-mono font-black text-purple-700 tracking-widest my-1">
+            {pickupPin}
+          </div>
+          <p className="text-[11px] text-purple-600 leading-snug">
+            Provide this secret PIN to your pharmacist along with this QR code to claim your medication securely.
+          </p>
+        </div>
+      )}
 
       <div className="w-full max-w-sm bg-slate-50 p-2.5 rounded-xl border border-slate-200 flex items-center justify-between gap-2">
         <span className="font-mono text-xs text-slate-700 truncate pl-1">{credentialId}</span>

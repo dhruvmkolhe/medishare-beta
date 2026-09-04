@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth, useApiFetch } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
 import QrScanner from '../components/QrScanner';
 import VerificationResult from '../components/VerificationResult';
@@ -13,9 +13,11 @@ export default function PharmacistVerify() {
   const { t } = useTranslation();
   const { toast } = useToast();
   const { user } = useAuth();
+  const apiFetch = useApiFetch();
   const [mode, setMode] = useState<'scan' | 'input'>('input');
   const [credentialId, setCredentialId] = useState('');
   const [loading, setLoading] = useState(false);
+  const [dispensing, setDispensing] = useState(false);
   const [copied, setCopied] = useState(false);
   const [result, setResult] = useState<VerificationResultType | null>(null);
   const [error, setError] = useState('');
@@ -66,22 +68,32 @@ export default function PharmacistVerify() {
     }
   };
 
-  const handleDispense = async (credId: string) => {
+  const handleDispense = async (credId: string, pickupPin?: string, notes?: string) => {
+    setDispensing(true);
+    setError('');
     try {
-      const res = await fetch('/api/dispensations', {
+      const res = await apiFetch('/api/dispensations', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ credentialId: credId }),
+        body: JSON.stringify({
+          credentialId: credId,
+          pickupPin: pickupPin || '',
+          notes: notes || '',
+        }),
       });
       if (res.ok) {
         toast('Prescription marked as dispensed', 'success');
-        handleVerify(credId);
+        await handleVerify(credId);
       } else {
         const err = await res.json();
-        setError(err.error || 'Failed to record dispensation');
+        const msg = typeof err.error === 'string' ? err.error : (Array.isArray(err.error) ? err.error.map((e: any) => e.message).join(', ') : 'Failed to record dispensation');
+        setError(msg);
+        toast(msg, 'error');
       }
     } catch (err: any) {
       setError(err.message);
+      toast(err.message, 'error');
+    } finally {
+      setDispensing(false);
     }
   };
 
@@ -226,6 +238,7 @@ export default function PharmacistVerify() {
           result={result} 
           credentialId={credentialId}
           onDispense={handleDispense} 
+          dispensing={dispensing}
         />
       )}
     </div>

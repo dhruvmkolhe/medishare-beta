@@ -1,6 +1,6 @@
 import getDb from '../db-client.js';
 import { ObjectId } from 'mongodb';
-import { corsHeaders, getPath, logAudit, dispensationSchema } from '../utils.js';
+import { corsHeaders, getPath, logAudit, dispensationSchema, requireRole } from '../utils.js';
 
 export default async function handler(req, res) {
   corsHeaders(res);
@@ -10,16 +10,28 @@ export default async function handler(req, res) {
     const db = await getDb();
 
     if (req.method === 'POST' && getPath(req) === '/api/dispensations') {
+      const payload = await requireRole(req, ['PHARMACIST', 'ADMIN']);
+      if (!payload) {
+        return res.status(401).json({ error: 'Unauthorized: Dispensation is restricted to licensed pharmacists or administrators' });
+      }
+
       const parsed = dispensationSchema.safeParse(req.body);
       if (!parsed.success) return res.status(400).json({ error: parsed.error.errors });
 
-      const { credentialId, pharmacyName, notes } = parsed.data;
+      const { credentialId, pharmacyName, notes, pickupPin } = parsed.data;
 
       let credential = await db.collection('credentials').findOne({ credential_id: credentialId });
       if (!credential && ObjectId.isValid(credentialId) && credentialId.length === 24) {
         credential = await db.collection('credentials').findOne({ _id: new ObjectId(credentialId) });
       }
       if (!credential) return res.status(404).json({ error: 'Credential not found' });
+
+      // Anti-theft Patient Pickup PIN Verification
+      if (credential.pickup_pin) {
+        if (!pickupPin || pickupPin.trim() !== credential.pickup_pin.trim()) {
+          return res.status(400).json({ error: 'Invalid Patient Pickup PIN. Dispensation rejected.' });
+        }
+      }
 
       const maxDisp = credential.max_dispensations || 1;
 
@@ -37,8 +49,8 @@ export default async function handler(req, res) {
 
       const dispensedAt = new Date().toISOString();
       const newDispensation = {
-        dispensed_by: null,
-        pharmacy_name: pharmacyName,
+        dispensed_by: payload.sub,
+        pharmacy_name: pharmacyName || 'Metro Central Pharmacy',
         notes: notes,
         dispensed_at: dispensedAt
       };
@@ -61,7 +73,11 @@ export default async function handler(req, res) {
         }
       );
 
-      await logAudit(db, null, 'CREDENTIAL_DISPENSED', 'credential', credential._id, { pharmacy_name: pharmacyName, dispensation_number: newCount, remaining });
+      await logAudit(db, payload.sub, 'CREDENTIAL_DISPENSED', 'credential', credential._id, {
+        pharmacy_name: newDispensation.pharmacy_name,
+        dispensation_number: newCount,
+        remaining
+      });
 
       return res.status(200).json({ ok: true, dispensedAt, remaining, dispensationNumber: newCount, totalAuthorized: maxDisp });
     }

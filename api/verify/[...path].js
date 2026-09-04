@@ -181,6 +181,7 @@ export default async function handler(req, res) {
           refills_remaining: Math.max(0, maxDisp - currentDispCount),
           dispensation_count: currentDispCount,
           max_dispensations: maxDisp,
+          has_pickup_pin: !!credential.pickup_pin,
         },
         failureReason,
         eventId: insertEvent.insertedId.toString(),

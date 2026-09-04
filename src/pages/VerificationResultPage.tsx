@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useApiFetch } from '../contexts/AuthContext';
 import VerificationResult from '../components/VerificationResult';
 import type { VerificationResult as VerificationResultType } from '../types';
 import { AlertCircle } from 'lucide-react';
@@ -10,8 +11,10 @@ import Breadcrumbs from '../components/Breadcrumbs';
 export default function VerificationResultPage() {
   const { credentialId } = useParams<{ credentialId: string }>();
   const { t } = useTranslation();
+  const apiFetch = useApiFetch();
   const [result, setResult] = useState<VerificationResultType | null>(null);
   const [loading, setLoading] = useState(true);
+  const [dispensing, setDispensing] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -68,21 +71,29 @@ export default function VerificationResultPage() {
     );
   }
 
-  const handleDispense = async (credId: string) => {
+  const handleDispense = async (credId: string, pickupPin?: string, notes?: string) => {
+    setDispensing(true);
+    setError('');
     try {
-      const res = await fetch('/api/dispensations', {
+      const res = await apiFetch('/api/dispensations', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ credentialId: credId }),
+        body: JSON.stringify({
+          credentialId: credId,
+          pickupPin: pickupPin || '',
+          notes: notes || ''
+        }),
       });
       if (res.ok) {
-        window.location.reload(); // Simple reload to re-verify for public page
+        window.location.reload(); // Simple reload to re-verify
       } else {
         const err = await res.json();
-        setError(err.error || 'Failed to record dispensation');
+        const msg = typeof err.error === 'string' ? err.error : (Array.isArray(err.error) ? err.error.map((e: any) => e.message).join(', ') : 'Failed to record dispensation');
+        setError(msg);
       }
     } catch (err: any) {
       setError(err.message);
+    } finally {
+      setDispensing(false);
     }
   };
 
@@ -105,6 +116,7 @@ export default function VerificationResultPage() {
           result={result} 
           credentialId={credentialId}
           onDispense={handleDispense} 
+          dispensing={dispensing}
         />
       )}
     </div>

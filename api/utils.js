@@ -86,6 +86,7 @@ export const dispensationSchema = z.object({
   credentialId: z.string().uuid(),
   pharmacyName: z.string().optional().default(''),
   notes: z.string().optional().default(''),
+  pickupPin: z.string().optional().default(''),
 });
 
 export const verifyInitSchema = z.object({

@@ -14,7 +14,7 @@ export default function PatientDashboard() {
   const { t } = useTranslation();
   const [credentials, setCredentials] = useState<Credential[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedQr, setSelectedQr] = useState<{ url: string; id: string } | null>(null);
+  const [selectedQr, setSelectedQr] = useState<{ url: string; id: string; pin?: string } | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
 
   const fetchData = async () => {
@@ -31,12 +31,12 @@ export default function PatientDashboard() {
 
   useEffect(() => { fetchData(); }, []);
 
-  const showQr = async (id: string) => {
-    const res = await apiFetch(`/api/credentials/${id}/qr`);
+  const showQr = async (cred: Credential) => {
+    const res = await apiFetch(`/api/credentials/${cred.id}/qr`);
     if (res.ok) {
       const data = await res.json();
       const properUrl = `${window.location.origin}/verify/${data.credentialId}`;
-      setSelectedQr({ url: properUrl, id: data.credentialId });
+      setSelectedQr({ url: properUrl, id: data.credentialId, pin: cred.pickup_pin });
     }
   };
 
@@ -138,10 +138,20 @@ export default function PatientDashboard() {
                 </div>
                 <StatusBadge status={cred.status} />
               </div>
+              
+              {cred.pickup_pin && (
+                <div className="mb-3 py-1.5 px-2.5 bg-purple-50/80 border border-purple-100 rounded-lg flex items-center justify-between">
+                  <span className="text-xs text-purple-900 font-medium">Pickup PIN (2FA):</span>
+                  <span className="font-mono text-xs font-bold text-purple-700 tracking-wider bg-white px-2 py-0.5 rounded border border-purple-200">
+                    {cred.pickup_pin}
+                  </span>
+                </div>
+              )}
+
               <div className="flex gap-2">
                 <button
-                  onClick={() => showQr(cred.id)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 rounded-md text-sm text-slate-700 hover:bg-slate-200 transition-colors"
+                  onClick={() => showQr(cred)}
+                  className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 rounded-md text-sm text-slate-700 hover:bg-slate-200 transition-colors cursor-pointer"
                 >
                   <QrCode className="h-4 w-4" />
                   {t('dashboard.patient.viewQr')}
@@ -149,7 +159,7 @@ export default function PatientDashboard() {
                 {cred.status === 'ACTIVE' && (
                   <button
                     onClick={() => revoke(cred.id)}
-                    className="flex items-center gap-1.5 px-3 py-1.5 bg-red-50 rounded-md text-sm text-red-600 hover:bg-red-100 transition-colors"
+                    className="flex items-center gap-1.5 px-3 py-1.5 bg-red-50 rounded-md text-sm text-red-600 hover:bg-red-100 transition-colors cursor-pointer"
                   >
                     <X className="h-4 w-4" />
                     {t('dashboard.patient.revoke')}
@@ -166,11 +176,11 @@ export default function PatientDashboard() {
           <div className="bg-white rounded-lg p-6 max-w-sm w-full">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold">{t('common.verificationQr')}</h3>
-              <button onClick={() => setSelectedQr(null)} className="text-slate-400 hover:text-slate-600">
+              <button onClick={() => setSelectedQr(null)} className="text-slate-400 hover:text-slate-600 cursor-pointer">
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <QrDisplay url={selectedQr.url} credentialId={selectedQr.id} size={200} />
+            <QrDisplay url={selectedQr.url} credentialId={selectedQr.id} pickupPin={selectedQr.pin} size={200} />
           </div>
         </div>
       )}

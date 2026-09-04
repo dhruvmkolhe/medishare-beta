@@ -88,6 +88,7 @@ export default async function handler(req, res) {
       const credentialId = generateCredentialId();
       const issuedAt = new Date().toISOString();
       const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
+      const pickupPin = Math.floor(100000 + Math.random() * 900000).toString();
 
       const credDoc = {
         credential_id: credentialId,
@@ -100,6 +101,7 @@ export default async function handler(req, res) {
         status: 'ACTIVE',
         max_dispensations: maxDispensations,
         dispensations: [],
+        pickup_pin: pickupPin,
       };
       
       const result = await db.collection('credentials').insertOne(credDoc);

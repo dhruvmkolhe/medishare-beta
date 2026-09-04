@@ -28,7 +28,7 @@ export default function DrugWarningBanner({ warnings }: Props) {
       >
         <div className="flex items-center gap-2">
           <AlertTriangle className="h-5 w-5" />
-          <span>⚠️ {warnings.length} Drug Warning{warnings.length !== 1 ? 's' : ''} Detected</span>
+          <span>{warnings.length} Drug Warning{warnings.length !== 1 ? 's' : ''} Detected</span>
           {highCount > 0 && (
             <span className="text-xs bg-red-200 text-red-900 px-2 py-0.5 rounded-full">{highCount} high risk</span>
           )}
