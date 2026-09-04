@@ -1,9 +1,9 @@
-import getDb from '../db-client.js';
+import getDb from '../_lib/db-client.js';
 import { ObjectId } from 'mongodb';
 import {
   hashPassword, comparePassword, createAccessToken, createRefreshToken, verifyRefreshToken,
   loginSchema, registerSchema, corsHeaders, setRefreshCookie, clearRefreshCookie, getClientIp, rateLimit, logAudit, getPath, parseCookies
-} from '../utils.js';
+} from '../_lib/utils.js';
 
 export default async function handler(req, res) {
   corsHeaders(res);

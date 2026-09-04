@@ -136,7 +136,31 @@ export function getClientIp(req) {
 }
 
 export function getPath(req) {
-  let p = (req.url || '').split('?')[0];
+  // 1. Check Vercel's matched path header
+  const matchedPath = req.headers?.['x-matched-path'] || req.headers?.['x-invoke-path'];
+  if (matchedPath) {
+    let p = matchedPath.split('?')[0];
+    if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+    return p;
+  }
+
+  // 2. Check query param __path passed by vercel.json rewrite
+  const rawUrl = req.url || '';
+  if (rawUrl.includes('__path=')) {
+    try {
+      const parsed = new URL(rawUrl, 'http://localhost');
+      const paramPath = parsed.searchParams.get('__path');
+      if (paramPath) {
+        let p = paramPath.startsWith('/') ? `/api${paramPath}` : `/api/${paramPath}`;
+        p = p.split('?')[0];
+        if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
+        return p;
+      }
+    } catch {}
+  }
+
+  // 3. Fallback to normal URL pathname
+  let p = rawUrl.split('?')[0];
   if (p.length > 1 && p.endsWith('/')) {
     p = p.slice(0, -1);
   }

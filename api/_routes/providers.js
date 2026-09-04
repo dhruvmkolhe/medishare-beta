@@ -1,7 +1,7 @@
-import getDb from '../db-client.js';
+import getDb from '../_lib/db-client.js';
 import { ObjectId } from 'mongodb';
-import { corsHeaders, requireRole, logAudit, getPath } from '../utils.js';
-import { generateKeyPair, encryptPrivateKey } from '../crypto-utils.js';
+import { corsHeaders, requireRole, logAudit, getPath } from '../_lib/utils.js';
+import { generateKeyPair, encryptPrivateKey } from '../_lib/crypto-utils.js';
 import { z } from 'zod';
 
 const approveSchema = z.object({

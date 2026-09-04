@@ -1,12 +1,12 @@
-import getDb from '../db-client.js';
+import getDb from '../_lib/db-client.js';
 import { ObjectId } from 'mongodb';
 import {
   corsHeaders, requireRole, credentialRevokeSchema, logAudit, getPath
-} from '../utils.js';
+} from '../_lib/utils.js';
 import {
   canonicalizeToString, hashCanonical, signCredential, decryptPrivateKey,
   generateCredentialId, verifySignature, detectTamper, generateVerificationUrl
-} from '../crypto-utils.js';
+} from '../_lib/crypto-utils.js';
 
 async function findCredential(db, id) {
   if (!id) return null;

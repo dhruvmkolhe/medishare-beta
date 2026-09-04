@@ -1,6 +1,6 @@
-import getDb from '../db-client.js';
+import getDb from '../_lib/db-client.js';
 import { ObjectId } from 'mongodb';
-import { corsHeaders, requireRole, getPath } from '../utils.js';
+import { corsHeaders, requireRole, getPath } from '../_lib/utils.js';
 
 export default async function handler(req, res) {
   corsHeaders(res);

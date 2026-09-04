@@ -1,8 +1,8 @@
-import getDb from '../db-client.js';
-import { corsHeaders, getClientIp, rateLimit, logAudit, getPath } from '../utils.js';
+import getDb from '../_lib/db-client.js';
+import { corsHeaders, getClientIp, rateLimit, logAudit, getPath } from '../_lib/utils.js';
 import {
   canonicalizeToString, hashCanonical, verifySignature, detectTamper, generateNonce
-} from '../crypto-utils.js';
+} from '../_lib/crypto-utils.js';
 import { z } from 'zod';
 import { ObjectId } from 'mongodb';
 

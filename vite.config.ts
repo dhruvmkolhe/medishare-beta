@@ -1,7 +1,6 @@
 import { defineConfig, loadEnv, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
-import url from 'url'
 
 function apiDevPlugin(): Plugin {
   return {
@@ -44,28 +43,10 @@ function apiDevPlugin(): Plugin {
             res.end(data);
           };
 
-          const parsedUrl = url.parse(req.url, true);
-          const pathname = parsedUrl.pathname || '';
-          const parts = pathname.split('/').filter(Boolean);
-          const section = parts[1];
-
-          const validSections = ['auth', 'credentials', 'prescriptions', 'providers', 'patients', 'verify', 'admin', 'audit', 'dispensations'];
-          let handlerModule: any = null;
-          if (validSections.includes(section)) {
-            // @ts-ignore
-            handlerModule = await import(`./api/${section}/[...path].js`);
-          }
-
-          if (handlerModule && (handlerModule.default || typeof handlerModule === 'function')) {
-            const handler = handlerModule.default || handlerModule;
-            await handler(req, res);
-          } else {
-            res.statusCode = 404;
-            if (!res.headersSent) {
-              res.setHeader('Content-Type', 'application/json');
-            }
-            res.end(JSON.stringify({ error: `API route not found: ${pathname}` }));
-          }
+          // @ts-ignore
+          const apiModule = await import('./api/index.js');
+          const handler = apiModule.default || apiModule;
+          await handler(req, res);
         } catch (error: any) {
           console.error('API middleware error:', error);
           if (!res.headersSent) {

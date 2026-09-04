@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import http from 'http';
-import { validateEnvironment } from '../api/env-check.js';
+import { validateEnvironment } from '../api/_lib/env-check.js';
 
 describe('Security Hardening & Headers Suite', () => {
   describe('Environment Variable Integrity Validator', () => {

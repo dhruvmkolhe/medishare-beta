@@ -1,6 +1,6 @@
-import getDb from '../db-client.js';
+import getDb from '../_lib/db-client.js';
 import { ObjectId } from 'mongodb';
-import { corsHeaders, requireRole, getPath } from '../utils.js';
+import { corsHeaders, requireRole, getPath } from '../_lib/utils.js';
 
 export default async function handler(req, res) {
   corsHeaders(res);
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     const db = await getDb();
 
     if (req.method === 'GET' && getPath(req) === '/api/audit') {
-      const url = new URL(req.url, `http://${req.headers.host}`);
+      const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
       const action = url.searchParams.get('action') || '';
       const fromParam = url.searchParams.get('from') || '';
       const toParam = url.searchParams.get('to') || '';

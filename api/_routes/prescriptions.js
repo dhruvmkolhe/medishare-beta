@@ -1,5 +1,5 @@
-import getDb from '../db-client.js';
-import { corsHeaders, requireRole, prescriptionSchema, logAudit, getPath } from '../utils.js';
+import getDb from '../_lib/db-client.js';
+import { corsHeaders, requireRole, prescriptionSchema, logAudit, getPath } from '../_lib/utils.js';
 import { ObjectId } from 'mongodb';
 
 export default async function handler(req, res) {

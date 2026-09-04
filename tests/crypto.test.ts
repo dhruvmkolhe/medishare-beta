@@ -12,7 +12,7 @@ import {
   generateCredentialId,
   generateNonce,
   generateVerificationUrl
-} from '../api/crypto-utils.js';
+} from '../api/_lib/crypto-utils.js';
 
 describe('Cryptographic Utilities Suite', () => {
   describe('Canonicalization', () => {
