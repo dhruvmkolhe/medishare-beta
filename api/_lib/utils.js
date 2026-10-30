@@ -1,4 +1,5 @@
 import { SignJWT, jwtVerify } from 'jose';
+import { logChainedAudit } from './audit-chain.js';
 import { z } from 'zod';
 import bcrypt from 'bcryptjs';
 
@@ -213,15 +214,8 @@ export async function requireRole(req, roles) {
 
 export async function logAudit(db, actorId, action, targetType, targetId, metadata = {}) {
   try {
-    await db.collection('audit_logs').insertOne({
-      actor_id: actorId,
-      action,
-      target_type: targetType,
-      target_id: String(targetId),
-      metadata,
-      created_at: new Date().toISOString()
-    });
+    await logChainedAudit(db, actorId, action, targetType, targetId, metadata);
   } catch (e) {
-    console.error('Audit log error:', e);
+    console.error('Chained audit log error:', e);
   }
 }

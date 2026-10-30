@@ -58,6 +58,65 @@ export default async function handler(req, res) {
       return res.status(200).json({ ok: true });
     }
 
+    // ------------------------------------------------------------------
+    // GET /api/admin/security-alerts
+    // Returns paginated security alerts (impossible travel, rapid re-verification).
+    // Optional query params:
+    //   ?reviewed=false  — only unreviewed alerts (default: all)
+    //   ?reviewed=true   — only reviewed alerts
+    //   ?page=1&limit=20
+    // ------------------------------------------------------------------
+    if (req.method === 'GET' && getPath(req) === '/api/admin/security-alerts') {
+      if (payload?.role !== 'ADMIN') return res.status(403).json({ error: 'Forbidden' });
+
+      const url = new URL(req.url, 'http://localhost');
+      const page = parseInt(url.searchParams.get('page') || '1');
+      const limit = Math.min(parseInt(url.searchParams.get('limit') || '20'), 100);
+      const reviewed = url.searchParams.get('reviewed');
+
+      const query = {};
+      if (reviewed === 'false') query.reviewed = false;
+      if (reviewed === 'true') query.reviewed = true;
+
+      const total = await db.collection('security_alerts').countDocuments(query);
+      const alerts = await db
+        .collection('security_alerts')
+        .find(query)
+        .sort({ created_at: -1 })
+        .skip((page - 1) * limit)
+        .limit(limit)
+        .toArray();
+
+      return res.status(200).json({ data: alerts, total, page, limit });
+    }
+
+    // ------------------------------------------------------------------
+    // POST /api/admin/security-alerts/:id/review
+    // Marks a specific security alert as reviewed by the acting admin.
+    // ------------------------------------------------------------------
+    if (req.method === 'POST' && getPath(req).match(/^\/api\/admin\/security-alerts\/[^/]+\/review$/)) {
+      if (payload?.role !== 'ADMIN') return res.status(403).json({ error: 'Forbidden' });
+
+      const alertId = getPath(req).split('/')[4];
+      if (!ObjectId.isValid(alertId)) {
+        return res.status(400).json({ error: 'Invalid alert ID' });
+      }
+
+      await db.collection('security_alerts').updateOne(
+        { _id: new ObjectId(alertId) },
+        {
+          $set: {
+            reviewed: true,
+            reviewed_at: new Date().toISOString(),
+            reviewed_by: payload.sub, // ID of the admin who reviewed
+          },
+        }
+      );
+
+      await logAudit(db, payload.sub, 'SECURITY_ALERT_REVIEWED', 'security_alert', alertId, {});
+      return res.status(200).json({ ok: true });
+    }
+
     res.status(405).json({ error: 'Method not allowed' });
   } catch (err) {
     console.error('Admin error:', err);

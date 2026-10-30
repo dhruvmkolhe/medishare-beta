@@ -30,6 +30,31 @@ export function validateEnvironment() {
     });
   }
 
+  // KMS provider validation
+  const kmsProvider = process.env.KMS_PROVIDER || 'local';
+  const validKmsProviders = ['local', 'aws', 'gcp', 'vault'];
+  if (!validKmsProviders.includes(kmsProvider.toLowerCase())) {
+    issues.push({
+      level: 'warn',
+      variable: 'KMS_PROVIDER',
+      message: `Unknown KMS_PROVIDER="${kmsProvider}". Valid values: ${validKmsProviders.join(', ')}`
+    });
+  }
+  if (kmsProvider === 'aws' && !process.env.AWS_KMS_KEY_ID) {
+    issues.push({
+      level: isProduction ? 'error' : 'warn',
+      variable: 'AWS_KMS_KEY_ID',
+      message: 'KMS_PROVIDER=aws requires AWS_KMS_KEY_ID to be set'
+    });
+  }
+  if (kmsProvider === 'vault' && !process.env.VAULT_ADDR) {
+    issues.push({
+      level: isProduction ? 'error' : 'warn',
+      variable: 'VAULT_ADDR',
+      message: 'KMS_PROVIDER=vault requires VAULT_ADDR to be set'
+    });
+  }
+
   const hasFatalErrors = issues.some(i => i.level === 'error');
 
   return {

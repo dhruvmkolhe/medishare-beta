@@ -3,6 +3,7 @@ import { corsHeaders, getClientIp, rateLimit, logAudit, getPath } from '../_lib/
 import {
   canonicalizeToString, hashCanonical, verifySignature, detectTamper, generateNonce
 } from '../_lib/crypto-utils.js';
+import { hashIp, getIpRegion, checkImpossibleTravel, checkRapidReverification, recordSecurityAlert } from '../_lib/anomaly-detection.js';
 import { z } from 'zod';
 import { ObjectId } from 'mongodb';
 
@@ -148,17 +149,66 @@ export default async function handler(req, res) {
       const result = allPassed ? 'PASS' : 'FAIL';
       const failureReason = allPassed ? null : Object.entries(checks).filter(([_, c]) => !c.passed).map(([k, c]) => c.label).join(', ');
 
+      // ------------------------------------------------------------------
+      // Anomaly detection — non-blocking by design.
+      //
+      // Privacy notes:
+      //   - Raw IP is obtained only transiently here; it is immediately hashed
+      //     and the original value is never written to any persistent store.
+      //   - ip_hash is a 16-char truncated SHA-256 used solely for deduplication.
+      //   - ip_region is a coarse first-octet bucket (REGION_A … REGION_E);
+      //     it carries no city/country-level precision.
+      //
+      // The anomaly checks run concurrently in a Promise chain that is
+      // deliberately NOT awaited before the DB insert so that a slow or
+      // failing anomaly check can never delay or block prescription dispensation.
+      // ------------------------------------------------------------------
+      // ip already obtained at line 62
+      const ipHash = hashIp(ip);           // Privacy-preserving hashed IP
+      const ipRegion = getIpRegion(ip);    // Coarse regional classification only
+      // Note: Raw IP address is NOT stored
+
+      // Kick off anomaly checks — intentionally fire-and-forget at this point.
+      // We hold a reference to await AFTER the verification event is persisted.
+      const anomalyPromise = Promise.all([
+        checkImpossibleTravel(db, credential._id.toString(), ipHash, ipRegion),
+        checkRapidReverification(db, credential._id.toString()),
+      ]).then(async ([travelAnomaly, rapidAnomaly]) => {
+        const alerts = [];
+        if (travelAnomaly.detected) {
+          await recordSecurityAlert(db, 'IMPOSSIBLE_TRAVEL', credential._id.toString(), travelAnomaly);
+          alerts.push(travelAnomaly);
+        }
+        if (rapidAnomaly.detected) {
+          await recordSecurityAlert(db, 'RAPID_REVERIFICATION', credential._id.toString(), rapidAnomaly);
+          alerts.push(rapidAnomaly);
+        }
+        return alerts;
+      }).catch(e => {
+        // Anomaly detection must never surface errors to the caller
+        console.error('Anomaly detection error:', e);
+        return [];
+      });
+
+      // Persist the verification event (includes privacy-safe IP fields)
       const event = {
         credential_id: credential._id.toString(),
         result,
         failure_reason: failureReason,
         verified_at: new Date().toISOString(),
         session_nonce: nonce,
+        ip_hash: ipHash,      // Privacy-preserving hashed IP
+        ip_region: ipRegion,  // Coarse regional classification only
+        // Note: Raw IP address is NOT stored
       };
       
       const insertEvent = await db.collection('verification_events').insertOne(event);
 
       await logAudit(db, null, 'VERIFICATION_ATTEMPTED', 'credential', credential._id.toString(), { result, failure_reason: failureReason });
+
+      // Await anomaly results — by now the event is already inserted so this
+      // adds minimal latency; alerts are included in the response for transparency.
+      const securityAlerts = await anomalyPromise;
 
       return res.status(200).json({
         result,
@@ -185,6 +235,12 @@ export default async function handler(req, res) {
         },
         failureReason,
         eventId: insertEvent.insertedId.toString(),
+        // Surface any triggered alerts in the response for full transparency.
+        // Consumers should treat this as informational only — no action is
+        // taken automatically; only admins can act on these alerts.
+        securityAlerts: securityAlerts.length > 0
+          ? securityAlerts.map(a => ({ type: a.reason }))
+          : undefined,
       });
     }
 

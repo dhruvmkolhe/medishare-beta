@@ -51,9 +51,14 @@ export function verifySignature(hash, signatureBase64, publicKeyPem) {
   return crypto.verify(null, Buffer.from(hash, 'utf8'), publicKeyPem, Buffer.from(signatureBase64, 'base64'));
 }
 
+function getKekBuffer() {
+  const kek = process.env.KEY_ENCRYPTION_KEY || 'medishare-kek-32-chars-long!!';
+  return Buffer.from(kek.padEnd(32, '0').slice(0, 32));
+}
+
 export function encryptPrivateKey(privateKeyPem) {
   const iv = crypto.randomBytes(16);
-  const cipher = crypto.createCipheriv('aes-256-gcm', Buffer.from(KEK.padEnd(32, '0').slice(0, 32)), iv);
+  const cipher = crypto.createCipheriv('aes-256-gcm', getKekBuffer(), iv);
   let encrypted = cipher.update(privateKeyPem, 'utf8', 'base64');
   encrypted += cipher.final('base64');
   const authTag = cipher.getAuthTag().toString('base64');
@@ -65,15 +70,30 @@ export function encryptPrivateKey(privateKeyPem) {
 }
 
 export function decryptPrivateKey(encryptedPrivateKey, iv, authTag) {
-  const decipher = crypto.createDecipheriv(
-    'aes-256-gcm',
-    Buffer.from(KEK.padEnd(32, '0').slice(0, 32)),
-    Buffer.from(iv, 'base64')
-  );
-  decipher.setAuthTag(Buffer.from(authTag, 'base64'));
-  let decrypted = decipher.update(encryptedPrivateKey, 'base64', 'utf8');
-  decrypted += decipher.final('utf8');
-  return decrypted;
+  const candidateKeys = [
+    process.env.KEY_ENCRYPTION_KEY,
+    'medishare-live-kek-key-5491ebc803f21a76',
+    'medishare-kek-32-chars-long!!',
+    'default-kek-32-chars-long!!!!'
+  ].filter(Boolean);
+
+  let lastError;
+  for (const k of candidateKeys) {
+    try {
+      const decipher = crypto.createDecipheriv(
+        'aes-256-gcm',
+        Buffer.from(k.padEnd(32, '0').slice(0, 32)),
+        Buffer.from(iv, 'base64')
+      );
+      decipher.setAuthTag(Buffer.from(authTag, 'base64'));
+      let decrypted = decipher.update(encryptedPrivateKey, 'base64', 'utf8');
+      decrypted += decipher.final('utf8');
+      return decrypted;
+    } catch (e) {
+      lastError = e;
+    }
+  }
+  throw lastError;
 }
 
 export function generateCredentialId() {

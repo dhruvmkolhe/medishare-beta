@@ -14,6 +14,7 @@ export default async function handler(req, res) {
 
   try {
     const payload = await requireRole(req, ['ADMIN', 'PROVIDER']);
+    if (!payload) return res.status(401).json({ error: 'Unauthorized' });
     const db = await getDb();
 
     if (req.method === 'GET' && getPath(req) === '/api/providers') {
@@ -139,6 +140,44 @@ export default async function handler(req, res) {
 
       await logAudit(db, auth.sub, 'KEY_ROTATED', 'issuer_key', keyId, { provider_id: id });
       return res.status(200).json({ ok: true, keyId });
+    }
+
+    if (req.method === 'POST' && getPath(req) === '/api/providers/register-key') {
+      const auth = await requireRole(req, ['PROVIDER']);
+      if (!auth) return res.status(403).json({ error: 'Forbidden' });
+
+      const provider = await db.collection('providers').findOne({ user_id: auth.sub });
+      if (!provider) return res.status(404).json({ error: 'Provider not found' });
+
+      const { publicKeyPem } = req.body || {};
+      if (!publicKeyPem || typeof publicKeyPem !== 'string' || !publicKeyPem.includes('PUBLIC KEY')) {
+        return res.status(400).json({ error: 'Invalid public key PEM format' });
+      }
+
+      await db.collection('issuer_keys').updateMany(
+        { provider_id: provider._id.toString(), is_active: true },
+        { $set: { is_active: false, rotated_at: new Date().toISOString() } }
+      );
+
+      const result = await db.collection('issuer_keys').insertOne({
+        provider_id: provider._id.toString(),
+        public_key: publicKeyPem.trim(),
+        encrypted_private_key: null,
+        key_source: 'CLIENT_NON_CUSTODIAL',
+        is_active: true,
+        created_at: new Date().toISOString(),
+      });
+
+      await logAudit(db, auth.sub, 'CLIENT_KEY_REGISTERED', 'issuer_key', result.insertedId.toString(), {
+        provider_id: provider._id.toString(),
+        source: 'CLIENT_NON_CUSTODIAL'
+      });
+
+      return res.status(201).json({
+        ok: true,
+        keyId: result.insertedId.toString(),
+        message: 'Non-custodial public key registered successfully'
+      });
     }
 
     if (req.method === 'GET' && getPath(req).startsWith('/api/providers/') && getPath(req).endsWith('/keys')) {

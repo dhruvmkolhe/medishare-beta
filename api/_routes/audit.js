@@ -1,6 +1,7 @@
 import getDb from '../_lib/db-client.js';
 import { ObjectId } from 'mongodb';
 import { corsHeaders, requireRole, getPath } from '../_lib/utils.js';
+import { verifyAuditChain } from '../_lib/audit-chain.js';
 
 export default async function handler(req, res) {
   corsHeaders(res);
@@ -41,7 +42,12 @@ export default async function handler(req, res) {
       const data = await db.collection('audit_logs').find(query).sort({ created_at: -1 }).skip(skip).limit(limit).toArray();
       
       const mappedData = data.map(d => {
-        const item = { ...d, id: d._id.toHexString() };
+        const item = {
+          ...d,
+          id: d._id.toHexString(),
+          prev_hash: d.prev_hash ?? null,
+          current_hash: d.current_hash ?? null,
+        };
         delete item._id;
         return item;
       });
@@ -55,12 +61,24 @@ export default async function handler(req, res) {
       const data = await db.collection('audit_logs').find({ target_type: 'credential' }).sort({ created_at: -1 }).limit(200).toArray();
       
       const mappedData = data.map(d => {
-        const item = { ...d, id: d._id.toHexString() };
+        const item = {
+          ...d,
+          id: d._id.toHexString(),
+          prev_hash: d.prev_hash ?? null,
+          current_hash: d.current_hash ?? null,
+        };
         delete item._id;
         return item;
       });
 
       return res.status(200).json(mappedData);
+    }
+
+    if (req.method === 'GET' && getPath(req) === '/api/audit/verify') {
+      if (payload.role !== 'ADMIN') return res.status(403).json({ error: 'Forbidden' });
+
+      const result = await verifyAuditChain(db);
+      return res.status(200).json(result);
     }
 
     res.status(405).json({ error: 'Method not allowed' });

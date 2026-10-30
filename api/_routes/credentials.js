@@ -90,6 +90,19 @@ export default async function handler(req, res) {
       const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString();
       const pickupPin = Math.floor(100000 + Math.random() * 900000).toString();
 
+      // Generate Merkle-tree selective disclosure commitments
+      const { createPrescriptionCommitments, buildCommitmentRoot } = await import('../_lib/selective-disclosure.js');
+      const sdItems = items && items.length > 0 ? items : [{
+        medication: prescription.medication,
+        strength: prescription.strength,
+        dosage: prescription.dosage,
+        duration: prescription.duration,
+        timing: '',
+        refills: 0,
+      }];
+      const sdCommitments = createPrescriptionCommitments(sdItems, prescription.notes || '');
+      const sdMerkleRoot = buildCommitmentRoot(sdCommitments);
+
       const credDoc = {
         credential_id: credentialId,
         prescription_id: prescription._id.toString(),
@@ -102,6 +115,8 @@ export default async function handler(req, res) {
         max_dispensations: maxDispensations,
         dispensations: [],
         pickup_pin: pickupPin,
+        sd_commitments: sdCommitments,
+        sd_merkle_root: sdMerkleRoot,
       };
       
       const result = await db.collection('credentials').insertOne(credDoc);
@@ -514,6 +529,76 @@ export default async function handler(req, res) {
       }
 
       return res.status(200).json({ diff, tampered, contentHash: credential.content_hash, currentHash });
+    }
+
+    if (req.method === 'GET' && getPath(req).startsWith('/api/credentials/') && getPath(req).endsWith('/sd-commitments')) {
+      const payload = await requireRole(req, ['ADMIN', 'PROVIDER', 'PATIENT']);
+      if (!payload) return res.status(401).json({ error: 'Unauthorized' });
+      const id = getPath(req).split('/')[3];
+
+      const credential = await findCredential(db, id);
+      if (!credential) return res.status(404).json({ error: 'Credential not found' });
+
+      if (payload.role === 'PATIENT') {
+        const patient = await db.collection('patients').findOne({ user_id: payload.sub });
+        if (!patient) return res.status(403).json({ error: 'Forbidden' });
+        const prescription = await db.collection('prescriptions').findOne({ _id: new ObjectId(credential.prescription_id) });
+        if (!prescription || prescription.patient_id !== patient._id.toString()) {
+          return res.status(403).json({ error: 'Forbidden' });
+        }
+      }
+
+      const commitments = credential.sd_commitments || null;
+      const merkleRoot = credential.sd_merkle_root || null;
+
+      if (!commitments) {
+        return res.status(404).json({
+          error: 'No selective disclosure commitments found for this credential.',
+          sd_supported: false
+        });
+      }
+
+      return res.status(200).json({
+        sd_supported: true,
+        commitments,
+        merkle_root: merkleRoot,
+        available_fields: commitments.map(c => c.fieldName),
+      });
+    }
+
+    if (req.method === 'POST' && getPath(req).startsWith('/api/credentials/') && getPath(req).endsWith('/sd-proof')) {
+      const id = getPath(req).split('/')[3];
+      const credential = await findCredential(db, id);
+      if (!credential) return res.status(404).json({ error: 'Credential not found' });
+
+      if (!credential.sd_merkle_root) {
+        return res.status(400).json({ error: 'Credential does not support selective disclosure' });
+      }
+
+      const { disclosedFields, proofs } = req.body || {};
+      if (!disclosedFields || !proofs) {
+        return res.status(400).json({ error: 'Missing disclosedFields or proofs' });
+      }
+
+      const { verifyDisclosureProof } = await import('../_lib/selective-disclosure.js');
+      const result = verifyDisclosureProof(disclosedFields, proofs, credential.sd_merkle_root);
+
+      const isActive = credential.status === 'ACTIVE';
+      const notExpired = new Date(credential.expires_at) > new Date();
+
+      return res.status(200).json({
+        valid: result.valid && isActive && notExpired,
+        sd_verification: result,
+        credential_status: credential.status,
+        credential_expired: !notExpired,
+        disclosed_fields: result.verifiedFields,
+        verified_data: result.valid ? disclosedFields.reduce((acc, f) => {
+          if (result.verifiedFields.includes(f.fieldName)) {
+            acc[f.fieldName] = f.fieldValue;
+          }
+          return acc;
+        }, {}) : null,
+      });
     }
 
     res.status(405).json({ error: 'Method not allowed' });
