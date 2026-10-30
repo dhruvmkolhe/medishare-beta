@@ -621,7 +621,10 @@ async function seed() {
     }
 
     const issuedDate = getDateDaysAgo(item.daysAgo);
-    const expiresDate = new Date(issuedDate.getTime() + item.validDays * MS_DAY);
+    let expiresDate = new Date(issuedDate.getTime() + item.validDays * MS_DAY);
+    if (item.status === 'ACTIVE') {
+      expiresDate = new Date(Date.now() + Math.max(item.validDays, 365) * MS_DAY);
+    }
 
     const firstItem = item.items[0];
 
@@ -832,9 +835,31 @@ async function seed() {
   }
 
   // ==========================================
-  // 6. INSERT SORTED AUDIT LOGS
+  // 6. INSERT SORTED & CRYPTOGRAPHICALLY CHAINED AUDIT LOGS
   // ==========================================
   auditLogs.sort((a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime());
+  let prevHash = 'GENESIS';
+  for (const log of auditLogs) {
+    const audit_id = log.audit_id || crypto.randomUUID();
+    const timestamp = log.created_at || new Date().toISOString();
+    const payload = {
+      action: log.action,
+      actor_id: log.actor_id,
+      audit_id,
+      metadata: log.metadata || {},
+      prev_hash: prevHash,
+      target_id: String(log.target_id ?? ''),
+      target_type: log.target_type,
+      timestamp,
+    };
+    const canonical = canonicalizeToString(payload);
+    const current_hash = hashCanonical(canonical + prevHash + timestamp);
+    log.audit_id = audit_id;
+    log.timestamp = timestamp;
+    log.prev_hash = prevHash;
+    log.current_hash = current_hash;
+    prevHash = current_hash;
+  }
   if (auditLogs.length > 0) {
     await db.collection('audit_logs').insertMany(auditLogs);
   }

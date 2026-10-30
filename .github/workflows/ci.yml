@@ -44,6 +44,8 @@ jobs:
         run: |
           node scripts/setup-indexes.js
           node scripts/seed.js
+          node scripts/setup-security-alerts-index.js
+          node scripts/verify-audit-chain.js
 
       - name: Run Automated Test Suites (Vitest)
         run: npm test
