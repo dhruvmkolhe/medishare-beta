@@ -15,7 +15,7 @@ export default function NotFound() {
     <div className="min-h-[60vh] flex items-center justify-center p-4">
       <PageMeta
         title="Page Not Found (404)"
-        description="The requested page could not be found. Return to MediShare to verify a prescription or sign in to your portal."
+        description="The requested page could not be found. Return to Verixa to verify a prescription or sign in to your portal."
       />
       <div className="max-w-md w-full text-center space-y-6">
         <div className="w-16 h-16 bg-slate-100 text-slate-700 rounded-2xl flex items-center justify-center mx-auto shadow-sm border border-slate-200">

@@ -1,0 +1,235 @@
+{
+  "nav": {
+    "dashboard": "ڈیش بورڈ",
+    "admin": "ایڈمن",
+    "adminPortal": "ایڈمن پورٹل",
+    "audit": "آڈٹ ٹریل",
+    "prescriptions": "نسخہ جات",
+    "myPrescriptions": "میون نسخہ",
+    "revocations": "منسوخ",
+    "verify": "تصدیق کٔریو",
+    "verifyDispense": "تصدیق تہٕ تقسیٖم",
+    "login": "لاگ اِن",
+    "logout": "لاگ آوٹ",
+    "register": "رجسٹر"
+  },
+  "footer": {
+    "disclaimer": "Verixa - کٲشُر (Kashmiri)",
+    "academic": "Academic demonstration only. No medical advice provided."
+  },
+  "login": {
+    "title": "Verixa مَنٛز لاگ اِن کٔریو",
+    "email": "ای میل",
+    "password": "پاس ورڈ",
+    "submit": "لاگ اِن",
+    "registerPrompt": "کھاتہٕ چُھو پکار؟",
+    "registerLink": "رجسٹر",
+    "error": "غلط معلومات"
+  },
+  "register": {
+    "title": "کھاتہٕ بناویو",
+    "name": "پوٗرٕ ناو",
+    "email": "ای میل",
+    "password": "پاس ورڈ",
+    "role": "کردار",
+    "rolePatient": "مریض",
+    "roleProvider": "ڈاکٹر",
+    "rolePharmacist": "فارماسسٹ",
+    "roleAdmin": "منتظم",
+    "licenseNumber": "لائسنس نمبر",
+    "submit": "اکاؤنٹ بناویو",
+    "loginPrompt": "کھاتہٕ چُھو پکار؟",
+    "loginLink": "لاگ اِن",
+    "error": "غلط معلومات"
+  },
+  "dashboard": {
+    "welcome": "خوش آمدید",
+    "patient": {
+      "title": "میون نسخہ",
+      "noCredentials": "کانٛہہ سند چُھنہٕ وُنہِ۔",
+      "viewQr": "QR کوڈ وُچھیو",
+      "revoke": "منسوخ کٔریو"
+    },
+    "provider": {
+      "title": "ڈاکٹر ڈیش بورڈ",
+      "newPrescription": "نوٚو نسخہٕ",
+      "pendingApprovals": "Pending Approvals",
+      "totalCredentials": "Total Credentials",
+      "activeCredentials": "Active Credentials"
+    },
+    "admin": {
+      "title": "ایڈمن ڈیش بورڈ",
+      "stats": "Statistics",
+      "users": "Users",
+      "providers": "Providers",
+      "credentials": "Credentials",
+      "verifications": "Verifications"
+    }
+  },
+  "prescription": {
+    "title": "نوٚو نسخہٕ",
+    "patient": "مریض",
+    "medication": "دوا",
+    "strength": "طاقت",
+    "dosage": "مقدار",
+    "duration": "مدت",
+    "notes": "نوٹ",
+    "submit": "نسخہٕ بناویو",
+    "success": "نسخہٕ سپُد کامیابی سان تیار",
+    "canonicalPreview": "پیش نظارہ",
+    "issueCredential": "سند جاری کٔریو",
+    "credentialIssued": "سند جاری تہٕ دستخط کٔرمژ",
+    "addMedication": "دوا جمع کٔریو",
+    "removeMedication": "کٔڈیو",
+    "timing": "وقت",
+    "refills": "ریفِل",
+    "timingOptions": {
+      "morning": "صبحس",
+      "afternoon": "دپہرس",
+      "evening": "شامس",
+      "bedtime": "شۆنگنہٕ وزِ",
+      "beforeMeals": "کھؠنہٕ برونٛہہ",
+      "afterMeals": "کھؠنہٕ پتہٕ",
+      "withMeals": "کھؠنس سٟتؠ"
+    },
+    "medicationNumber": "Medication #{{number}}",
+    "print": "پرنٹ / PDF"
+  },
+  "verify": {
+    "title": "نسخہٕ تصدیق کٔریو",
+    "scanQr": "QR کوڈ سکین کٔریو",
+    "enterId": "ID درج کٔریو",
+    "verify": "تصدیق کٔریو",
+    "verified": "✓ تصدیق شدہ",
+    "failed": "✕ تصدیق ناکام",
+    "prescriptionCredential": "Prescription Credential",
+    "medication": "دوا",
+    "strength": "طاقت",
+    "dosage": "مقدار",
+    "duration": "مدت",
+    "issued": "جاری",
+    "expires": "ختم گژھن",
+    "provider": "ڈاکٹر",
+    "contactProvider": "Contact the issuing healthcare provider.",
+    "startScan": "QR کوڈ سکین کٔریو",
+    "issuerVerified": "Issuer Verified",
+    "signatureValid": "Digital Signature Valid",
+    "integrityValid": "Data Integrity Valid",
+    "active": "فعال",
+    "notExpired": "ختم چُھنہٕ سپُدمُت"
+  },
+  "canonical": {
+    "title": "Canonical JSON (Deterministic Serialization)"
+  },
+  "revocation": {
+    "title": "Revoke Credential",
+    "warning": "This action cannot be undone. The credential will be permanently marked as revoked.",
+    "credentialId": "Credential ID",
+    "reason": "Reason for revocation",
+    "reasonPlaceholder": "e.g., Medication error, patient request, provider decision",
+    "confirm": "Revoke Credential",
+    "list": "Revocation Dashboard",
+    "revoked": "Credential revoked successfully"
+  },
+  "audit": {
+    "title": "Audit Trail",
+    "timestamp": "Timestamp",
+    "action": "Action",
+    "target": "Target",
+    "actor": "Actor",
+    "empty": "No audit logs found"
+  },
+  "dispensation": {
+    "markDispensed": "تقسیٖم نشاندہی کٔریو",
+    "dispensedAt": "Dispensed at",
+    "dispensedOn": "Dispensed on",
+    "alreadyDispensed": "This credential has already been dispensed",
+    "confirmDispense": "Confirm that you are dispensing this prescription",
+    "pharmacyName": "Pharmacy name (optional)",
+    "success": "دوا سپُد کامیابی سان تقسیٖم"
+  },
+  "search": {
+    "placeholder": "دوا ژھانٛڈیو...",
+    "placeholderPatient": "مریض سند ناو...",
+    "allStatuses": "All statuses",
+    "clear": "Clear filters"
+  },
+  "pagination": {
+    "showing": "Showing",
+    "of": "of",
+    "page": "Page",
+    "perPage": "per page"
+  },
+  "common": {
+    "cancel": "منسوخ",
+    "processing": "Processing...",
+    "save": "محفوظ",
+    "delete": "مٹایو",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "واپس",
+    "loading": "لوڈ گژھان...",
+    "error": "An error occurred",
+    "noData": "کانٛہہ مواد مِلیو نہٕ",
+    "view": "View",
+    "compare": "Compare",
+    "revoke": "Revoke",
+    "patient": "مریض",
+    "medication": "دوا",
+    "credential": "Credential",
+    "actions": "Actions",
+    "name": "Name",
+    "license": "License",
+    "email": "Email",
+    "recentPrescriptions": "Recent prescriptions",
+    "noCredentials": "No credentials",
+    "credentialDetails": "Credential details",
+    "verificationQr": "Verification QR",
+    "revokedMessage": "This credential has been revoked and is no longer valid.",
+    "selectPatient": "Select patient",
+    "credentialComparison": "Credential comparison",
+    "fieldLevelDiff": "Field-level diff",
+    "hashComparison": "Hash comparison",
+    "storedHash": "Stored (signed)",
+    "currentHash": "Current (recomputed)",
+    "enterId": "ID درج کٔریو",
+    "scanQr": "QR کوڈ سکین کٔریو",
+    "noAccountRequired": "No account required. Scan or enter a credential ID.",
+    "approve": "Approve & Issue Key",
+    "auditTrail": "Audit trail",
+    "viewAllActivity": "View all system activity"
+  },
+  "refills": {
+    "remaining": "remaining",
+    "total": "total fills",
+    "of": "of",
+    "exhausted": "All authorized fills have been used",
+    "status": "Refill Status",
+    "fillsUsed": "fills used"
+  },
+  "drugWarning": {
+    "title": "Drug Warnings",
+    "interaction": "Drug Interaction",
+    "dosage": "Dosage Warning",
+    "allergy": "Allergy Alert",
+    "detected": "warnings detected",
+    "highRisk": "high risk",
+    "advisory": "These are advisory alerts based on common drug interactions. Always consult clinical references."
+  },
+  "toast": {
+    "prescriptionCreated": "Prescription created successfully",
+    "credentialIssued": "Credential issued and signed",
+    "credentialRevoked": "Credential revoked successfully",
+    "dispensed": "Prescription marked as dispensed",
+    "loginSuccess": "Welcome back!",
+    "providerApproved": "Provider approved successfully",
+    "exportSuccess": "Export completed",
+    "exportFailed": "Export failed"
+  },
+  "export": {
+    "w3cVc": "W3C VC",
+    "fhirR4": "FHIR R4",
+    "download": "Download",
+    "title": "Export Credential"
+  }
+}

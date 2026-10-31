@@ -87,7 +87,7 @@ export default function ProviderDashboard() {
   return (
     <div className="space-y-6">
       <PageMeta
-        title="Provider Dashboard — MediShare"
+        title="Provider Dashboard — Verixa"
         description="Clinical overview, cryptographic credential statistics, and quick prescription workflows."
         canonicalPath="/dashboard"
       />

@@ -1,4 +1,4 @@
-﻿import PageMeta from '../components/PageMeta';
+import PageMeta from '../components/PageMeta';
 import Breadcrumbs from '../components/Breadcrumbs';
 import { Shield, Lock, Eye, FileText, Mail } from 'lucide-react';
 
@@ -7,7 +7,7 @@ export default function PrivacyPolicy() {
     <div className="max-w-4xl mx-auto w-full py-2 sm:py-6">
       <PageMeta
         title="Privacy Policy"
-        description="Learn how MediShare protects sensitive healthcare data with cryptographic signatures, selective disclosure, and zero-knowledge principles."
+        description="Learn how Verixa protects sensitive healthcare data with cryptographic signatures, selective disclosure, and zero-knowledge principles."
         canonicalPath="/privacy"
       />
       <Breadcrumbs items={[{ label: 'Privacy Policy' }]} />
@@ -28,7 +28,7 @@ export default function PrivacyPolicy() {
             <span>1. Our Cryptographic Privacy Guarantee</span>
           </h2>
           <p className="text-sm text-slate-600 leading-relaxed">
-            MediShare is architected under the principle of <strong>data minimization and cryptographic verification</strong>. Rather than storing sensitive medical prescriptions in centralized plaintext databases accessible to third parties, MediShare uses Ed25519 digital signatures and RFC 8785 canonical hashing.
+            Verixa is architected under the principle of <strong>data minimization and cryptographic verification</strong>. Rather than storing sensitive medical prescriptions in centralized plaintext databases accessible to third parties, Verixa uses Ed25519 digital signatures and RFC 8785 canonical hashing.
           </p>
           <p className="text-sm text-slate-600 leading-relaxed">
             Prescriptions exist as tamper-evident credentials held directly in the patient&#39;s custody. Healthcare providers sign prescriptions with their private keys, allowing pharmacists to verify authenticity mathematically without sharing health records across unauthorized networks.
@@ -54,10 +54,10 @@ export default function PrivacyPolicy() {
             <span>3. How We Use and Protect Your Data</span>
           </h2>
           <p className="text-sm text-slate-600 leading-relaxed">
-            All data processed by MediShare serves the exclusive purpose of authenticating medical prescriptions, preventing dangerous drug-drug interactions, and mitigating duplicate dispensation fraud. Private signing keys are secured using industry-standard AES-256-GCM envelope encryption.
+            All data processed by Verixa serves the exclusive purpose of authenticating medical prescriptions, preventing dangerous drug-drug interactions, and mitigating duplicate dispensation fraud. Private signing keys are secured using industry-standard AES-256-GCM envelope encryption.
           </p>
           <p className="text-sm text-slate-600 leading-relaxed">
-            MediShare does not monetize, sell, or rent patient or provider health information to advertisers or non-clinical commercial entities under any circumstances.
+            Verixa does not monetize, sell, or rent patient or provider health information to advertisers or non-clinical commercial entities under any circumstances.
           </p>
         </section>
 
@@ -70,9 +70,9 @@ export default function PrivacyPolicy() {
             If you have questions regarding this Privacy Policy, your medical data rights, or our cryptographic architecture, please contact our data privacy team:
           </p>
           <div className="p-4 bg-slate-50 rounded-xl border border-slate-200/80 text-sm text-slate-700">
-            {/* TODO: Replace privacy@medishare.example.com with your official contact email */}
-            <p className="font-semibold text-slate-900">MediShare Privacy &amp; Compliance Office</p>
-            <p className="mt-1 text-slate-600">Email: <a href="mailto:privacy@medishare.example.com" className="text-green-600 hover:underline">privacy@medishare.example.com</a></p>
+            {/* TODO: Replace privacy@verixa.example.com with your official contact email */}
+            <p className="font-semibold text-slate-900">Verixa Privacy &amp; Compliance Office</p>
+            <p className="mt-1 text-slate-600">Email: <a href="mailto:privacy@verixa.example.com" className="text-green-600 hover:underline">privacy@verixa.example.com</a></p>
           </div>
         </section>
       </div>

@@ -22,7 +22,7 @@ export default function Home() {
   return (
     <div className="space-y-16 pb-12">
       <PageMeta
-        title="MediShare — Decentralized, Tamper-Proof Digital Prescriptions"
+        title="Verixa — Decentralized, Tamper-Proof Digital Prescriptions"
         description="Replace insecure paper prescriptions with Ed25519 digitally signed medical credentials. Prevent double-dispensing, dosage tampering, and unauthorized claims."
         canonicalPath="/"
       />
@@ -241,10 +241,10 @@ export default function Home() {
         <div className="max-w-2xl">
           <span className="text-xs font-bold uppercase tracking-wider text-green-400">Zero-Trust Security Model</span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
-            How MediShare Stops Credential Theft & Fake Dispensing
+            How Verixa Stops Credential Theft &amp; Fake Dispensing
           </h2>
           <p className="text-sm text-slate-300 mt-2">
-            In insecure systems, if someone snaps a photo of a prescription ID, they can claim the medicine. MediShare eliminates this vulnerability through defense-in-depth:
+            In insecure systems, if someone snaps a photo of a prescription ID, they can claim the medicine. Verixa eliminates this vulnerability through defense-in-depth:
           </p>
         </div>
 

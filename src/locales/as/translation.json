@@ -1,0 +1,235 @@
+{
+  "nav": {
+    "dashboard": "ডেচবৰ্ড",
+    "admin": "প্ৰশাসক",
+    "adminPortal": "প্ৰশাসক প’ৰ্টেল",
+    "audit": "অডিট ট্ৰেইল",
+    "prescriptions": "প্ৰেছক্ৰিপশ্বন",
+    "myPrescriptions": "মোৰ প্ৰেছক্ৰিপশ্বন",
+    "revocations": "বাতিল কৰা",
+    "verify": "যাচাই কৰক",
+    "verifyDispense": "যাচাই আৰু বিতৰণ",
+    "login": "লগইন",
+    "logout": "লগআউট",
+    "register": "পঞ্জীয়ন"
+  },
+  "footer": {
+    "disclaimer": "Verixa - অসমীয়া (Assamese)",
+    "academic": "Academic demonstration only. No medical advice provided."
+  },
+  "login": {
+    "title": "Verixa-ত ছাইন ইন কৰক",
+    "email": "ইমেইল",
+    "password": "পাছৱৰ্ড",
+    "submit": "ছাইন ইন",
+    "registerPrompt": "একাউণ্ট প্ৰয়োজন নেকি?",
+    "registerLink": "পঞ্জীয়ন",
+    "error": "অবৈধ প্ৰমাণপত্ৰ"
+  },
+  "register": {
+    "title": "একাউণ্ট সৃষ্টি কৰক",
+    "name": "সম্পূৰ্ণ নাম",
+    "email": "ইমেইল",
+    "password": "পাছৱৰ্ড (নূন্যতম ৮টা আখৰ)",
+    "role": "ভূমিকা",
+    "rolePatient": "ৰোগী",
+    "roleProvider": "চিকিৎসক",
+    "rolePharmacist": "ফাৰ্মাচিষ্ট",
+    "roleAdmin": "প্ৰশাসক",
+    "licenseNumber": "অনুজ্ঞাপত্ৰ নম্বৰ",
+    "submit": "একাউণ্ট খোলক",
+    "loginPrompt": "একাউণ্ট প্ৰয়োজন নেকি?",
+    "loginLink": "ছাইন ইন",
+    "error": "অবৈধ প্ৰমাণপত্ৰ"
+  },
+  "dashboard": {
+    "welcome": "স্বাগতম",
+    "patient": {
+      "title": "মোৰ প্ৰেছক্ৰিপশ্বন",
+      "noCredentials": "এতিয়ালৈকে কোনো প্ৰমাণপত্ৰ নাই। চিকিৎসকে প্ৰেছক্ৰিপশ্বনৰ পিছত প্ৰদান কৰিব।",
+      "viewQr": "QR ক’ড চাওক",
+      "revoke": "বাতিল কৰক"
+    },
+    "provider": {
+      "title": "চিকিৎসক ডেচবৰ্ড",
+      "newPrescription": "নতুন প্ৰেছক্ৰিপশ্বন",
+      "pendingApprovals": "Pending Approvals",
+      "totalCredentials": "Total Credentials",
+      "activeCredentials": "Active Credentials"
+    },
+    "admin": {
+      "title": "প্ৰশাসক ডেচবৰ্ড",
+      "stats": "Statistics",
+      "users": "Users",
+      "providers": "Providers",
+      "credentials": "Credentials",
+      "verifications": "Verifications"
+    }
+  },
+  "prescription": {
+    "title": "নতুন প্ৰেছক্ৰিপশ্বন",
+    "patient": "ৰোগী",
+    "medication": "ঔষধ",
+    "strength": "শক্তি/মাত্ৰা",
+    "dosage": "ডোজ",
+    "duration": "সময়সীমা",
+    "notes": "টোকা",
+    "submit": "প্ৰেছক্ৰিপশ্বন প্ৰস্তুত কৰক",
+    "success": "প্ৰেছক্ৰিপশ্বন সফলভাৱে তৈয়াৰ হ’ল",
+    "canonicalPreview": "পূৰ্বদৰ্শন",
+    "issueCredential": "প্ৰমাণপত্ৰ জাৰী কৰক",
+    "credentialIssued": "প্ৰমাণপত্ৰ জাৰী আৰু স্বাক্ষৰিত হ’ল",
+    "addMedication": "ঔষধ যোগ কৰক",
+    "removeMedication": "আঁতৰাওক",
+    "timing": "সময়",
+    "refills": "ৰিফিল",
+    "timingOptions": {
+      "morning": "ৰাতিপুৱা",
+      "afternoon": "দুপৰীয়া",
+      "evening": "গধূলি",
+      "bedtime": "শোৱাৰ আগত",
+      "beforeMeals": "খোৱাৰ আগত",
+      "afterMeals": "খোৱাৰ পিছত",
+      "withMeals": "খোৱাৰ লগত"
+    },
+    "medicationNumber": "Medication #{{number}}",
+    "print": "প্ৰিন্ট / PDF"
+  },
+  "verify": {
+    "title": "প্ৰেছক্ৰিপশ্বন প্ৰমাণপত্ৰ পৰীক্ষা কৰক",
+    "scanQr": "QR ক’ড স্কেন কৰক",
+    "enterId": "প্ৰমাণপত্ৰ ID দিয়ক",
+    "verify": "যাচাই কৰক",
+    "verified": "✓ পৰীক্ষিত",
+    "failed": "✕ পৰীক্ষা বিফল হ’ল",
+    "prescriptionCredential": "Prescription Credential",
+    "medication": "ঔষধ",
+    "strength": "শক্তি/মাত্ৰা",
+    "dosage": "ডোজ",
+    "duration": "সময়সীমা",
+    "issued": "জাৰীৰ তাৰিখ",
+    "expires": "ম্যাদ উকলিব",
+    "provider": "চিকিৎসক",
+    "contactProvider": "Contact the issuing healthcare provider.",
+    "startScan": "QR ক’ড স্কেন কৰক",
+    "issuerVerified": "Issuer Verified",
+    "signatureValid": "Digital Signature Valid",
+    "integrityValid": "Data Integrity Valid",
+    "active": "প্ৰমাণপত্ৰ সক্ৰিয়",
+    "notExpired": "ম্যাদ উকলি যোৱা নাই"
+  },
+  "canonical": {
+    "title": "Canonical JSON (Deterministic Serialization)"
+  },
+  "revocation": {
+    "title": "Revoke Credential",
+    "warning": "This action cannot be undone. The credential will be permanently marked as revoked.",
+    "credentialId": "Credential ID",
+    "reason": "Reason for revocation",
+    "reasonPlaceholder": "e.g., Medication error, patient request, provider decision",
+    "confirm": "Revoke Credential",
+    "list": "Revocation Dashboard",
+    "revoked": "Credential revoked successfully"
+  },
+  "audit": {
+    "title": "Audit Trail",
+    "timestamp": "Timestamp",
+    "action": "Action",
+    "target": "Target",
+    "actor": "Actor",
+    "empty": "No audit logs found"
+  },
+  "dispensation": {
+    "markDispensed": "বিতৰণ কৰা বুলি চিহ্নিত কৰক",
+    "dispensedAt": "Dispensed at",
+    "dispensedOn": "Dispensed on",
+    "alreadyDispensed": "This credential has already been dispensed",
+    "confirmDispense": "Confirm that you are dispensing this prescription",
+    "pharmacyName": "Pharmacy name (optional)",
+    "success": "ঔষধ সফলতাৰে বিতৰণ কৰা হ’ল"
+  },
+  "search": {
+    "placeholder": "ঔষধ সন্ধান কৰক...",
+    "placeholderPatient": "ৰোগীৰ নাম সন্ধান কৰক...",
+    "allStatuses": "All statuses",
+    "clear": "Clear filters"
+  },
+  "pagination": {
+    "showing": "Showing",
+    "of": "of",
+    "page": "Page",
+    "perPage": "per page"
+  },
+  "common": {
+    "cancel": "বাতিল",
+    "processing": "Processing...",
+    "save": "সংৰক্ষণ",
+    "delete": "মচি পেলাওক",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "উভতি যাওক",
+    "loading": "লোড হৈ আছে...",
+    "error": "An error occurred",
+    "noData": "কোনো তথ্য পোৱা নগ’ল",
+    "view": "View",
+    "compare": "Compare",
+    "revoke": "Revoke",
+    "patient": "ৰোগী",
+    "medication": "ঔষধ",
+    "credential": "Credential",
+    "actions": "Actions",
+    "name": "Name",
+    "license": "License",
+    "email": "Email",
+    "recentPrescriptions": "Recent prescriptions",
+    "noCredentials": "No credentials",
+    "credentialDetails": "Credential details",
+    "verificationQr": "Verification QR",
+    "revokedMessage": "This credential has been revoked and is no longer valid.",
+    "selectPatient": "Select patient",
+    "credentialComparison": "Credential comparison",
+    "fieldLevelDiff": "Field-level diff",
+    "hashComparison": "Hash comparison",
+    "storedHash": "Stored (signed)",
+    "currentHash": "Current (recomputed)",
+    "enterId": "প্ৰমাণপত্ৰ ID দিয়ক",
+    "scanQr": "QR ক’ড স্কেন কৰক",
+    "noAccountRequired": "No account required. Scan or enter a credential ID.",
+    "approve": "Approve & Issue Key",
+    "auditTrail": "Audit trail",
+    "viewAllActivity": "View all system activity"
+  },
+  "refills": {
+    "remaining": "remaining",
+    "total": "total fills",
+    "of": "of",
+    "exhausted": "All authorized fills have been used",
+    "status": "Refill Status",
+    "fillsUsed": "fills used"
+  },
+  "drugWarning": {
+    "title": "Drug Warnings",
+    "interaction": "Drug Interaction",
+    "dosage": "Dosage Warning",
+    "allergy": "Allergy Alert",
+    "detected": "warnings detected",
+    "highRisk": "high risk",
+    "advisory": "These are advisory alerts based on common drug interactions. Always consult clinical references."
+  },
+  "toast": {
+    "prescriptionCreated": "Prescription created successfully",
+    "credentialIssued": "Credential issued and signed",
+    "credentialRevoked": "Credential revoked successfully",
+    "dispensed": "Prescription marked as dispensed",
+    "loginSuccess": "Welcome back!",
+    "providerApproved": "Provider approved successfully",
+    "exportSuccess": "Export completed",
+    "exportFailed": "Export failed"
+  },
+  "export": {
+    "w3cVc": "W3C VC",
+    "fhirR4": "FHIR R4",
+    "download": "Download",
+    "title": "Export Credential"
+  }
+}

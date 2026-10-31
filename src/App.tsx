@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ToastProvider } from './contexts/ToastContext';
 import Layout from './components/Layout';
@@ -45,6 +45,29 @@ function HomeRoute() {
   return <Home />;
 }
 
+function VerifierRoute({ children }: { children: React.ReactNode }) {
+  const { user, loading } = useAuth();
+  if (loading) {
+    return <PageLoader />;
+  }
+  if (user?.role === 'PATIENT') {
+    return <Navigate to="/patient" replace />;
+  }
+  return <>{children}</>;
+}
+
+function VerificationResultRoute() {
+  const { user, loading } = useAuth();
+  const { credentialId } = useParams<{ credentialId: string }>();
+  if (loading) {
+    return <PageLoader />;
+  }
+  if (user?.role === 'PATIENT') {
+    return <Navigate to={credentialId ? `/credentials/${credentialId}` : '/patient'} replace />;
+  }
+  return <VerificationResultPage />;
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -56,8 +79,14 @@ function App() {
               <Routes>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/verify" element={<PharmacistVerify />} />
-                <Route path="/verify/:credentialId" element={<VerificationResultPage />} />
+                <Route path="/verify" element={
+                  <VerifierRoute>
+                    <PharmacistVerify />
+                  </VerifierRoute>
+                } />
+                <Route path="/verify/:credentialId" element={
+                  <VerificationResultRoute />
+                } />
 
             <Route path="/dashboard" element={
               <ProtectedRoute>

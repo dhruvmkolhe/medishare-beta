@@ -1,0 +1,235 @@
+{
+  "nav": {
+    "dashboard": "டாஷ்போர்டு",
+    "admin": "நிர்வாகி",
+    "adminPortal": "நிர்வாகி போர்டல்",
+    "audit": "தணிக்கை பதிவு",
+    "prescriptions": "மருந்துச்சீட்டுகள்",
+    "myPrescriptions": "எனது மருந்துச்சீட்டுகள்",
+    "revocations": "ரத்துசெய்தவை",
+    "verify": "சரிபார்க்கவும்",
+    "verifyDispense": "சரிபார்த்து விநியோகிக்கவும்",
+    "login": "உள்நுழைக",
+    "logout": "வெளியேறுக",
+    "register": "பதிவு செய்க"
+  },
+  "footer": {
+    "disclaimer": "Verixa - தமிழ் (Tamil)",
+    "academic": "Academic demonstration only. No medical advice provided."
+  },
+  "login": {
+    "title": "Verixa-ல் உள்நுழையவும்",
+    "email": "மின்னஞ்சல்",
+    "password": "கடவுச்சொல்",
+    "submit": "உள்நுழைக",
+    "registerPrompt": "புதிய கணக்கு தேவையா?",
+    "registerLink": "பதிவு செய்க",
+    "error": "தவறான உள்நுழைவு விவரங்கள்"
+  },
+  "register": {
+    "title": "கணக்கை உருவாக்கவும்",
+    "name": "முழு பெயர்",
+    "email": "மின்னஞ்சல்",
+    "password": "கடவுச்சொல் (குறைந்தது 8 எழுத்துக்கள்)",
+    "role": "பங்கு",
+    "rolePatient": "நோயாளி",
+    "roleProvider": "மருத்துவர்",
+    "rolePharmacist": "மருந்தாளர்",
+    "roleAdmin": "நிர்வாகி",
+    "licenseNumber": "உரிம எண் (மருத்துவர்களுக்கு மட்டும்)",
+    "submit": "கணக்கை உருவாக்கவும்",
+    "loginPrompt": "புதிய கணக்கு தேவையா?",
+    "loginLink": "உள்நுழைக",
+    "error": "தவறான உள்நுழைவு விவரங்கள்"
+  },
+  "dashboard": {
+    "welcome": "வரவேற்கிறோம்",
+    "patient": {
+      "title": "எனது மருந்துச்சீட்டுகள்",
+      "noCredentials": "இதுவரை சான்றிதழ்கள் இல்லை. மருத்துவர் மருந்துச்சீட்டு வழங்கியதும் கிடைக்கும்.",
+      "viewQr": "QR குறியீட்டைக் காண்க",
+      "revoke": "ரத்து செய்"
+    },
+    "provider": {
+      "title": "மருத்துவர் டாஷ்போர்டு",
+      "newPrescription": "புதிய மருந்துச்சீட்டு",
+      "pendingApprovals": "Pending Approvals",
+      "totalCredentials": "Total Credentials",
+      "activeCredentials": "Active Credentials"
+    },
+    "admin": {
+      "title": "நிர்வாக டாஷ்போர்டு",
+      "stats": "Statistics",
+      "users": "Users",
+      "providers": "Providers",
+      "credentials": "Credentials",
+      "verifications": "Verifications"
+    }
+  },
+  "prescription": {
+    "title": "புதிய மருந்துச்சீட்டு",
+    "patient": "நோயாளி",
+    "medication": "மருந்து",
+    "strength": "அளவு வீரியம்",
+    "dosage": "மருந்தளவு",
+    "duration": "கால அளவு",
+    "notes": "குறிப்புகள்",
+    "submit": "மருந்துச்சீட்டை உருவாக்கு",
+    "success": "மருந்துச்சீட்டு வெற்றிகரமாக உருவாக்கப்பட்டது",
+    "canonicalPreview": "முன்னோட்டம்",
+    "issueCredential": "சான்றிதழ் வழங்கு",
+    "credentialIssued": "சான்றிதழ் வழங்கப்பட்டு கையொப்பமிடப்பட்டது",
+    "addMedication": "மருந்தைச் சேர்க்கவும்",
+    "removeMedication": "நீக்கு",
+    "timing": "நேரம்",
+    "refills": "மறுநிரப்பல்கள்",
+    "timingOptions": {
+      "morning": "காலை",
+      "afternoon": "மதியம்",
+      "evening": "மாலை",
+      "bedtime": "இரவு படுக்கைக்கு முன்",
+      "beforeMeals": "உணவுக்கு முன்",
+      "afterMeals": "உணவுக்குப் பின்",
+      "withMeals": "உணவுடன்"
+    },
+    "medicationNumber": "Medication #{{number}}",
+    "print": "அச்சிடுக / PDF"
+  },
+  "verify": {
+    "title": "மருந்துச்சீட்டு சான்றிதழைச் சரிபார்க்கவும்",
+    "scanQr": "QR குறியீட்டை ஸ்கேன் செய்யவும்",
+    "enterId": "சான்றிதழ் எண்ணை உள்ளிடவும்",
+    "verify": "சரிபார்",
+    "verified": "✓ சரிபார்க்கப்பட்டது",
+    "failed": "✕ சரிபார்ப்பு தோல்வி",
+    "prescriptionCredential": "Prescription Credential",
+    "medication": "மருந்து",
+    "strength": "அளவு வீரியம்",
+    "dosage": "மருந்தளவு",
+    "duration": "கால அளவு",
+    "issued": "வழங்கப்பட்ட தேதி",
+    "expires": "காலாவதி தேதி",
+    "provider": "மருத்துவர்",
+    "contactProvider": "Contact the issuing healthcare provider.",
+    "startScan": "QR குறியீட்டை ஸ்கேன் செய்யவும்",
+    "issuerVerified": "Issuer Verified",
+    "signatureValid": "Digital Signature Valid",
+    "integrityValid": "Data Integrity Valid",
+    "active": "சான்றிதழ் செயலில் உள்ளது",
+    "notExpired": "காலாவதியாகவில்லை"
+  },
+  "canonical": {
+    "title": "Canonical JSON (Deterministic Serialization)"
+  },
+  "revocation": {
+    "title": "Revoke Credential",
+    "warning": "This action cannot be undone. The credential will be permanently marked as revoked.",
+    "credentialId": "Credential ID",
+    "reason": "Reason for revocation",
+    "reasonPlaceholder": "e.g., Medication error, patient request, provider decision",
+    "confirm": "Revoke Credential",
+    "list": "Revocation Dashboard",
+    "revoked": "Credential revoked successfully"
+  },
+  "audit": {
+    "title": "Audit Trail",
+    "timestamp": "Timestamp",
+    "action": "Action",
+    "target": "Target",
+    "actor": "Actor",
+    "empty": "No audit logs found"
+  },
+  "dispensation": {
+    "markDispensed": "விநியோகிக்கப்பட்டதாகக் குறிக்கவும்",
+    "dispensedAt": "Dispensed at",
+    "dispensedOn": "Dispensed on",
+    "alreadyDispensed": "This credential has already been dispensed",
+    "confirmDispense": "Confirm that you are dispensing this prescription",
+    "pharmacyName": "Pharmacy name (optional)",
+    "success": "மருந்து வெற்றிகரமாக விநியோகிக்கப்பட்டது"
+  },
+  "search": {
+    "placeholder": "மருந்துகளைத் தேடவும்...",
+    "placeholderPatient": "நோயாளி பெயரில் தேடவும்...",
+    "allStatuses": "All statuses",
+    "clear": "Clear filters"
+  },
+  "pagination": {
+    "showing": "Showing",
+    "of": "of",
+    "page": "Page",
+    "perPage": "per page"
+  },
+  "common": {
+    "cancel": "ரத்து",
+    "processing": "Processing...",
+    "save": "சேமி",
+    "delete": "நீக்கு",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "பின்செல்",
+    "loading": "ஏற்றப்படுகிறது...",
+    "error": "An error occurred",
+    "noData": "தகவல் இல்லை",
+    "view": "View",
+    "compare": "Compare",
+    "revoke": "Revoke",
+    "patient": "நோயாளி",
+    "medication": "மருந்து",
+    "credential": "Credential",
+    "actions": "Actions",
+    "name": "Name",
+    "license": "License",
+    "email": "Email",
+    "recentPrescriptions": "Recent prescriptions",
+    "noCredentials": "No credentials",
+    "credentialDetails": "Credential details",
+    "verificationQr": "Verification QR",
+    "revokedMessage": "This credential has been revoked and is no longer valid.",
+    "selectPatient": "Select patient",
+    "credentialComparison": "Credential comparison",
+    "fieldLevelDiff": "Field-level diff",
+    "hashComparison": "Hash comparison",
+    "storedHash": "Stored (signed)",
+    "currentHash": "Current (recomputed)",
+    "enterId": "சான்றிதழ் எண்ணை உள்ளிடவும்",
+    "scanQr": "QR குறியீட்டை ஸ்கேன் செய்யவும்",
+    "noAccountRequired": "No account required. Scan or enter a credential ID.",
+    "approve": "Approve & Issue Key",
+    "auditTrail": "Audit trail",
+    "viewAllActivity": "View all system activity"
+  },
+  "refills": {
+    "remaining": "remaining",
+    "total": "total fills",
+    "of": "of",
+    "exhausted": "All authorized fills have been used",
+    "status": "Refill Status",
+    "fillsUsed": "fills used"
+  },
+  "drugWarning": {
+    "title": "Drug Warnings",
+    "interaction": "Drug Interaction",
+    "dosage": "Dosage Warning",
+    "allergy": "Allergy Alert",
+    "detected": "warnings detected",
+    "highRisk": "high risk",
+    "advisory": "These are advisory alerts based on common drug interactions. Always consult clinical references."
+  },
+  "toast": {
+    "prescriptionCreated": "Prescription created successfully",
+    "credentialIssued": "Credential issued and signed",
+    "credentialRevoked": "Credential revoked successfully",
+    "dispensed": "Prescription marked as dispensed",
+    "loginSuccess": "Welcome back!",
+    "providerApproved": "Provider approved successfully",
+    "exportSuccess": "Export completed",
+    "exportFailed": "Export failed"
+  },
+  "export": {
+    "w3cVc": "W3C VC",
+    "fhirR4": "FHIR R4",
+    "download": "Download",
+    "title": "Export Credential"
+  }
+}

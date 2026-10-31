@@ -1,0 +1,235 @@
+{
+  "nav": {
+    "dashboard": "দ্যাশবোর্ড",
+    "admin": "এদমিন",
+    "adminPortal": "এদমিন পোর্তেল",
+    "audit": "ওদিত ত্রেল",
+    "prescriptions": "প্রেস্ক্রিপসন",
+    "myPrescriptions": "ঐগী প্রেস্ক্রিপসন",
+    "revocations": "লেপকখ্রবা",
+    "verify": "য়েংশিনবীয়ু",
+    "verifyDispense": "য়েংশিনবা অমসুং য়েন্থোকপা",
+    "login": "লোগইন",
+    "logout": "লোগআউত",
+    "register": "রেজিস্তর"
+  },
+  "footer": {
+    "disclaimer": "Verixa - মৈতৈলোন্ (Meitei)",
+    "academic": "Academic demonstration only. No medical advice provided."
+  },
+  "login": {
+    "title": "Verixa দা সাইন ইন তৌবীয়ু",
+    "email": "ইমেইল",
+    "password": "পাসৱার্দ",
+    "submit": "সাইন ইন",
+    "registerPrompt": "একান্ত দরকার ওইবরা?",
+    "registerLink": "রেজিস্তর",
+    "error": "লাল্লবা ৱাফম"
+  },
+  "register": {
+    "title": "একান্ত শেম্বীয়ু",
+    "name": "অপুন্বা মিং",
+    "email": "ইমেইল",
+    "password": "পাসৱার্দ (য়াণ্ডবদা ক্যারেক্তর ৮)",
+    "role": "থৌদাং",
+    "rolePatient": "অনাবা (রোগী)",
+    "roleProvider": "লাইয়েংবা (দোক্তর)",
+    "rolePharmacist": "ফার্মাসিস্ত",
+    "roleAdmin": "প্রশাসক",
+    "licenseNumber": "লাইসেন্স নম্বর",
+    "submit": "একান্ত শেম্বীয়ু",
+    "loginPrompt": "একান্ত দরকার ওইবরা?",
+    "loginLink": "সাইন ইন",
+    "error": "লাল্লবা ৱাফম"
+  },
+  "dashboard": {
+    "welcome": "তরাম্না ওকচরি",
+    "patient": {
+      "title": "ঐগী প্রেস্ক্রিপসন",
+      "noCredentials": "হৌজিকফাওবা চাংদম্নবা চে অমত্তা লৈতে। দোক্তরনা পীবীরগনি।",
+      "viewQr": "QR কোদ য়েংবীয়ু",
+      "revoke": "লেপহন্বীয়ু"
+    },
+    "provider": {
+      "title": "দোক্তরগী দ্যাশবোর্ড",
+      "newPrescription": "অনৌবা প্রেস্ক্রিপসন",
+      "pendingApprovals": "Pending Approvals",
+      "totalCredentials": "Total Credentials",
+      "activeCredentials": "Active Credentials"
+    },
+    "admin": {
+      "title": "এদমিন দ্যাশবোর্ড",
+      "stats": "Statistics",
+      "users": "Users",
+      "providers": "Providers",
+      "credentials": "Credentials",
+      "verifications": "Verifications"
+    }
+  },
+  "prescription": {
+    "title": "অনৌবা প্রেস্ক্রিপসন",
+    "patient": "অনাবা",
+    "medication": "হিদাক-লাংথক",
+    "strength": "পাঙ্গল/শক্তি",
+    "dosage": "ডোজ",
+    "duration": "মত্ম",
+    "notes": "নোট",
+    "submit": "প্রেস্ক্রিপসন শেম্বীয়ু",
+    "success": "প্রেস্ক্রিপসন মায় পাক্না শেমখ্রে",
+    "canonicalPreview": "প্রিভ্যু",
+    "issueCredential": "সার্তিফিকেত পীবীয়ু",
+    "credentialIssued": "সার্তিফিকেত পীখ্রে অমসুং সহি তৌখ্রে",
+    "addMedication": "হিদাক হাপচিল্লু",
+    "removeMedication": "লৌথোকউ",
+    "timing": "মত্ম",
+    "refills": "রিফিল",
+    "timingOptions": {
+      "morning": "অয়ুক",
+      "afternoon": "নুংথিল",
+      "evening": "নুমিদাং",
+      "bedtime": "তুমদ্রিঙৈদা",
+      "beforeMeals": "চাক চাদ্রিঙৈদা",
+      "afterMeals": "চাক চাবা মতুংদা",
+      "withMeals": "চাক্কা লোয়ননা"
+    },
+    "medicationNumber": "Medication #{{number}}",
+    "print": "প্রিন্ত / PDF"
+  },
+  "verify": {
+    "title": "প্রেস্ক্রিপসন সার্তিফিকেত য়েংশিনবীয়ু",
+    "scanQr": "QR কোদ স্কেন তৌবীয়ু",
+    "enterId": "ID চঙহনবীয়ু",
+    "verify": "য়েংশিনবীয়ু",
+    "verified": "✓ চুম্লে",
+    "failed": "✕ চত্নদ্রে",
+    "prescriptionCredential": "Prescription Credential",
+    "medication": "হিদাক-লাংথক",
+    "strength": "পাঙ্গল/শক্তি",
+    "dosage": "ডোজ",
+    "duration": "মত্ম",
+    "issued": "পীখিবা তাং",
+    "expires": "লোইবা তাং",
+    "provider": "লাইয়েংবা (দোক্তর)",
+    "contactProvider": "Contact the issuing healthcare provider.",
+    "startScan": "QR কোদ স্কেন তৌবীয়ু",
+    "issuerVerified": "Issuer Verified",
+    "signatureValid": "Digital Signature Valid",
+    "integrityValid": "Data Integrity Valid",
+    "active": "চল্লিবা সার্তিফিকেত",
+    "notExpired": "লোইদ্রিবা"
+  },
+  "canonical": {
+    "title": "Canonical JSON (Deterministic Serialization)"
+  },
+  "revocation": {
+    "title": "Revoke Credential",
+    "warning": "This action cannot be undone. The credential will be permanently marked as revoked.",
+    "credentialId": "Credential ID",
+    "reason": "Reason for revocation",
+    "reasonPlaceholder": "e.g., Medication error, patient request, provider decision",
+    "confirm": "Revoke Credential",
+    "list": "Revocation Dashboard",
+    "revoked": "Credential revoked successfully"
+  },
+  "audit": {
+    "title": "Audit Trail",
+    "timestamp": "Timestamp",
+    "action": "Action",
+    "target": "Target",
+    "actor": "Actor",
+    "empty": "No audit logs found"
+  },
+  "dispensation": {
+    "markDispensed": "হিদাক য়েন্থোক্লে হায়না খংহনবীয়ু",
+    "dispensedAt": "Dispensed at",
+    "dispensedOn": "Dispensed on",
+    "alreadyDispensed": "This credential has already been dispensed",
+    "confirmDispense": "Confirm that you are dispensing this prescription",
+    "pharmacyName": "Pharmacy name (optional)",
+    "success": "হিদাক মায় পাক্না য়েন্থোকখ্রে"
+  },
+  "search": {
+    "placeholder": "হিদাক থিবীয়ু...",
+    "placeholderPatient": "অনাবাগী মিং থিবীয়ু...",
+    "allStatuses": "All statuses",
+    "clear": "Clear filters"
+  },
+  "pagination": {
+    "showing": "Showing",
+    "of": "of",
+    "page": "Page",
+    "perPage": "per page"
+  },
+  "common": {
+    "cancel": "তৌদবা",
+    "processing": "Processing...",
+    "save": "কনবা",
+    "delete": "মুত্থৎপা",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "হন্দোকপা",
+    "loading": "লোদ তৌরি...",
+    "error": "An error occurred",
+    "noData": "মরোল অমত্তা লৈতে",
+    "view": "View",
+    "compare": "Compare",
+    "revoke": "Revoke",
+    "patient": "অনাবা (রোগী)",
+    "medication": "হিদাক-লাংথক",
+    "credential": "Credential",
+    "actions": "Actions",
+    "name": "Name",
+    "license": "License",
+    "email": "Email",
+    "recentPrescriptions": "Recent prescriptions",
+    "noCredentials": "No credentials",
+    "credentialDetails": "Credential details",
+    "verificationQr": "Verification QR",
+    "revokedMessage": "This credential has been revoked and is no longer valid.",
+    "selectPatient": "Select patient",
+    "credentialComparison": "Credential comparison",
+    "fieldLevelDiff": "Field-level diff",
+    "hashComparison": "Hash comparison",
+    "storedHash": "Stored (signed)",
+    "currentHash": "Current (recomputed)",
+    "enterId": "ID চঙহনবীয়ু",
+    "scanQr": "QR কোদ স্কেন তৌবীয়ু",
+    "noAccountRequired": "No account required. Scan or enter a credential ID.",
+    "approve": "Approve & Issue Key",
+    "auditTrail": "Audit trail",
+    "viewAllActivity": "View all system activity"
+  },
+  "refills": {
+    "remaining": "remaining",
+    "total": "total fills",
+    "of": "of",
+    "exhausted": "All authorized fills have been used",
+    "status": "Refill Status",
+    "fillsUsed": "fills used"
+  },
+  "drugWarning": {
+    "title": "Drug Warnings",
+    "interaction": "Drug Interaction",
+    "dosage": "Dosage Warning",
+    "allergy": "Allergy Alert",
+    "detected": "warnings detected",
+    "highRisk": "high risk",
+    "advisory": "These are advisory alerts based on common drug interactions. Always consult clinical references."
+  },
+  "toast": {
+    "prescriptionCreated": "Prescription created successfully",
+    "credentialIssued": "Credential issued and signed",
+    "credentialRevoked": "Credential revoked successfully",
+    "dispensed": "Prescription marked as dispensed",
+    "loginSuccess": "Welcome back!",
+    "providerApproved": "Provider approved successfully",
+    "exportSuccess": "Export completed",
+    "exportFailed": "Export failed"
+  },
+  "export": {
+    "w3cVc": "W3C VC",
+    "fhirR4": "FHIR R4",
+    "download": "Download",
+    "title": "Export Credential"
+  }
+}

@@ -14,11 +14,11 @@
     "register": "Register"
   },
   "footer": {
-    "disclaimer": "MediShare is an academic prototype for privacy-preserving digital prescription credentials. Not a replacement for government healthcare systems.",
+    "disclaimer": "Verixa is an academic prototype for privacy-preserving digital prescription credentials. Not a replacement for government healthcare systems.",
     "academic": "Academic demonstration only. No medical advice provided."
   },
   "login": {
-    "title": "Sign in to MediShare",
+    "title": "Sign in to Verixa",
     "email": "Email",
     "password": "Password",
     "submit": "Sign in",
@@ -45,7 +45,7 @@
   "dashboard": {
     "welcome": "Welcome",
     "patient": {
-      "title": "My Credentials",
+      "title": "My Prescriptions",
       "noCredentials": "No credentials yet. Your healthcare provider will issue one after your prescription.",
       "viewQr": "View QR",
       "revoke": "Revoke"

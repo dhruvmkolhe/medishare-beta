@@ -1,0 +1,235 @@
+{
+  "nav": {
+    "dashboard": "डेशबोर्ड",
+    "admin": "सामलायगिरि",
+    "adminPortal": "सामलायगिरि पर्टेल",
+    "audit": "बिजिरनाय लामा",
+    "prescriptions": "मुलाम्फा बिलाइ",
+    "myPrescriptions": "आंनि मुलाम्फा बिलाइ",
+    "revocations": "दानख'नायफोर",
+    "verify": "आनजाद नाय",
+    "verifyDispense": "आनजाद आरो राननाय",
+    "login": "हाबनाय",
+    "logout": "ओंखारनाय",
+    "register": "रेजिस्टार"
+  },
+  "footer": {
+    "disclaimer": "Verixa - बड़ो (Bodo)",
+    "academic": "Academic demonstration only. No medical advice provided."
+  },
+  "login": {
+    "title": "Verixa आव हाब",
+    "email": "इमेल",
+    "password": "पासवर्ड",
+    "submit": "हाब",
+    "registerPrompt": "एकाउन्ट नांगौ नामा?",
+    "registerLink": "रेजिस्टार",
+    "error": "गोरोन्थि फोरमान"
+  },
+  "register": {
+    "title": "एकाउन्ट खुलि",
+    "name": "आबुं मुं",
+    "email": "इमेल",
+    "password": "पासवर्ड (खमसिनाव 8 हांखो)",
+    "role": "बिबान",
+    "rolePatient": "सानेग्रा (रोगी)",
+    "roleProvider": "फाहामगिरि (डाक्टर)",
+    "rolePharmacist": "मुलाइगिरि",
+    "roleAdmin": "सामलायगिरि",
+    "licenseNumber": "लाइसेन्स नम्बर",
+    "submit": "एकाउन्ट बानाय",
+    "loginPrompt": "एकाउन्ट नांगौ नामा?",
+    "loginLink": "हाब",
+    "error": "गोरोन्थि फोरमान"
+  },
+  "dashboard": {
+    "welcome": "बरायबाय",
+    "patient": {
+      "title": "आंनि मुलाम्फा बिलाइ",
+      "noCredentials": "दासिमबो जेबो फोरमान बिलाइ गैया। डाक्टरा अनसायनानै हरगोन।",
+      "viewQr": "QR ख'ड नाय",
+      "revoke": "दानख'"
+    },
+    "provider": {
+      "title": "डाक्टर डेशबोर्ड",
+      "newPrescription": "गोदान मुलाम्फा बिलाइ",
+      "pendingApprovals": "Pending Approvals",
+      "totalCredentials": "Total Credentials",
+      "activeCredentials": "Active Credentials"
+    },
+    "admin": {
+      "title": "सामलायगिरि डेशबोर्ड",
+      "stats": "Statistics",
+      "users": "Users",
+      "providers": "Providers",
+      "credentials": "Credentials",
+      "verifications": "Verifications"
+    }
+  },
+  "prescription": {
+    "title": "गोदान मुलाम्फा बिलाइ",
+    "patient": "सानेग्रा",
+    "medication": "मुलाइ",
+    "strength": "गोहो",
+    "dosage": "डोज",
+    "duration": "सम",
+    "notes": "नोंट",
+    "submit": "बिलाइ बानाय",
+    "success": "मुलाम्फा बिलाइ बानायनाय जाफुंबाय",
+    "canonicalPreview": "सिगां नुथाय",
+    "issueCredential": "फोरमान बिलाइ हर",
+    "credentialIssued": "फोरमान बिलाइ हरबाय आरो साय खोलबाय",
+    "addMedication": "मुलाइ दाजाब",
+    "removeMedication": "खारहो",
+    "timing": "सम",
+    "refills": "रिफिल",
+    "timingOptions": {
+      "morning": "फुंआव",
+      "afternoon": "सानजौफु",
+      "evening": "बेलासियाव",
+      "bedtime": "उन्दुनाय समाव",
+      "beforeMeals": "जानायनि सिगां",
+      "afterMeals": "जानायनि उनाव",
+      "withMeals": "जानायजों लोगोसे"
+    },
+    "medicationNumber": "Medication #{{number}}",
+    "print": "प्रिन्ट / PDF"
+  },
+  "verify": {
+    "title": "फोरमान बिलाइ आनजाद नाय",
+    "scanQr": "QR ख'ड स्क्रेन खालाम",
+    "enterId": "ID लिर",
+    "verify": "आनजाद नाय",
+    "verified": "✓ आनजाद जाफुंबाय",
+    "failed": "✕ आनजाद जाफुंआसै",
+    "prescriptionCredential": "Prescription Credential",
+    "medication": "मुलाइ",
+    "strength": "गोहो",
+    "dosage": "डोज",
+    "duration": "सम",
+    "issued": "हरनाय अक्ट'",
+    "expires": "जोबनाय अक्ट'",
+    "provider": "फाहामगिरि (डाक्टर)",
+    "contactProvider": "Contact the issuing healthcare provider.",
+    "startScan": "QR ख'ड स्क्रेन खालाम",
+    "issuerVerified": "Issuer Verified",
+    "signatureValid": "Digital Signature Valid",
+    "integrityValid": "Data Integrity Valid",
+    "active": "सोलिबाय थानाय",
+    "notExpired": "सम जोबथ'आखै"
+  },
+  "canonical": {
+    "title": "Canonical JSON (Deterministic Serialization)"
+  },
+  "revocation": {
+    "title": "Revoke Credential",
+    "warning": "This action cannot be undone. The credential will be permanently marked as revoked.",
+    "credentialId": "Credential ID",
+    "reason": "Reason for revocation",
+    "reasonPlaceholder": "e.g., Medication error, patient request, provider decision",
+    "confirm": "Revoke Credential",
+    "list": "Revocation Dashboard",
+    "revoked": "Credential revoked successfully"
+  },
+  "audit": {
+    "title": "Audit Trail",
+    "timestamp": "Timestamp",
+    "action": "Action",
+    "target": "Target",
+    "actor": "Actor",
+    "empty": "No audit logs found"
+  },
+  "dispensation": {
+    "markDispensed": "रानबाय होनना सिन हो",
+    "dispensedAt": "Dispensed at",
+    "dispensedOn": "Dispensed on",
+    "alreadyDispensed": "This credential has already been dispensed",
+    "confirmDispense": "Confirm that you are dispensing this prescription",
+    "pharmacyName": "Pharmacy name (optional)",
+    "success": "मुलाइखौ जाफुंसारै रानबाय"
+  },
+  "search": {
+    "placeholder": "मुलाइ नागिर...",
+    "placeholderPatient": "सानेग्रानि मुं नागिर...",
+    "allStatuses": "All statuses",
+    "clear": "Clear filters"
+  },
+  "pagination": {
+    "showing": "Showing",
+    "of": "of",
+    "page": "Page",
+    "perPage": "per page"
+  },
+  "common": {
+    "cancel": "नेवसि",
+    "processing": "Processing...",
+    "save": "थि खालाम",
+    "delete": "दानख'",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "गिदिंफिन",
+    "loading": "लोड जाबाय थादों...",
+    "error": "An error occurred",
+    "noData": "जेबो खारि गैया",
+    "view": "View",
+    "compare": "Compare",
+    "revoke": "Revoke",
+    "patient": "सानेग्रा (रोगी)",
+    "medication": "मुलाइ",
+    "credential": "Credential",
+    "actions": "Actions",
+    "name": "Name",
+    "license": "License",
+    "email": "Email",
+    "recentPrescriptions": "Recent prescriptions",
+    "noCredentials": "No credentials",
+    "credentialDetails": "Credential details",
+    "verificationQr": "Verification QR",
+    "revokedMessage": "This credential has been revoked and is no longer valid.",
+    "selectPatient": "Select patient",
+    "credentialComparison": "Credential comparison",
+    "fieldLevelDiff": "Field-level diff",
+    "hashComparison": "Hash comparison",
+    "storedHash": "Stored (signed)",
+    "currentHash": "Current (recomputed)",
+    "enterId": "ID लिर",
+    "scanQr": "QR ख'ड स्क्रेन खालाम",
+    "noAccountRequired": "No account required. Scan or enter a credential ID.",
+    "approve": "Approve & Issue Key",
+    "auditTrail": "Audit trail",
+    "viewAllActivity": "View all system activity"
+  },
+  "refills": {
+    "remaining": "remaining",
+    "total": "total fills",
+    "of": "of",
+    "exhausted": "All authorized fills have been used",
+    "status": "Refill Status",
+    "fillsUsed": "fills used"
+  },
+  "drugWarning": {
+    "title": "Drug Warnings",
+    "interaction": "Drug Interaction",
+    "dosage": "Dosage Warning",
+    "allergy": "Allergy Alert",
+    "detected": "warnings detected",
+    "highRisk": "high risk",
+    "advisory": "These are advisory alerts based on common drug interactions. Always consult clinical references."
+  },
+  "toast": {
+    "prescriptionCreated": "Prescription created successfully",
+    "credentialIssued": "Credential issued and signed",
+    "credentialRevoked": "Credential revoked successfully",
+    "dispensed": "Prescription marked as dispensed",
+    "loginSuccess": "Welcome back!",
+    "providerApproved": "Provider approved successfully",
+    "exportSuccess": "Export completed",
+    "exportFailed": "Export failed"
+  },
+  "export": {
+    "w3cVc": "W3C VC",
+    "fhirR4": "FHIR R4",
+    "download": "Download",
+    "title": "Export Credential"
+  }
+}

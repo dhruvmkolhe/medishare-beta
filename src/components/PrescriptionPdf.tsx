@@ -64,7 +64,7 @@ export default function PrescriptionPdf({ credential, items, providerName, patie
         <div class="header">
           <div>
             <h1>℞ Prescription</h1>
-            <div class="subtitle">MediShare Verified Credential</div>
+            <div class="subtitle">Verixa Verified Credential</div>
           </div>
           <div style="text-align: right">
             <span class="badge badge-active">${credential.status}</span>

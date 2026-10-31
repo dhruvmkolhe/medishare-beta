@@ -80,7 +80,7 @@ export default function Login() {
     <div className="flex flex-col items-center justify-center flex-1 py-2 sm:py-6">
       <PageMeta
         title="Sign In"
-        description="Access your MediShare healthcare portal to manage, issue, or review cryptographically signed digital prescriptions and verifiable credentials."
+        description="Access your Verixa healthcare portal to manage, issue, or review cryptographically signed digital prescriptions and verifiable credentials."
         canonicalPath="/login"
       />
       <div className="w-full max-w-md">

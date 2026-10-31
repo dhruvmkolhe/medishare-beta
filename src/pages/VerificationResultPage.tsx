@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useApiFetch } from '../contexts/AuthContext';
+import { useAuth, useApiFetch } from '../contexts/AuthContext';
 import VerificationResult from '../components/VerificationResult';
 import type { VerificationResult as VerificationResultType } from '../types';
 import { AlertCircle } from 'lucide-react';
@@ -10,8 +10,13 @@ import Breadcrumbs from '../components/Breadcrumbs';
 
 export default function VerificationResultPage() {
   const { credentialId } = useParams<{ credentialId: string }>();
+  const { user } = useAuth();
   const { t } = useTranslation();
   const apiFetch = useApiFetch();
+
+  if (user?.role === 'PATIENT') {
+    return <Navigate to={credentialId ? `/credentials/${credentialId}` : '/patient'} replace />;
+  }
   const [result, setResult] = useState<VerificationResultType | null>(null);
   const [loading, setLoading] = useState(true);
   const [dispensing, setDispensing] = useState(false);

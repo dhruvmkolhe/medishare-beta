@@ -85,13 +85,13 @@ export default function Register() {
     <div className="flex flex-col items-center justify-center flex-1 py-2 sm:py-6">
       <PageMeta
         title="Create Account"
-        description="Register a patient, healthcare provider, or pharmacist account on MediShare to begin issuing and managing digital prescription credentials."
+        description="Register a patient, healthcare provider, or pharmacist account on Verixa to begin issuing and managing digital prescription credentials."
         canonicalPath="/register"
       />
       <div className="w-full max-w-md">
         <div className="text-center mb-4">
           <h1 className="text-xl font-bold text-slate-900">{t('register.title')}</h1>
-          <p className="text-xs text-slate-500 mt-0.5">Create your MediShare identity</p>
+          <p className="text-xs text-slate-500 mt-0.5">Create your Verixa identity</p>
         </div>
 
         <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6">

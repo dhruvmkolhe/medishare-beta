@@ -46,7 +46,7 @@ export default function CookieConsent() {
       </div>
 
       <p className="mt-2 text-xs text-slate-300 leading-relaxed">
-        MediShare uses essential cookies for secure cryptographic authentication and session management. We also use privacy-preserving analytics to improve prescription verification performance.
+        Verixa uses essential cookies for secure cryptographic authentication and session management. We also use privacy-preserving analytics to improve prescription verification performance.
       </p>
 
       <div className="mt-4 flex items-center justify-between gap-2 pt-2 border-t border-slate-800">

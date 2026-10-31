@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuth, useApiFetch } from '../contexts/AuthContext';
 import { useToast } from '../contexts/ToastContext';
@@ -13,6 +14,10 @@ export default function PharmacistVerify() {
   const { t } = useTranslation();
   const { toast } = useToast();
   const { user } = useAuth();
+
+  if (user?.role === 'PATIENT') {
+    return <Navigate to="/patient" replace />;
+  }
   const apiFetch = useApiFetch();
   const [mode, setMode] = useState<'scan' | 'input'>('input');
   const [credentialId, setCredentialId] = useState('');

@@ -13,7 +13,13 @@ export default function ProtectedRoute({ children, roles }: { children: React.Re
   }
 
   if (!user) return <Navigate to="/login" replace />;
-  if (roles && !roles.includes(user.role)) return <Navigate to="/" replace />;
+  if (roles && !roles.includes(user.role)) {
+    if (user.role === 'PATIENT') return <Navigate to="/patient" replace />;
+    if (user.role === 'PROVIDER') return <Navigate to="/provider" replace />;
+    if (user.role === 'PHARMACIST') return <Navigate to="/verify" replace />;
+    if (user.role === 'ADMIN') return <Navigate to="/admin" replace />;
+    return <Navigate to="/" replace />;
+  }
 
   return <>{children}</>;
 }

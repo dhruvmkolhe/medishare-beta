@@ -1,0 +1,235 @@
+{
+  "nav": {
+    "dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+    "admin": "ನಿರ್ವಾಹಕ",
+    "adminPortal": "ನಿರ್ವಾಹಕ ಪೋರ್ಟಲ್",
+    "audit": "ಆಡಿಟ್ ಟ್ರಯಲ್",
+    "prescriptions": "ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್‌ಗಳು",
+    "myPrescriptions": "ನನ್ನ ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್‌ಗಳು",
+    "revocations": "ರದ್ದುಪಡಿಸಿದವು",
+    "verify": "ಪರಿಶೀಲಿಸಿ",
+    "verifyDispense": "ಪರಿಶೀಲನೆ & ವಿತರಣೆ",
+    "login": "ಲಾಗಿನ್",
+    "logout": "ಲಾಗ್‌ಔಟ್",
+    "register": "ನೋಂದಣಿ"
+  },
+  "footer": {
+    "disclaimer": "Verixa - ಕನ್ನಡ (Kannada)",
+    "academic": "Academic demonstration only. No medical advice provided."
+  },
+  "login": {
+    "title": "Verixa ಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ",
+    "email": "ಇಮೇಲ್",
+    "password": "ಪಾಸ್‌ವರ್ಡ್",
+    "submit": "ಸೈನ್ ಇನ್",
+    "registerPrompt": "ಖಾತೆ ಬೇಕೇ?",
+    "registerLink": "ನೋಂದಣಿ",
+    "error": "ಅಮಾನ್ಯ ರುಜುವಾತುಗಳು"
+  },
+  "register": {
+    "title": "ಖಾತೆ ರಚಿಸಿ",
+    "name": "ಪೂರ್ಣ ಹೆಸರು",
+    "email": "ಇಮೇಲ್",
+    "password": "ಪಾಸ್‌ವರ್ಡ್ (ಕನಿಷ್ಠ 8 ಅಕ್ಷರಗಳು)",
+    "role": "ಪಾತ್ರ",
+    "rolePatient": "ರೋಗಿ",
+    "roleProvider": "ಆರೋಗ್ಯ ಪೂರೈಕೆದಾರ",
+    "rolePharmacist": "ಔಷಧಿಕಾರ (ಫಾರ್ಮಸಿಸ್ಟ್)",
+    "roleAdmin": "ನಿರ್ವಾಹಕ",
+    "licenseNumber": "ಪರವಾನಗಿ ಸಂಖ್ಯೆ (ವೈದ್ಯರಿಗೆ ಮಾತ್ರ)",
+    "submit": "ಖಾತೆ ರಚಿಸಿ",
+    "loginPrompt": "ಖಾತೆ ಬೇಕೇ?",
+    "loginLink": "ಸೈನ್ ಇನ್",
+    "error": "ಅಮಾನ್ಯ ರುಜುವಾತುಗಳು"
+  },
+  "dashboard": {
+    "welcome": "ಸ್ವಾಗತ",
+    "patient": {
+      "title": "ನನ್ನ ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್‌ಗಳು",
+      "noCredentials": "ಇನ್ನೂ ಯಾವುದೇ ಪ್ರಮಾಣಪತ್ರಗಳಿಲ್ಲ. ವೈದ್ಯರು ಪರೀಕ್ಷೆಯ ನಂತರ ನೀಡುತ್ತಾರೆ.",
+      "viewQr": "QR ಕೋಡ್ ವೀಕ್ಷಿಸಿ",
+      "revoke": "ರದ್ದುಮಾಡಿ"
+    },
+    "provider": {
+      "title": "ವೈದ್ಯರ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+      "newPrescription": "ಹೊಸ ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್",
+      "pendingApprovals": "Pending Approvals",
+      "totalCredentials": "Total Credentials",
+      "activeCredentials": "Active Credentials"
+    },
+    "admin": {
+      "title": "ನಿರ್ವಾಹಕ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+      "stats": "Statistics",
+      "users": "Users",
+      "providers": "Providers",
+      "credentials": "Credentials",
+      "verifications": "Verifications"
+    }
+  },
+  "prescription": {
+    "title": "ಹೊಸ ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್",
+    "patient": "ರೋಗಿ",
+    "medication": "ಔಷಧ",
+    "strength": "ಸಾಮರ್ಥ್ಯ",
+    "dosage": "ಪ್ರಮಾಣ",
+    "duration": "ಅವಧಿ",
+    "notes": "ಟಿಪ್ಪಣಿಗಳು",
+    "submit": "ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್ ರಚಿಸಿ",
+    "success": "ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್ ಯಶಸ್ವಿಯಾಗಿ ರಚಿಸಲಾಗಿದೆ",
+    "canonicalPreview": "ಮುನ್ನೋಟ",
+    "issueCredential": "ಪ್ರಮಾಣಪತ್ರ ನೀಡಿ",
+    "credentialIssued": "ಪ್ರಮಾಣಪತ್ರ ನೀಡಲಾಗಿದೆ ಮತ್ತು ಸಹಿ ಮಾಡಲಾಗಿದೆ",
+    "addMedication": "ಔಷಧಿ ಸೇರಿಸಿ",
+    "removeMedication": "ತೆಗೆದುಹಾಕಿ",
+    "timing": "ಸಮಯ",
+    "refills": "ರೀಫಿಲ್‌ಗಳು",
+    "timingOptions": {
+      "morning": "ಬೆಳಿಗ್ಗೆ",
+      "afternoon": "ಮಧ್ಯಾಹ್ನ",
+      "evening": "ಸಂಜೆ",
+      "bedtime": "ಮಲಗುವ ಮುನ್ನ",
+      "beforeMeals": "ಊಟಕ್ಕೆ ಮುಂಚೆ",
+      "afterMeals": "ಊಟದ ನಂತರ",
+      "withMeals": "ಊಟದ ಜೊತೆಗೆ"
+    },
+    "medicationNumber": "Medication #{{number}}",
+    "print": "ಮುದ್ರಿಸಿ / PDF"
+  },
+  "verify": {
+    "title": "ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್ ಪ್ರಮಾಣಪತ್ರವನ್ನು ಪರಿಶೀಲಿಸಿ",
+    "scanQr": "QR ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ",
+    "enterId": "ಪ್ರಮಾಣಪತ್ರ ID ನಮೂದಿಸಿ",
+    "verify": "ಪರಿಶೀಲಿಸಿ",
+    "verified": "✓ ಪರಿಶೀಲಿಸಲಾಗಿದೆ",
+    "failed": "✕ ಪರಿಶೀಲನೆ ವಿಫಲವಾಗಿದೆ",
+    "prescriptionCredential": "Prescription Credential",
+    "medication": "ಔಷಧ",
+    "strength": "ಸಾಮರ್ಥ್ಯ",
+    "dosage": "ಪ್ರಮಾಣ",
+    "duration": "ಅವಧಿ",
+    "issued": "ನೀಡಲಾದ ದಿನಾಂಕ",
+    "expires": "ಅಂತ್ಯಗೊಳ್ಳುವ ದಿನಾಂಕ",
+    "provider": "ಆರೋಗ್ಯ ಪೂರೈಕೆದಾರ",
+    "contactProvider": "Contact the issuing healthcare provider.",
+    "startScan": "QR ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ",
+    "issuerVerified": "Issuer Verified",
+    "signatureValid": "Digital Signature Valid",
+    "integrityValid": "Data Integrity Valid",
+    "active": "ಪ್ರಮಾಣಪತ್ರ ಸಕ್ರಿಯವಾಗಿದೆ",
+    "notExpired": "ಅವಧಿ ಮುಗಿದಿಲ್ಲ"
+  },
+  "canonical": {
+    "title": "Canonical JSON (Deterministic Serialization)"
+  },
+  "revocation": {
+    "title": "Revoke Credential",
+    "warning": "This action cannot be undone. The credential will be permanently marked as revoked.",
+    "credentialId": "Credential ID",
+    "reason": "Reason for revocation",
+    "reasonPlaceholder": "e.g., Medication error, patient request, provider decision",
+    "confirm": "Revoke Credential",
+    "list": "Revocation Dashboard",
+    "revoked": "Credential revoked successfully"
+  },
+  "audit": {
+    "title": "Audit Trail",
+    "timestamp": "Timestamp",
+    "action": "Action",
+    "target": "Target",
+    "actor": "Actor",
+    "empty": "No audit logs found"
+  },
+  "dispensation": {
+    "markDispensed": "ವಿತರಿಸಲಾಗಿದೆ ಎಂದು ಗುರುತಿಸಿ",
+    "dispensedAt": "Dispensed at",
+    "dispensedOn": "Dispensed on",
+    "alreadyDispensed": "This credential has already been dispensed",
+    "confirmDispense": "Confirm that you are dispensing this prescription",
+    "pharmacyName": "Pharmacy name (optional)",
+    "success": "ಪ್ರಿಸ್ಕ್ರಿಪ್ಷನ್ ಯಶಸ್ವಿಯಾಗಿ ವಿತರಿಸಲಾಗಿದೆ"
+  },
+  "search": {
+    "placeholder": "ಔಷಧಿಗಳನ್ನು ಹುಡುಕಿ...",
+    "placeholderPatient": "ರೋಗಿಯ ಹೆಸರಿನಿಂದ ಹುಡುಕಿ...",
+    "allStatuses": "All statuses",
+    "clear": "Clear filters"
+  },
+  "pagination": {
+    "showing": "Showing",
+    "of": "of",
+    "page": "Page",
+    "perPage": "per page"
+  },
+  "common": {
+    "cancel": "ರದ್ದುಮಾಡಿ",
+    "processing": "Processing...",
+    "save": "ಉಳಿಸಿ",
+    "delete": "ಅಳಿಸಿ",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "ಹಿಂದಕ್ಕೆ",
+    "loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ...",
+    "error": "An error occurred",
+    "noData": "ಮಾಹಿತಿ ಲಭ್ಯವಿಲ್ಲ",
+    "view": "View",
+    "compare": "Compare",
+    "revoke": "Revoke",
+    "patient": "ರೋಗಿ",
+    "medication": "ಔಷಧ",
+    "credential": "Credential",
+    "actions": "Actions",
+    "name": "Name",
+    "license": "License",
+    "email": "Email",
+    "recentPrescriptions": "Recent prescriptions",
+    "noCredentials": "No credentials",
+    "credentialDetails": "Credential details",
+    "verificationQr": "Verification QR",
+    "revokedMessage": "This credential has been revoked and is no longer valid.",
+    "selectPatient": "Select patient",
+    "credentialComparison": "Credential comparison",
+    "fieldLevelDiff": "Field-level diff",
+    "hashComparison": "Hash comparison",
+    "storedHash": "Stored (signed)",
+    "currentHash": "Current (recomputed)",
+    "enterId": "ಪ್ರಮಾಣಪತ್ರ ID ನಮೂದಿಸಿ",
+    "scanQr": "QR ಕೋಡ್ ಸ್ಕ್ಯಾನ್ ಮಾಡಿ",
+    "noAccountRequired": "No account required. Scan or enter a credential ID.",
+    "approve": "Approve & Issue Key",
+    "auditTrail": "Audit trail",
+    "viewAllActivity": "View all system activity"
+  },
+  "refills": {
+    "remaining": "remaining",
+    "total": "total fills",
+    "of": "of",
+    "exhausted": "All authorized fills have been used",
+    "status": "Refill Status",
+    "fillsUsed": "fills used"
+  },
+  "drugWarning": {
+    "title": "Drug Warnings",
+    "interaction": "Drug Interaction",
+    "dosage": "Dosage Warning",
+    "allergy": "Allergy Alert",
+    "detected": "warnings detected",
+    "highRisk": "high risk",
+    "advisory": "These are advisory alerts based on common drug interactions. Always consult clinical references."
+  },
+  "toast": {
+    "prescriptionCreated": "Prescription created successfully",
+    "credentialIssued": "Credential issued and signed",
+    "credentialRevoked": "Credential revoked successfully",
+    "dispensed": "Prescription marked as dispensed",
+    "loginSuccess": "Welcome back!",
+    "providerApproved": "Provider approved successfully",
+    "exportSuccess": "Export completed",
+    "exportFailed": "Export failed"
+  },
+  "export": {
+    "w3cVc": "W3C VC",
+    "fhirR4": "FHIR R4",
+    "download": "Download",
+    "title": "Export Credential"
+  }
+}

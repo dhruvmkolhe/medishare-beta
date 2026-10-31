@@ -11,11 +11,11 @@
     "register": "Inscription"
   },
   "footer": {
-    "disclaimer": "MediShare est un prototype académique pour les attestations d'ordonnances numériques préservant la confidentialité. Ne remplace pas les systèmes de santé gouvernementaux.",
+    "disclaimer": "Verixa est un prototype académique pour les attestations d'ordonnances numériques préservant la confidentialité. Ne remplace pas les systèmes de santé gouvernementaux.",
     "academic": "Démonstration académique uniquement. Aucun conseil médical."
   },
   "login": {
-    "title": "Connexion à MediShare",
+    "title": "Connexion à Verixa",
     "email": "Email",
     "password": "Mot de passe",
     "submit": "Se connecter",

@@ -1,4 +1,4 @@
-﻿import { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { trackPageView } from '../lib/analytics';
 
@@ -13,8 +13,8 @@ export default function PageMeta({ title, description, canonicalPath }: PageMeta
 
   useEffect(() => {
     // 1. Update Document Title
-    const baseTitle = 'MediShare';
-    const fullTitle = title ? `${title} | ${baseTitle}` : 'MediShare — Privacy-Preserving Digital Prescription Credentials';
+    const baseTitle = 'Verixa';
+    const fullTitle = title ? `${title} | ${baseTitle}` : 'Verixa — Privacy-Preserving Digital Prescription Credentials';
     document.title = fullTitle;
 
     // 2. Update or create Meta Description

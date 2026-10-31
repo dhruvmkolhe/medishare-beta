@@ -1,0 +1,235 @@
+{
+  "nav": {
+    "dashboard": "ᱰᱮᱥᱵᱚᱨᱰ",
+    "admin": "ᱥᱟᱥᱚᱱᱤᱭᱟᱹ",
+    "adminPortal": "ᱥᱟᱥᱚᱱᱤᱭᱟᱹ ᱯᱳᱨᱴᱟᱞ",
+    "audit": "ᱚᱰᱤᱴ ᱴᱨᱮᱞ",
+    "prescriptions": "ᱨᱟᱱ ᱥᱟᱠᱟᱢ",
+    "myPrescriptions": "ᱤᱧᱟᱜ ᱨᱟᱱ ᱥᱟᱠᱟᱢ",
+    "revocations": "ᱵᱟᱹᱛᱤᱞ ᱟᱠᱟᱱ",
+    "verify": "ᱡᱟᱸᱪᱟᱭ ᱢᱮ",
+    "verifyDispense": "ᱡᱟᱸᱪ ᱟᱨ ᱦᱟᱹᱴᱤᱧ",
+    "login": "ᱵᱚᱞᱚᱱ",
+    "logout": "ᱚᱰᱚᱠ",
+    "register": "ᱧᱩᱛᱩᱢ ᱚᱞ"
+  },
+  "footer": {
+    "disclaimer": "Verixa - ᱥᱟᱱᱛᱟᱲᱤ (Santali)",
+    "academic": "Academic demonstration only. No medical advice provided."
+  },
+  "login": {
+    "title": "Verixa ᱨᱮ ᱵᱚᱞᱚᱱ ᱢᱮ",
+    "email": "ᱤᱢᱮᱞ",
+    "password": "ᱯᱟᱥᱣᱟᱨᱰ",
+    "submit": "ᱵᱚᱞᱚᱱ ᱢᱮ",
+    "registerPrompt": "ᱠᱷᱟᱛᱟ ᱞᱟᱹᱠᱛᱤ ᱠᱟᱱᱟ?",
+    "registerLink": "ᱧᱩᱛᱩᱢ ᱚᱞ",
+    "error": "ᱵᱷᱩᱞ ᱠᱟᱛᱷᱟ"
+  },
+  "register": {
+    "title": "ᱠᱷᱟᱛᱟ ᱵᱮᱱᱟᱣ ᱢᱮ",
+    "name": "ᱯᱩᱨᱟᱹ ᱧᱩᱛᱩᱢ",
+    "email": "ᱤᱢᱮᱞ",
+    "password": "ᱯᱟᱥᱣᱟᱨᱰ (ᱠᱚᱢ ᱠᱷᱚᱱ ᱠᱚᱢ ᱘ ᱟᱠᱷᱚᱨ)",
+    "role": "ᱠᱟᱹᱢᱤ",
+    "rolePatient": "ᱨᱩᱜᱤ",
+    "roleProvider": "ᱰᱟᱠᱛᱚᱨ",
+    "rolePharmacist": "ᱨᱟᱱ ᱫᱩᱠᱟᱹᱱᱤᱭᱟᱹ",
+    "roleAdmin": "ᱥᱟᱥᱚᱱᱤᱭᱟᱹ",
+    "licenseNumber": "ᱞᱟᱭᱥᱮᱱᱥ ᱮᱞ",
+    "submit": "ᱠᱷᱟᱛᱟ ᱵᱮᱱᱟᱣ ᱢᱮ",
+    "loginPrompt": "ᱠᱷᱟᱛᱟ ᱞᱟᱹᱠᱛᱤ ᱠᱟᱱᱟ?",
+    "loginLink": "ᱵᱚᱞᱚᱱ ᱢᱮ",
+    "error": "ᱵᱷᱩᱞ ᱠᱟᱛᱷᱟ"
+  },
+  "dashboard": {
+    "welcome": "ᱥᱟᱹᱜᱩᱱ ᱫᱟᱨᱟᱢ",
+    "patient": {
+      "title": "ᱤᱧᱟᱜ ᱨᱟᱱ ᱥᱟᱠᱟᱢ",
+      "noCredentials": "ᱱᱤᱛᱚᱜ ᱫᱷᱟᱹᱵᱤᱡ ᱪᱮᱫ ᱦᱚᱸ ᱥᱟᱠᱟᱢ ᱵᱟᱹᱱᱩᱜᱼᱟ᱾",
+      "viewQr": "QR ᱠᱳᱰ ᱧᱮᱞ ᱢᱮ",
+      "revoke": "ᱵᱟᱹᱛᱤᱞ ᱢᱮ"
+    },
+    "provider": {
+      "title": "ᱰᱟᱠᱛᱚᱨ ᱰᱮᱥᱵᱚᱨᱰ",
+      "newPrescription": "ᱱᱟᱶᱟ ᱨᱟᱱ ᱥᱟᱠᱟᱢ",
+      "pendingApprovals": "Pending Approvals",
+      "totalCredentials": "Total Credentials",
+      "activeCredentials": "Active Credentials"
+    },
+    "admin": {
+      "title": "ᱥᱟᱥᱚᱱᱤᱭᱟᱹ ᱰᱮᱥᱵᱚᱨᱰ",
+      "stats": "Statistics",
+      "users": "Users",
+      "providers": "Providers",
+      "credentials": "Credentials",
+      "verifications": "Verifications"
+    }
+  },
+  "prescription": {
+    "title": "ᱱᱟᱶᱟ ᱨᱟᱱ ᱥᱟᱠᱟᱢ",
+    "patient": "ᱨᱩᱜᱤ",
+    "medication": "ᱨᱟᱱ",
+    "strength": "ᱫᱟᱲᱮ",
+    "dosage": "ᱰᱳᱡᱽ",
+    "duration": "ᱚᱠᱛᱚ",
+    "notes": "ᱱᱳᱴ",
+    "submit": "ᱨᱟᱱ ᱥᱟᱠᱟᱢ ᱵᱮᱱᱟᱣ ᱢᱮ",
+    "success": "ᱨᱟᱱ ᱥᱟᱠᱟᱢ ᱥᱟᱹᱛ ᱮᱱᱟ",
+    "canonicalPreview": "ᱧᱮᱞ ᱵᱤᱰᱟᱹᱣ",
+    "issueCredential": "ᱥᱟᱠᱟᱢ ᱮᱢ ᱢᱮ",
+    "credentialIssued": "ᱥᱟᱠᱟᱢ ᱮᱢ ᱟᱨ ᱥᱩᱦᱤ ᱮᱱᱟ",
+    "addMedication": "ᱨᱟᱱ ᱥᱮᱞᱮᱫᱽ ᱢᱮ",
+    "removeMedication": "ᱚᱪᱚᱜ ᱢᱮ",
+    "timing": "ᱚᱠᱛᱚ",
+    "refills": "ᱨᱤᱯᱷᱤᱞ",
+    "timingOptions": {
+      "morning": "ᱥᱮᱛᱟᱜ",
+      "afternoon": "ᱛᱤᱠᱤᱱ",
+      "evening": "ᱟᱹᱭᱩᱵ",
+      "bedtime": "ᱜᱤᱛᱤᱡ ᱡᱚᱠᱷᱟᱜ",
+      "beforeMeals": "ᱡᱚᱢ ᱢᱟᱬᱟᱝ",
+      "afterMeals": "ᱡᱚᱢ ᱛᱟᱭᱚᱢ",
+      "withMeals": "ᱡᱚᱢ ᱥᱟᱶ"
+    },
+    "medicationNumber": "Medication #{{number}}",
+    "print": "ᱪᱷᱟᱯᱟ / PDF"
+  },
+  "verify": {
+    "title": "ᱨᱟᱱ ᱥᱟᱠᱟᱢ ᱡᱟᱸᱪᱟᱭ ᱢᱮ",
+    "scanQr": "QR ᱠᱳᱰ ᱥᱠᱮᱱ ᱢᱮ",
+    "enterId": "ID ᱚᱞ ᱢᱮ",
+    "verify": "ᱡᱟᱸᱪᱟᱭ ᱢᱮ",
+    "verified": "✓ ᱡᱟᱸᱪ ᱥᱟᱹᱛ ᱮᱱᱟ",
+    "failed": "✕ ᱵᱟᱝ ᱡᱟᱸᱪ ᱞᱮᱱᱟ",
+    "prescriptionCredential": "Prescription Credential",
+    "medication": "ᱨᱟᱱ",
+    "strength": "ᱫᱟᱲᱮ",
+    "dosage": "ᱰᱳᱡᱽ",
+    "duration": "ᱚᱠᱛᱚ",
+    "issued": "ᱮᱢᱟᱠᱟᱱ ᱢᱟᱹᱦᱤᱛ",
+    "expires": "ᱪᱟᱵᱟᱜ ᱢᱟᱹᱦᱤᱛ",
+    "provider": "ᱰᱟᱠᱛᱚᱨ",
+    "contactProvider": "Contact the issuing healthcare provider.",
+    "startScan": "QR ᱠᱳᱰ ᱥᱠᱮᱱ ᱢᱮ",
+    "issuerVerified": "Issuer Verified",
+    "signatureValid": "Digital Signature Valid",
+    "integrityValid": "Data Integrity Valid",
+    "active": "ᱪᱟᱹᱞᱩ ᱢᱮᱱᱟᱜᱼᱟ",
+    "notExpired": "ᱵᱟᱝ ᱪᱟᱵᱟ ᱟᱠᱟᱱᱟ"
+  },
+  "canonical": {
+    "title": "Canonical JSON (Deterministic Serialization)"
+  },
+  "revocation": {
+    "title": "Revoke Credential",
+    "warning": "This action cannot be undone. The credential will be permanently marked as revoked.",
+    "credentialId": "Credential ID",
+    "reason": "Reason for revocation",
+    "reasonPlaceholder": "e.g., Medication error, patient request, provider decision",
+    "confirm": "Revoke Credential",
+    "list": "Revocation Dashboard",
+    "revoked": "Credential revoked successfully"
+  },
+  "audit": {
+    "title": "Audit Trail",
+    "timestamp": "Timestamp",
+    "action": "Action",
+    "target": "Target",
+    "actor": "Actor",
+    "empty": "No audit logs found"
+  },
+  "dispensation": {
+    "markDispensed": "ᱦᱟᱹᱴᱤᱧ ᱮᱱᱟ ᱢᱮᱱᱛᱮ ᱪᱤᱱᱦᱟᱹᱭ ᱢᱮ",
+    "dispensedAt": "Dispensed at",
+    "dispensedOn": "Dispensed on",
+    "alreadyDispensed": "This credential has already been dispensed",
+    "confirmDispense": "Confirm that you are dispensing this prescription",
+    "pharmacyName": "Pharmacy name (optional)",
+    "success": "ᱨᱟᱱ ᱵᱮᱥ ᱛᱮ ᱦᱟᱹᱴᱤᱧ ᱮᱱᱟ"
+  },
+  "search": {
+    "placeholder": "ᱨᱟᱱ ᱯᱟᱸᱡᱟᱭ ᱢᱮ...",
+    "placeholderPatient": "ᱨᱩᱜᱤ ᱧᱩᱛᱩᱢ ᱛᱮ ᱯᱟᱸᱡᱟᱭ ᱢᱮ...",
+    "allStatuses": "All statuses",
+    "clear": "Clear filters"
+  },
+  "pagination": {
+    "showing": "Showing",
+    "of": "of",
+    "page": "Page",
+    "perPage": "per page"
+  },
+  "common": {
+    "cancel": "ᱵᱟᱹᱛᱤᱞ",
+    "processing": "Processing...",
+    "save": "ᱥᱟᱸᱪᱟᱣ",
+    "delete": "ᱢᱮᱴᱟᱣ",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "ᱨᱩᱣᱟᱹᱲ",
+    "loading": "ᱞᱟᱫᱮᱜ ᱠᱟᱱᱟ...",
+    "error": "An error occurred",
+    "noData": "ᱪᱮᱫ ᱦᱚᱸ ᱵᱟᱹᱱᱩᱜᱼᱟ",
+    "view": "View",
+    "compare": "Compare",
+    "revoke": "Revoke",
+    "patient": "ᱨᱩᱜᱤ",
+    "medication": "ᱨᱟᱱ",
+    "credential": "Credential",
+    "actions": "Actions",
+    "name": "Name",
+    "license": "License",
+    "email": "Email",
+    "recentPrescriptions": "Recent prescriptions",
+    "noCredentials": "No credentials",
+    "credentialDetails": "Credential details",
+    "verificationQr": "Verification QR",
+    "revokedMessage": "This credential has been revoked and is no longer valid.",
+    "selectPatient": "Select patient",
+    "credentialComparison": "Credential comparison",
+    "fieldLevelDiff": "Field-level diff",
+    "hashComparison": "Hash comparison",
+    "storedHash": "Stored (signed)",
+    "currentHash": "Current (recomputed)",
+    "enterId": "ID ᱚᱞ ᱢᱮ",
+    "scanQr": "QR ᱠᱳᱰ ᱥᱠᱮᱱ ᱢᱮ",
+    "noAccountRequired": "No account required. Scan or enter a credential ID.",
+    "approve": "Approve & Issue Key",
+    "auditTrail": "Audit trail",
+    "viewAllActivity": "View all system activity"
+  },
+  "refills": {
+    "remaining": "remaining",
+    "total": "total fills",
+    "of": "of",
+    "exhausted": "All authorized fills have been used",
+    "status": "Refill Status",
+    "fillsUsed": "fills used"
+  },
+  "drugWarning": {
+    "title": "Drug Warnings",
+    "interaction": "Drug Interaction",
+    "dosage": "Dosage Warning",
+    "allergy": "Allergy Alert",
+    "detected": "warnings detected",
+    "highRisk": "high risk",
+    "advisory": "These are advisory alerts based on common drug interactions. Always consult clinical references."
+  },
+  "toast": {
+    "prescriptionCreated": "Prescription created successfully",
+    "credentialIssued": "Credential issued and signed",
+    "credentialRevoked": "Credential revoked successfully",
+    "dispensed": "Prescription marked as dispensed",
+    "loginSuccess": "Welcome back!",
+    "providerApproved": "Provider approved successfully",
+    "exportSuccess": "Export completed",
+    "exportFailed": "Export failed"
+  },
+  "export": {
+    "w3cVc": "W3C VC",
+    "fhirR4": "FHIR R4",
+    "download": "Download",
+    "title": "Export Credential"
+  }
+}

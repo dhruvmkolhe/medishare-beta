@@ -19,6 +19,7 @@ export default function CredentialView() {
   const [credential, setCredential] = useState<Credential | null>(null);
   const [qrData, setQrData] = useState<{ url: string; id: string } | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   const fetchCredential = async () => {
     if (!id) return;
@@ -35,8 +36,17 @@ export default function CredentialView() {
             setQrData({ url: properUrl, id: qr.credentialId });
           }
         }
+      } else {
+        if (res.status === 403) {
+          setError('Access Denied: You do not have permission to view this prescription credential.');
+        } else if (res.status === 404) {
+          setError('Prescription credential not found.');
+        } else {
+          setError('Failed to load credential.');
+        }
       }
-    } catch (err) {
+    } catch (err: any) {
+      setError(err.message || 'Fetch error occurred');
       console.error('Fetch error:', err);
     } finally {
       setLoading(false);
@@ -49,6 +59,22 @@ export default function CredentialView() {
     return (
       <div className="flex items-center justify-center h-64">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-slate-900" />
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="max-w-md mx-auto my-12 bg-white rounded-xl border border-red-200 p-6 text-center shadow-sm">
+        <AlertTriangle className="h-10 w-10 text-red-500 mx-auto mb-3" />
+        <h2 className="text-base font-bold text-slate-900 mb-1">{error}</h2>
+        <p className="text-xs text-slate-500 mb-4">Credentials can only be accessed by the assigned patient, prescribing provider, or administrator.</p>
+        <button
+          onClick={() => navigate('/dashboard')}
+          className="px-4 py-2 bg-slate-900 text-white rounded-lg text-xs font-semibold hover:bg-slate-800 transition-colors cursor-pointer"
+        >
+          Go to Your Portal
+        </button>
       </div>
     );
   }

@@ -1,0 +1,235 @@
+{
+  "nav": {
+    "dashboard": "డాష్‌బోర్డ్",
+    "admin": "అడ్మిన్",
+    "adminPortal": "అడ్మిన్ పోర్టల్",
+    "audit": "ఆడిట్ ట్రయిల్",
+    "prescriptions": "ప్రిస్క్రిప్షన్లు",
+    "myPrescriptions": "నా ప్రిస్క్రిప్షన్లు",
+    "revocations": "రద్దులు",
+    "verify": "ధృవీకరించండి",
+    "verifyDispense": "ధృవీకరణ & పంపిణీ",
+    "login": "లాగిన్",
+    "logout": "లాగ్అవుట్",
+    "register": "నమోదు"
+  },
+  "footer": {
+    "disclaimer": "Verixa - తెలుగు (Telugu)",
+    "academic": "Academic demonstration only. No medical advice provided."
+  },
+  "login": {
+    "title": "Verixa లోకి సైన్ ఇన్ అవ్వండి",
+    "email": "ఈమెయిల్",
+    "password": "పాస్‌వర్డ్",
+    "submit": "సైన్ ఇన్",
+    "registerPrompt": "ఖాతా లేదా?",
+    "registerLink": "నమోదు",
+    "error": "చెల్లని ఆధారాలు"
+  },
+  "register": {
+    "title": "ఖాతా సృష్టించండి",
+    "name": "పూర్తి పేరు",
+    "email": "ఈమెయిల్",
+    "password": "పాస్‌వర్డ్ (కనీసం 8 అక్షరాలు)",
+    "role": "పాత్ర",
+    "rolePatient": "రోగి",
+    "roleProvider": "వైద్య ప్రదాత",
+    "rolePharmacist": "ఫార్మసిస్ట్",
+    "roleAdmin": "అడ్మినిస్ట్రేటర్",
+    "licenseNumber": "లైసెన్స్ సంఖ్య (వైద్యులకు మాత్రమే)",
+    "submit": "ఖాతాను సృష్టించండి",
+    "loginPrompt": "ఖాతా లేదా?",
+    "loginLink": "సైన్ ఇన్",
+    "error": "చెల్లని ఆధారాలు"
+  },
+  "dashboard": {
+    "welcome": "స్వాగతం",
+    "patient": {
+      "title": "నా ప్రిస్క్రిప్షన్లు",
+      "noCredentials": "ఇంకా ఆధారాలు లేవు. మీ ప్రిస్క్రిప్షన్ తర్వాత వైద్యుడు జారీ చేస్తారు.",
+      "viewQr": "QR కోడ్ చూడండి",
+      "revoke": "రద్దు చేయండి"
+    },
+    "provider": {
+      "title": "ప్రొవైడర్ డాష్‌బోర్డ్",
+      "newPrescription": "కొత్త ప్రిస్క్రిప్షన్",
+      "pendingApprovals": "Pending Approvals",
+      "totalCredentials": "Total Credentials",
+      "activeCredentials": "Active Credentials"
+    },
+    "admin": {
+      "title": "అడ్మిన్ డాష్‌బోర్డ్",
+      "stats": "Statistics",
+      "users": "Users",
+      "providers": "Providers",
+      "credentials": "Credentials",
+      "verifications": "Verifications"
+    }
+  },
+  "prescription": {
+    "title": "కొత్త ప్రిస్క్రిప్షన్",
+    "patient": "రోగి",
+    "medication": "ఔషధం",
+    "strength": "మోతాదు బలం",
+    "dosage": "మోతాదు",
+    "duration": "వ్యవధి",
+    "notes": "గమనికలు",
+    "submit": "ప్రిస్క్రిప్షన్ సృష్టించండి",
+    "success": "ప్రిస్క్రిప్షన్ విజయవంతంగా సృష్టించబడింది",
+    "canonicalPreview": "కనానికల్ ప్రివ్యూ",
+    "issueCredential": "రుజువును జారీ చేయండి",
+    "credentialIssued": "రుజువు జారీ చేయబడింది మరియు సంతకం చేయబడింది",
+    "addMedication": "ఔషధాన్ని జోడించండి",
+    "removeMedication": "తొలగించండి",
+    "timing": "సమయం",
+    "refills": "రీఫిల్స్",
+    "timingOptions": {
+      "morning": "ఉదయం",
+      "afternoon": "మధ్యాహ్నం",
+      "evening": "సాయంత్రం",
+      "bedtime": "పడుకునే ముందు",
+      "beforeMeals": "భోజనానికి ముందు",
+      "afterMeals": "భోజనం తర్వాత",
+      "withMeals": "భోజనంతో పాటు"
+    },
+    "medicationNumber": "Medication #{{number}}",
+    "print": "ప్రింట్ / PDF"
+  },
+  "verify": {
+    "title": "ప్రిస్క్రిప్షన్ ఆధారాన్ని ధృవీకరించండి",
+    "scanQr": "QR కోడ్ స్కాన్ చేయండి",
+    "enterId": "క్రెడెన్షియల్ ID నమోదు చేయండి",
+    "verify": "ధృవీకరించండి",
+    "verified": "✓ ధృవీకరించబడింది",
+    "failed": "✕ ధృవీకరణ విఫలమైంది",
+    "prescriptionCredential": "Prescription Credential",
+    "medication": "ఔషధం",
+    "strength": "మోతాదు బలం",
+    "dosage": "మోతాదు",
+    "duration": "వ్యవధి",
+    "issued": "జారీ చేయబడింది",
+    "expires": "గడువు ముగుస్తుంది",
+    "provider": "వైద్య ప్రదాత",
+    "contactProvider": "Contact the issuing healthcare provider.",
+    "startScan": "QR కోడ్ స్కాన్ చేయండి",
+    "issuerVerified": "Issuer Verified",
+    "signatureValid": "Digital Signature Valid",
+    "integrityValid": "Data Integrity Valid",
+    "active": "ఆధారం సక్రియంగా ఉంది",
+    "notExpired": "గడువు ముగియలేదు"
+  },
+  "canonical": {
+    "title": "Canonical JSON (Deterministic Serialization)"
+  },
+  "revocation": {
+    "title": "Revoke Credential",
+    "warning": "This action cannot be undone. The credential will be permanently marked as revoked.",
+    "credentialId": "Credential ID",
+    "reason": "Reason for revocation",
+    "reasonPlaceholder": "e.g., Medication error, patient request, provider decision",
+    "confirm": "Revoke Credential",
+    "list": "Revocation Dashboard",
+    "revoked": "Credential revoked successfully"
+  },
+  "audit": {
+    "title": "Audit Trail",
+    "timestamp": "Timestamp",
+    "action": "Action",
+    "target": "Target",
+    "actor": "Actor",
+    "empty": "No audit logs found"
+  },
+  "dispensation": {
+    "markDispensed": "పంపిణీ చేసినట్లు గుర్తించండి",
+    "dispensedAt": "Dispensed at",
+    "dispensedOn": "Dispensed on",
+    "alreadyDispensed": "This credential has already been dispensed",
+    "confirmDispense": "Confirm that you are dispensing this prescription",
+    "pharmacyName": "Pharmacy name (optional)",
+    "success": "ప్రిస్క్రిప్షన్ విజయవంతంగా పంపిణీ చేయబడింది"
+  },
+  "search": {
+    "placeholder": "ఔషధాల కోసం శోధించండి...",
+    "placeholderPatient": "రోగి పేరుతో శోధించండి...",
+    "allStatuses": "All statuses",
+    "clear": "Clear filters"
+  },
+  "pagination": {
+    "showing": "Showing",
+    "of": "of",
+    "page": "Page",
+    "perPage": "per page"
+  },
+  "common": {
+    "cancel": "రద్దు చేయండి",
+    "processing": "Processing...",
+    "save": "భద్రపరచు",
+    "delete": "తొలగించు",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "వెనుకకు",
+    "loading": "లోడ్ అవుతోంది...",
+    "error": "An error occurred",
+    "noData": "డేటా కనుగొనబడలేదు",
+    "view": "View",
+    "compare": "Compare",
+    "revoke": "Revoke",
+    "patient": "రోగి",
+    "medication": "ఔషధం",
+    "credential": "Credential",
+    "actions": "Actions",
+    "name": "Name",
+    "license": "License",
+    "email": "Email",
+    "recentPrescriptions": "Recent prescriptions",
+    "noCredentials": "No credentials",
+    "credentialDetails": "Credential details",
+    "verificationQr": "Verification QR",
+    "revokedMessage": "This credential has been revoked and is no longer valid.",
+    "selectPatient": "Select patient",
+    "credentialComparison": "Credential comparison",
+    "fieldLevelDiff": "Field-level diff",
+    "hashComparison": "Hash comparison",
+    "storedHash": "Stored (signed)",
+    "currentHash": "Current (recomputed)",
+    "enterId": "క్రెడెన్షియల్ ID నమోదు చేయండి",
+    "scanQr": "QR కోడ్ స్కాన్ చేయండి",
+    "noAccountRequired": "No account required. Scan or enter a credential ID.",
+    "approve": "Approve & Issue Key",
+    "auditTrail": "Audit trail",
+    "viewAllActivity": "View all system activity"
+  },
+  "refills": {
+    "remaining": "remaining",
+    "total": "total fills",
+    "of": "of",
+    "exhausted": "All authorized fills have been used",
+    "status": "Refill Status",
+    "fillsUsed": "fills used"
+  },
+  "drugWarning": {
+    "title": "Drug Warnings",
+    "interaction": "Drug Interaction",
+    "dosage": "Dosage Warning",
+    "allergy": "Allergy Alert",
+    "detected": "warnings detected",
+    "highRisk": "high risk",
+    "advisory": "These are advisory alerts based on common drug interactions. Always consult clinical references."
+  },
+  "toast": {
+    "prescriptionCreated": "Prescription created successfully",
+    "credentialIssued": "Credential issued and signed",
+    "credentialRevoked": "Credential revoked successfully",
+    "dispensed": "Prescription marked as dispensed",
+    "loginSuccess": "Welcome back!",
+    "providerApproved": "Provider approved successfully",
+    "exportSuccess": "Export completed",
+    "exportFailed": "Export failed"
+  },
+  "export": {
+    "w3cVc": "W3C VC",
+    "fhirR4": "FHIR R4",
+    "download": "Download",
+    "title": "Export Credential"
+  }
+}

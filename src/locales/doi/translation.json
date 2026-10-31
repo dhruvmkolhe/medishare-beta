@@ -1,0 +1,235 @@
+{
+  "nav": {
+    "dashboard": "डैशबोर्ड",
+    "admin": "प्रशासक",
+    "adminPortal": "प्रशासक पोर्टल",
+    "audit": "आडिट ट्रेल",
+    "prescriptions": "नुस्खे",
+    "myPrescriptions": "मेरे नुस्खे",
+    "revocations": "रद्द कीते",
+    "verify": "परखो",
+    "verifyDispense": "परख ते बंड",
+    "login": "लाग इन",
+    "logout": "लाग आउट",
+    "register": "पंजीकरण"
+  },
+  "footer": {
+    "disclaimer": "Verixa - डोगरी (Dogri)",
+    "academic": "Academic demonstration only. No medical advice provided."
+  },
+  "login": {
+    "title": "Verixa च साइन इन करो",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "submit": "साइन इन करो",
+    "registerPrompt": "खाता चाहीदा?",
+    "registerLink": "पंजीकरण",
+    "error": "गलत जानकारी"
+  },
+  "register": {
+    "title": "खाता बनाओ",
+    "name": "पूरा नां",
+    "email": "ईमेल",
+    "password": "पासवर्ड (घट्टो-घट्ट 8 अखर)",
+    "role": "रोल",
+    "rolePatient": "मरीज",
+    "roleProvider": "डाक्टर",
+    "rolePharmacist": "फार्मासिस्ट",
+    "roleAdmin": "प्रशासक",
+    "licenseNumber": "लाइसेंस नंबर",
+    "submit": "खाता बनाओ",
+    "loginPrompt": "खाता चाहीदा?",
+    "loginLink": "साइन इन करो",
+    "error": "गलत जानकारी"
+  },
+  "dashboard": {
+    "welcome": "जी आयां गी",
+    "patient": {
+      "title": "मेरे नुस्खे",
+      "noCredentials": "अज्जै तकर कोई प्रमाण पत्र नेईं ऐ। डाक्टर नुस्खा लिखेआ उपरांत देङन।",
+      "viewQr": "QR कोड दिक्खो",
+      "revoke": "रद्द करो"
+    },
+    "provider": {
+      "title": "डाक्टर डैशबोर्ड",
+      "newPrescription": "नवां नुस्खा",
+      "pendingApprovals": "Pending Approvals",
+      "totalCredentials": "Total Credentials",
+      "activeCredentials": "Active Credentials"
+    },
+    "admin": {
+      "title": "प्रशासक डैशबोर्ड",
+      "stats": "Statistics",
+      "users": "Users",
+      "providers": "Providers",
+      "credentials": "Credentials",
+      "verifications": "Verifications"
+    }
+  },
+  "prescription": {
+    "title": "नवां नुस्खा",
+    "patient": "मरीज",
+    "medication": "दवाई",
+    "strength": "ताकत/मात्रा",
+    "dosage": "खुराक",
+    "duration": "समां",
+    "notes": "नोट",
+    "submit": "नुस्खा बनाओ",
+    "success": "नुस्खा कामयाबी कन्ने तैआर होई गेआ",
+    "canonicalPreview": "पूर्वावलोकन",
+    "issueCredential": "प्रमाण पत्र जारी करो",
+    "credentialIssued": "प्रमाण पत्र जारी ते हस्ताक्षर होई गेआ",
+    "addMedication": "दवाई जोड़ो",
+    "removeMedication": "कड्डो",
+    "timing": "बख्त",
+    "refills": "रिफिल",
+    "timingOptions": {
+      "morning": "फज्रे",
+      "afternoon": "बपैह्री",
+      "evening": "संज्झे",
+      "bedtime": "सौंह्ने बेल्लै",
+      "beforeMeals": "रोटी खाने शा पैह्ले",
+      "afterMeals": "रोटी खाने शा बाद",
+      "withMeals": "रोटी कन्ने"
+    },
+    "medicationNumber": "Medication #{{number}}",
+    "print": "प्रिंट / PDF"
+  },
+  "verify": {
+    "title": "नुस्खा प्रमाण पत्र परखो",
+    "scanQr": "QR कोड स्कैन करो",
+    "enterId": "ID दर्ज करो",
+    "verify": "परखो",
+    "verified": "✓ परखेआ गेआ",
+    "failed": "✕ परख असफल",
+    "prescriptionCredential": "Prescription Credential",
+    "medication": "दवाई",
+    "strength": "ताकत/मात्रा",
+    "dosage": "खुराक",
+    "duration": "समां",
+    "issued": "जारी दी तारीख",
+    "expires": "मुकणे दी तारीख",
+    "provider": "डाक्टर",
+    "contactProvider": "Contact the issuing healthcare provider.",
+    "startScan": "QR कोड स्कैन करो",
+    "issuerVerified": "Issuer Verified",
+    "signatureValid": "Digital Signature Valid",
+    "integrityValid": "Data Integrity Valid",
+    "active": "सक्रिय प्रमाण पत्र",
+    "notExpired": "समां नेईं पुगेआ"
+  },
+  "canonical": {
+    "title": "Canonical JSON (Deterministic Serialization)"
+  },
+  "revocation": {
+    "title": "Revoke Credential",
+    "warning": "This action cannot be undone. The credential will be permanently marked as revoked.",
+    "credentialId": "Credential ID",
+    "reason": "Reason for revocation",
+    "reasonPlaceholder": "e.g., Medication error, patient request, provider decision",
+    "confirm": "Revoke Credential",
+    "list": "Revocation Dashboard",
+    "revoked": "Credential revoked successfully"
+  },
+  "audit": {
+    "title": "Audit Trail",
+    "timestamp": "Timestamp",
+    "action": "Action",
+    "target": "Target",
+    "actor": "Actor",
+    "empty": "No audit logs found"
+  },
+  "dispensation": {
+    "markDispensed": "बंडी दित्ती दस्सो",
+    "dispensedAt": "Dispensed at",
+    "dispensedOn": "Dispensed on",
+    "alreadyDispensed": "This credential has already been dispensed",
+    "confirmDispense": "Confirm that you are dispensing this prescription",
+    "pharmacyName": "Pharmacy name (optional)",
+    "success": "दवाई कामयाबी कन्ने बंडी दित्ती गेई"
+  },
+  "search": {
+    "placeholder": "दवाइयां ल्हब्भो...",
+    "placeholderPatient": "मरीज दे नां कन्नै ल्हब्भो...",
+    "allStatuses": "All statuses",
+    "clear": "Clear filters"
+  },
+  "pagination": {
+    "showing": "Showing",
+    "of": "of",
+    "page": "Page",
+    "perPage": "per page"
+  },
+  "common": {
+    "cancel": "रद्द",
+    "processing": "Processing...",
+    "save": "सम्भालो",
+    "delete": "मिटाओ",
+    "edit": "Edit",
+    "create": "Create",
+    "back": "पिच्छें",
+    "loading": "लोड होई रेहा ऐ...",
+    "error": "An error occurred",
+    "noData": "कोई डेटा नेईं लब्भेआ",
+    "view": "View",
+    "compare": "Compare",
+    "revoke": "Revoke",
+    "patient": "मरीज",
+    "medication": "दवाई",
+    "credential": "Credential",
+    "actions": "Actions",
+    "name": "Name",
+    "license": "License",
+    "email": "Email",
+    "recentPrescriptions": "Recent prescriptions",
+    "noCredentials": "No credentials",
+    "credentialDetails": "Credential details",
+    "verificationQr": "Verification QR",
+    "revokedMessage": "This credential has been revoked and is no longer valid.",
+    "selectPatient": "Select patient",
+    "credentialComparison": "Credential comparison",
+    "fieldLevelDiff": "Field-level diff",
+    "hashComparison": "Hash comparison",
+    "storedHash": "Stored (signed)",
+    "currentHash": "Current (recomputed)",
+    "enterId": "ID दर्ज करो",
+    "scanQr": "QR कोड स्कैन करो",
+    "noAccountRequired": "No account required. Scan or enter a credential ID.",
+    "approve": "Approve & Issue Key",
+    "auditTrail": "Audit trail",
+    "viewAllActivity": "View all system activity"
+  },
+  "refills": {
+    "remaining": "remaining",
+    "total": "total fills",
+    "of": "of",
+    "exhausted": "All authorized fills have been used",
+    "status": "Refill Status",
+    "fillsUsed": "fills used"
+  },
+  "drugWarning": {
+    "title": "Drug Warnings",
+    "interaction": "Drug Interaction",
+    "dosage": "Dosage Warning",
+    "allergy": "Allergy Alert",
+    "detected": "warnings detected",
+    "highRisk": "high risk",
+    "advisory": "These are advisory alerts based on common drug interactions. Always consult clinical references."
+  },
+  "toast": {
+    "prescriptionCreated": "Prescription created successfully",
+    "credentialIssued": "Credential issued and signed",
+    "credentialRevoked": "Credential revoked successfully",
+    "dispensed": "Prescription marked as dispensed",
+    "loginSuccess": "Welcome back!",
+    "providerApproved": "Provider approved successfully",
+    "exportSuccess": "Export completed",
+    "exportFailed": "Export failed"
+  },
+  "export": {
+    "w3cVc": "W3C VC",
+    "fhirR4": "FHIR R4",
+    "download": "Download",
+    "title": "Export Credential"
+  }
+}

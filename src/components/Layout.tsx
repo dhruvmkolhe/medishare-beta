@@ -19,6 +19,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, [location.pathname]);
 
   useEffect(() => {
+    const isRtl = ['ar', 'ks', 'sd'].includes(i18n.language);
+    document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
+    document.documentElement.lang = i18n.language || 'en';
+  }, [i18n.language]);
+
+  useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) {
         setUserMenuOpen(false);
@@ -57,28 +63,48 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   const navLinks = user?.role === 'ADMIN' ? [
     { path: '/admin', label: t('nav.adminPortal', { defaultValue: 'Admin Portal' }), icon: Shield },
+    { path: '/prescriptions', label: t('nav.prescriptions', { defaultValue: 'Prescriptions' }), icon: Pill },
+    { path: '/revocations', label: t('nav.revocations', { defaultValue: 'Revocations' }), icon: ShieldCheck },
     { path: '/audit', label: t('nav.audit', { defaultValue: 'Audit Trail' }), icon: Activity },
-    { path: '/verify', label: t('nav.verify', { defaultValue: 'Verify' }), icon: ScanLine },
+    { path: '/verify', label: t('nav.verifyDispense', { defaultValue: 'Verify & Dispense' }), icon: ScanLine },
   ] : user?.role === 'PROVIDER' ? [
     { path: '/dashboard', label: t('nav.dashboard', { defaultValue: 'Dashboard' }), icon: Stethoscope },
     { path: '/prescriptions', label: t('nav.prescriptions', { defaultValue: 'Prescriptions' }), icon: Pill },
     { path: '/revocations', label: t('nav.revocations', { defaultValue: 'Revocations' }), icon: ShieldCheck },
-    { path: '/verify', label: t('nav.verify', { defaultValue: 'Verify' }), icon: ScanLine },
+    { path: '/audit', label: t('nav.audit', { defaultValue: 'Audit Trail' }), icon: Activity },
   ] : user?.role === 'PHARMACIST' ? [
     { path: '/verify', label: t('nav.verifyDispense', { defaultValue: 'Verify & Dispense' }), icon: ScanLine },
   ] : user?.role === 'PATIENT' ? [
     { path: '/patient', label: t('nav.myPrescriptions', { defaultValue: 'My Prescriptions' }), icon: Pill },
-    { path: '/verify', label: t('nav.verify', { defaultValue: 'Verify' }), icon: ScanLine },
   ] : [
     { path: '/verify', label: t('nav.verify', { defaultValue: 'Verify' }), icon: ScanLine },
   ];
 
   const languages = [
     { code: 'en', label: 'English' },
-    { code: 'hi', label: 'हिन्दी' },
-    { code: 'gu', label: 'ગુજરાતી' },
-    { code: 'ar', label: 'العربية' },
-    { code: 'fr', label: 'Français' },
+    { code: 'hi', label: 'हिन्दी (Hindi)' },
+    { code: 'bn', label: 'বাংলা (Bengali)' },
+    { code: 'mr', label: 'मराठी (Marathi)' },
+    { code: 'te', label: 'తెలుగు (Telugu)' },
+    { code: 'ta', label: 'தமிழ் (Tamil)' },
+    { code: 'gu', label: 'ગુજરાતી (Gujarati)' },
+    { code: 'kn', label: 'ಕನ್ನಡ (Kannada)' },
+    { code: 'or', label: 'ଓଡ଼ିଆ (Odia)' },
+    { code: 'ml', label: 'മലയാളം (Malayalam)' },
+    { code: 'pa', label: 'ਪੰਜਾਬੀ (Punjabi)' },
+    { code: 'as', label: 'অসমীয়া (Assamese)' },
+    { code: 'ks', label: 'کٲشُر (Kashmiri)' },
+    { code: 'sd', label: 'سنڌي (Sindhi)' },
+    { code: 'kok', label: 'कोंकणी (Konkani)' },
+    { code: 'ne', label: 'नेपाली (Nepali)' },
+    { code: 'mni', label: 'মৈতৈলোন্ (Meitei)' },
+    { code: 'brx', label: 'बड़ो (Bodo)' },
+    { code: 'sat', label: 'ᱥᱟᱱᱛᱟᱲᱤ (Santali)' },
+    { code: 'doi', label: 'डोगरी (Dogri)' },
+    { code: 'mai', label: 'मैथिली (Maithili)' },
+    { code: 'sa', label: 'संस्कृतम् (Sanskrit)' },
+    { code: 'ar', label: 'العربية (Arabic)' },
+    { code: 'fr', label: 'Français (French)' },
   ];
 
   return (
@@ -95,7 +121,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <div className="p-1.5 rounded-xl bg-green-500/15 text-green-400 border border-green-500/20 shadow-sm">
                   <Shield className="h-5 w-5" />
                 </div>
-                <span>MediShare</span>
+                <span>Verixa</span>
               </Link>
 
               <div className="hidden md:block h-5 w-px bg-slate-800 shrink-0" />
@@ -130,7 +156,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   onChange={(e) => changeLanguage(e.target.value)}
                   aria-label="Select language"
                   className="bg-slate-800 hover:bg-slate-750 text-xs font-medium text-slate-200 rounded-lg px-2.5 py-1.5 border border-slate-700/80 focus:outline-none focus:ring-1 focus:ring-green-400/50 cursor-pointer transition-colors"
-                  dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
+                  dir={['ar', 'ks', 'sd'].includes(i18n.language) ? 'rtl' : 'ltr'}
                 >
                   {languages.map(l => (
                     <option key={l.code} value={l.code}>{l.label}</option>
@@ -205,15 +231,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
                       {/* Navigation Links */}
                       <div className="space-y-0.5">
-                        <Link
-                          to={user.role === 'PROVIDER' ? '/dashboard' : user.role === 'PATIENT' ? '/patient' : user.role === 'ADMIN' ? '/admin' : '/verify'}
-                          onClick={() => setUserMenuOpen(false)}
-                          className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-200 hover:bg-slate-700/80 hover:text-white transition-colors"
-                        >
-                          <User className="h-4 w-4 text-slate-400" />
-                          <span>My Portal</span>
-                        </Link>
-
                         {user.role === 'PATIENT' && (
                           <Link
                             to="/patient"
@@ -226,24 +243,105 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         )}
 
                         {user.role === 'PROVIDER' && (
+                          <>
+                            <Link
+                              to="/dashboard"
+                              onClick={() => setUserMenuOpen(false)}
+                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-200 hover:bg-slate-700/80 hover:text-white transition-colors"
+                            >
+                              <Stethoscope className="h-4 w-4 text-slate-400" />
+                              <span>Dashboard</span>
+                            </Link>
+                            <Link
+                              to="/prescriptions/new"
+                              onClick={() => setUserMenuOpen(false)}
+                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-200 hover:bg-slate-700/80 hover:text-white transition-colors"
+                            >
+                              <Stethoscope className="h-4 w-4 text-slate-400" />
+                              <span>Issue Prescription</span>
+                            </Link>
+                            <Link
+                              to="/prescriptions"
+                              onClick={() => setUserMenuOpen(false)}
+                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-200 hover:bg-slate-700/80 hover:text-white transition-colors"
+                            >
+                              <Pill className="h-4 w-4 text-slate-400" />
+                              <span>Prescriptions</span>
+                            </Link>
+                            <Link
+                              to="/revocations"
+                              onClick={() => setUserMenuOpen(false)}
+                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-200 hover:bg-slate-700/80 hover:text-white transition-colors"
+                            >
+                              <ShieldCheck className="h-4 w-4 text-slate-400" />
+                              <span>Revocations</span>
+                            </Link>
+                            <Link
+                              to="/audit"
+                              onClick={() => setUserMenuOpen(false)}
+                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-200 hover:bg-slate-700/80 hover:text-white transition-colors"
+                            >
+                              <Activity className="h-4 w-4 text-slate-400" />
+                              <span>Audit Trail</span>
+                            </Link>
+                          </>
+                        )}
+
+                        {user.role === 'PHARMACIST' && (
                           <Link
-                            to="/prescriptions/new"
+                            to="/verify"
                             onClick={() => setUserMenuOpen(false)}
                             className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-200 hover:bg-slate-700/80 hover:text-white transition-colors"
                           >
-                            <Stethoscope className="h-4 w-4 text-slate-400" />
-                            <span>Issue Prescription</span>
+                            <ScanLine className="h-4 w-4 text-slate-400" />
+                            <span>Verify &amp; Dispense</span>
                           </Link>
                         )}
 
-                        <Link
-                          to="/verify"
-                          onClick={() => setUserMenuOpen(false)}
-                          className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-200 hover:bg-slate-700/80 hover:text-white transition-colors"
-                        >
-                          <ScanLine className="h-4 w-4 text-slate-400" />
-                          <span>Verify Prescription</span>
-                        </Link>
+                        {user.role === 'ADMIN' && (
+                          <>
+                            <Link
+                              to="/admin"
+                              onClick={() => setUserMenuOpen(false)}
+                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-200 hover:bg-slate-700/80 hover:text-white transition-colors"
+                            >
+                              <Shield className="h-4 w-4 text-slate-400" />
+                              <span>Admin Portal</span>
+                            </Link>
+                            <Link
+                              to="/prescriptions"
+                              onClick={() => setUserMenuOpen(false)}
+                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-200 hover:bg-slate-700/80 hover:text-white transition-colors"
+                            >
+                              <Pill className="h-4 w-4 text-slate-400" />
+                              <span>Prescriptions</span>
+                            </Link>
+                            <Link
+                              to="/revocations"
+                              onClick={() => setUserMenuOpen(false)}
+                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-200 hover:bg-slate-700/80 hover:text-white transition-colors"
+                            >
+                              <ShieldCheck className="h-4 w-4 text-slate-400" />
+                              <span>Revocations</span>
+                            </Link>
+                            <Link
+                              to="/audit"
+                              onClick={() => setUserMenuOpen(false)}
+                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-200 hover:bg-slate-700/80 hover:text-white transition-colors"
+                            >
+                              <Activity className="h-4 w-4 text-slate-400" />
+                              <span>Audit Trail</span>
+                            </Link>
+                            <Link
+                              to="/verify"
+                              onClick={() => setUserMenuOpen(false)}
+                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-200 hover:bg-slate-700/80 hover:text-white transition-colors"
+                            >
+                              <ScanLine className="h-4 w-4 text-slate-400" />
+                              <span>Verify &amp; Dispense</span>
+                            </Link>
+                          </>
+                        )}
                       </div>
 
                       {/* Logout Action */}
@@ -351,7 +449,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 onChange={(e) => changeLanguage(e.target.value)}
                 aria-label="Select language"
                 className="bg-slate-800 text-xs text-slate-200 rounded-lg px-2.5 py-1.5 border border-slate-700 cursor-pointer focus:outline-none focus:ring-1 focus:ring-green-400"
-                dir={i18n.language === 'ar' ? 'rtl' : 'ltr'}
+                dir={['ar', 'ks', 'sd'].includes(i18n.language) ? 'rtl' : 'ltr'}
               >
                 {languages.map(l => (
                   <option key={l.code} value={l.code}>{l.label}</option>
@@ -400,7 +498,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="p-1 rounded-lg bg-green-500/15 border border-green-500/20 text-green-400">
                 <Shield className="h-4 w-4" />
               </div>
-              <span className="text-white font-medium">MediShare Verifiable Credentials</span>
+              <span className="text-white font-medium">Verixa Verifiable Credentials</span>
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-6 text-xs">

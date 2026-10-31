@@ -39,7 +39,7 @@ export default function QrDisplay({ url, credentialId, pickupPin, size = 256 }: 
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(img, padding, padding, targetSize, targetSize);
       const a = document.createElement('a');
-      a.download = `medishare-qr-${credentialId}.png`;
+      a.download = `verixa-qr-${credentialId}.png`;
       a.href = canvas.toDataURL('image/png');
       a.click();
     };
@@ -49,7 +49,7 @@ export default function QrDisplay({ url, credentialId, pickupPin, size = 256 }: 
   const share = async () => {
     if (navigator.share) {
       try {
-        await navigator.share({ title: 'MediShare Prescription Credential', url });
+        await navigator.share({ title: 'Verixa Prescription Credential', url });
       } catch {}
     }
   };
