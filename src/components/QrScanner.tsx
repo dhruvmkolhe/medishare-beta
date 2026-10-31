@@ -66,9 +66,9 @@ export default function QrScanner({ onScan }: Props) {
             stream.getTracks().forEach(track => track.stop());
           } catch (permErr: any) {
             if (permErr.name === 'NotAllowedError' || permErr.name === 'PermissionDeniedError') {
-              throw new Error('Camera permission was blocked. Please tap the lock/site settings icon in your browser address bar and enable Camera access.');
+              throw new Error('Camera permission was blocked. Please tap the lock/site settings icon in your browser address bar and enable Camera access.', { cause: permErr });
             } else if (permErr.name === 'NotFoundError' || permErr.name === 'DevicesNotFoundError') {
-              throw new Error('No camera found on this device. You can upload a QR image or enter the Credential ID below.');
+              throw new Error('No camera found on this device. You can upload a QR image or enter the Credential ID below.', { cause: permErr });
             }
           }
         }

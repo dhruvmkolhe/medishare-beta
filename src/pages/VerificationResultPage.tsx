@@ -14,16 +14,13 @@ export default function VerificationResultPage() {
   const { t } = useTranslation();
   const apiFetch = useApiFetch();
 
-  if (user?.role === 'PATIENT') {
-    return <Navigate to={credentialId ? `/credentials/${credentialId}` : '/patient'} replace />;
-  }
   const [result, setResult] = useState<VerificationResultType | null>(null);
   const [loading, setLoading] = useState(true);
   const [dispensing, setDispensing] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    if (!credentialId) return;
+    if (!credentialId || user?.role === 'PATIENT') return;
     const verify = async () => {
       try {
         const initRes = await fetch('/api/verify/init', {
@@ -57,7 +54,11 @@ export default function VerificationResultPage() {
       }
     };
     verify();
-  }, [credentialId]);
+  }, [credentialId, user?.role]);
+
+  if (user?.role === 'PATIENT') {
+    return <Navigate to={credentialId ? `/credentials/${credentialId}` : '/patient'} replace />;
+  }
 
   if (loading) {
     return (

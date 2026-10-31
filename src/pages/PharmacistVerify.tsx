@@ -14,10 +14,6 @@ export default function PharmacistVerify() {
   const { t } = useTranslation();
   const { toast } = useToast();
   const { user } = useAuth();
-
-  if (user?.role === 'PATIENT') {
-    return <Navigate to="/patient" replace />;
-  }
   const apiFetch = useApiFetch();
   const [mode, setMode] = useState<'scan' | 'input'>('input');
   const [credentialId, setCredentialId] = useState('');
@@ -26,6 +22,10 @@ export default function PharmacistVerify() {
   const [copied, setCopied] = useState(false);
   const [result, setResult] = useState<VerificationResultType | null>(null);
   const [error, setError] = useState('');
+
+  if (user?.role === 'PATIENT') {
+    return <Navigate to="/patient" replace />;
+  }
 
   const handleVerify = async (id: string) => {
     trackCTA('verify_credential_submit', { credential_id_prefix: id.trim().slice(0, 8) });

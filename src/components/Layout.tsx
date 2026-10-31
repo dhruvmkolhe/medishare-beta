@@ -1,7 +1,7 @@
 import { useAuth } from '../contexts/AuthContext';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
-import { Shield, LogOut, Menu, X, Stethoscope, Pill, ScanLine, Activity, ShieldCheck, ChevronDown, User } from 'lucide-react';
+import { Shield, LogOut, Menu, X, Stethoscope, Pill, ScanLine, Activity, ShieldCheck, ChevronDown } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 import CookieConsent from './CookieConsent';
 
